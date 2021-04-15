@@ -1,0 +1,185 @@
+<article class="deposit">
+  <section class="top_menu">
+    <div class="d_title">
+      <h1>{{ '支付方式' | langChart : lang.languageChart }}</h1>
+      <p>{{ '通過線上付款方式進行存款' | langChart : lang.languageChart }}</p>
+    </div>
+    <ul class="deposit_list">
+      <li (click)="cashPage.goSub('serial')">
+        <i class="icon-serial"></i>
+        <div class="list_title">
+          <p>{{ '流水號' | langChart : lang.languageChart }}</p>
+          <!-- <p>{{ '通過流水號線上付款方式進行存款' | langChart : lang.languageChart }}</p> -->
+        </div>
+      </li>
+      <li (click)="getpay('unionpay')" *ngIf="profile.payinfo.indexOf('unionpay') >= 0"  [class.active]="pay=='unionpay'">
+        <i class="icon-yunshanfu"></i>
+        <div class="list_title">
+          <p>{{ '雲閃付' | langChart : lang.languageChart }}</p>
+          <!-- <p>{{ '通過雲閃付線上付款方式進行存款' | langChart : lang.languageChart }}</p> -->
+        </div>
+      </li>
+      <li  (click)="getpay('wechat')" *ngIf="profile.payinfo.indexOf('wechat') >= 0" [class.active]="pay=='wechat'">
+        <i class="icon-wechat"></i>
+        <div class="list_title">
+          <p>{{ '微信支付' | langChart : lang.languageChart }}</p>
+          <!-- <p>{{ '通過微信線上付款方式進行存款' | langChart : lang.languageChart }}</p> -->
+        </div>
+      </li>
+      <li (click)="getpay('qq')" *ngIf="profile.payinfo.indexOf('qq') >= 0" [class.active]="pay=='qq'">
+        <i class="icon-qq"></i>
+        <div class="list_title">
+          <p>{{ 'QQ' | langChart : lang.languageChart }}</p>
+          <!-- <p>{{ '通過QQ線上付款方式進行存款' | langChart : lang.languageChart }}</p> -->
+        </div>
+      </li>
+      <li (click)="getpay('alipay')" *ngIf="profile.payinfo.indexOf('alipay') >= 0" [class.active]="pay=='alipay'">
+        <i class="icon-alipay"></i>
+        <div class="list_title">
+          <p>{{ '支付寶' | langChart : lang.languageChart }}</p>
+          <!-- <p>{{ '通過支付寶線上付款方式進行存款' | langChart : lang.languageChart }}</p> -->
+        </div>
+      </li>
+      <li (click)="getpay('bankcard')" *ngIf="profile.payinfo.indexOf('bankcard') >= 0" [class.active]="pay=='bankcard'">
+        <i class="icon-union"></i>
+        <div class="list_title">
+          <p>{{ '銀聯支付' | langChart : lang.languageChart }}</p>
+          <!-- <p>{{ '通過銀聯線上付款方式進行存款' | langChart : lang.languageChart }}</p> -->
+        </div>
+      </li>
+      <li (click)="getpay('gtpay')"  *ngIf="profile.payinfo.indexOf('gtpay') >= 0" [class.active]="pay=='gtpay'">
+        <i class="icon-huaban"></i>
+        <div class="list_title">
+          <p>{{ '京東' | langChart : lang.languageChart }}</p>
+        </div>
+      </li>
+      <li (click)="getpay('kjbankcard')" *ngIf="profile.payinfo.indexOf('kjbankcard') >= 0" [class.active]="pay=='kjbankcard'">
+        <i class="icon-fashalpay"></i>
+        <div class="list_title">
+          <p>{{ '快捷' | langChart : lang.languageChart }}</p>
+        </div>
+      </li>
+      <li (click)="getpay('webgatepay')" *ngIf="profile.payinfo.indexOf('webgatepay') >= 0" [class.active]="pay=='webgatepay'">
+        <i class="icon-wqpay"></i>
+        <div class="list_title">
+          <p>{{ '網關卡' | langChart : lang.languageChart }}</p>
+          <!-- <p>{{ '通過流水號線上付款方式進行存款' | langChart : lang.languageChart }}</p> -->
+        </div>
+      </li>
+
+      <li (click)="getpay('webbank')" *ngIf="profile.payinfo.indexOf('webbank') >= 0" [class.active]="pay=='webbank'">
+        <i class="icon-webbank"></i>
+        <div class="list_title">
+          <p>{{ '網銀' | langChart : lang.languageChart }} </p>
+          <!-- <p>{{ '通過流水號線上付款方式進行存款' | langChart : lang.languageChart }}</p> -->
+        </div>
+      </li>
+      <li onclick="showPanel()">
+        <i class="icon-buffet"></i>
+        <div class="list_title">
+          <p>{{ '人工充值' | langChart : lang.languageChart }}</p>
+        
+        </div>
+      </li>
+    </ul>
+  </section>
+
+
+  <!-- 支付寶.微信.QQ  適用此區塊 -->
+  <!-- 若無支付通道，請直接關閉此區塊 -->
+  <section class="select"  >
+    <div class="d_title">
+      <h1>{{ '選擇支付通道' | langChart : lang.languageChart }}</h1>
+    </div>
+    <!-- 多種支付通道 -->
+    <!-- <ul class="sel">
+      <li>{{ '選擇通道' | langChart : lang.languageChart }}：</li>
+      <li *ngIf="payobj[pay]?.list">
+        <select [(ngModel)]="paylist">
+            <option >-{{ '選擇通道' | langChart : lang.languageChart }}-</option>
+            <option *ngFor="let title of payobj[pay].list |KeysPipe; let i = index" [value]="title.key">
+              {{i}}
+            </option>
+        </select>
+      </li>
+    </ul> -->
+    <!-- 按鈕式的支付通道 -->
+    <ul class="btn" *ngIf="!payobj[pay]?.list">
+        <li  (click)="prompt()"> 1</li>
+      </ul>
+    <ul class="btn" *ngIf="payobj[pay]?.list">
+      <li   *ngFor="let title of payobj[pay].list |KeysPipe; let i = index"(click)="aisle(title.key,i+1)"[class.active]="aisleB == i+1" > {{i+1}}</li>
+
+    </ul>
+  </section>
+
+  <section class="count">
+    <div class="d_title">
+      <h1>{{ '存款金額' | langChart : lang.languageChart }}</h1>
+    </div>
+    <ul>
+      <li *ngIf="payobj[pay] && payobj[pay].list  && payobj[pay].list[paylist] " (click)="FastPaymentButton('Fast',payobj[pay].list[paylist].minAmount)" [class.active]="amount==payobj[pay].list[paylist].minAmount">$ {{payobj[pay].list[paylist].minAmount}}</li>
+      <li *ngIf="payobj[pay] && payobj[pay].list  && payobj[pay].list[paylist] "
+      (click)="FastPaymentButton('Fast',(payobj[pay].list[paylist].minAmount+payobj[pay].list[paylist].maxAmount)/2)"
+       [class.active]="amount==(payobj[pay].list[paylist].minAmount+payobj[pay].list[paylist].maxAmount)/2">$
+       {{(payobj[pay].list[paylist].minAmount+payobj[pay].list[paylist].maxAmount)/2}}</li>
+      <li *ngIf="payobj[pay] && payobj[pay].list  && payobj[pay].list[paylist] " (click)="FastPaymentButton('Fast',payobj[pay].list[paylist].maxAmount)" [class.active]="amount==payobj[pay].list[paylist].maxAmount">$ {{payobj[pay].list[paylist].maxAmount}}</li>
+      <li class="other" *ngIf="payobj[pay] && payobj[pay].list  && payobj[pay].list[paylist] "  (click)="FastPaymentButton('other')" [class.active]="FastPayment=='other'">
+        {{ '其他金額' | langChart : lang.languageChart }} <span>({{payobj[pay].list[paylist].minAmount}}-{{payobj[pay].list[paylist].maxAmount}})</span>
+      </li>
+      <!-- 點上方other，跳為下方edit區塊 -->
+      <li class="edit" [class.display-none]="FastPayment!='other'">
+          <input type="text" placeholder="{{ '請輸入數字' | langChart : lang.languageChart }}" [(ngModel)]="amount" pattern="[0-9-]{1,}$" #addamount="ngModel">
+        </li>
+        <i *ngIf="addamount.invalid && addamount.dirty">*{{ '格式有誤' | langChart : lang.languageChart }}</i>
+    </ul>
+  </section>
+
+
+
+
+
+  <div class="withdraw" >
+      <div class="form" *ngIf="payobj[pay] && payobj[pay].list  && payobj[pay].list[paylist] && payobj[pay].list[paylist]?.bank.length != 0">
+          <ul>
+              <li>
+                  <span>{{ "銀行卡" | langChart : lang.languageChart }}</span>
+                  <select [(ngModel)]="seleBank">
+                      <option [value]='' >{{ "- 選擇銀行 -" | langChart : lang.languageChart }}</option>
+                      <option  *ngFor="let item of payobj[pay].list[paylist].bank |KeysPipe" [value]="item.key">{{ item.value }}</option>
+                  </select>
+              </li>
+              <li>
+                  <span>{{ "銀行帳號" | langChart : lang.languageChart }}</span>
+                  <input type="text" [(ngModel)]="addcardnum" pattern="[0-9-]{1,}$" #addAcc="ngModel">
+                  <i *ngIf="addAcc.invalid && addAcc.dirty">*{{ '格式有誤' | langChart : lang.languageChart }}</i>
+              </li>
+          </ul>
+
+      </div>
+  </div>
+
+
+  <div class="sent_btn" (click)="Recharge()" *ngIf="payobj[pay] && payobj[pay].list  && payobj[pay].list[paylist] && !addamount.invalid  ">{{ '確定充值' | langChart : lang.languageChart }}</div>
+  <div class="note">
+    <p>{{ "注意事項" | langChart : lang.languageChart }}</p>
+    <ul>
+      <li>1.{{ "本平台會不定時更換收款帳戶，提醒您每次充值前，請重新刷新頁面，確認即時收款帳戶，請嚴格依照平台即時顯示收 款帳戶，進行打款充值，如打至過期帳戶，本公司恕不負責,請多加留意，以免造成損失。" | langChart : lang.languageChart }}</li>
+      <li>2. P.S.{{ "如利用本平台進行任何洗錢詐騙行為，本公司將保留權力終止會員服務及凍結其帳戶。" | langChart : lang.languageChart }}</li>
+
+    </ul>
+  </div>
+
+</article>
+
+
+
+
+
+<main class="main_sub" *ngIf="cashPage.subPage === 'serial' " [@subMain]>
+  <deposit-serial></deposit-serial>
+</main>
+
+<main class="main_sub" *ngIf="cashPage.subPage === 'unionpay'" [@subMain]>
+  <deposit-unionpay></deposit-unionpay>
+</main>

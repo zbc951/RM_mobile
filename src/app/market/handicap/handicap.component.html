@@ -1,0 +1,56 @@
+
+<main [class.goleft]="state == 'stay'">
+
+
+   
+    <div class="handicap_header" >
+        <p  class="back" (click)="checkMarket()"  ></p>
+        <em class="game-name" >{{ marketItem.item.lid }}</em>
+        <p class="date-color mid"><span>{{ marketItem.item.date }}&nbsp;</span></p>
+        <p class="mid2"><span>{{ marketItem.item.mtime }}</span></p>
+        <p  class="this-game"> <span><div></div><em>{{ marketItem.item.ht }} [{{ "主" | langChart : lang.languageChart }}]</em></span>  <span><div></div><em>v {{ marketItem.item.ct }}</em></span> </p>
+        <p class="option" (click)="getNewRecord()">
+            <!-- <span (click)="live()" > <div></div>{{ "賽事直播" | langChart : lang.languageChart }}</span>  -->
+            <span  [class.goleft]="state == 'stay'"> <div></div>{{ "對戰紀錄" | langChart : lang.languageChart }}</span> </p>
+        <p class="refresh" (click)="updateHandicap('proactive')" [class.goleft]="state == 'stay'"> <span></span> <i>{{ updateTime }}</i><span>s</span></p>
+    </div>
+
+    <section class="handicap">
+        <div class="table" *ngFor="let table of handicap">
+            <div class="title">
+                <p>{{ table.ptype | langChart : lang.languageChart }}</p>
+                <p><span class="icon"></span>{{ "成交量" | langChart : lang.languageChart }} <em>${{ table.gold | formatNumber }}</em></p>
+            </div>
+            <div class="table-header">
+                <p>{{ "選項" | langChart : lang.languageChart }}</p>
+                <p>{{ "獲利" | langChart : lang.languageChart }}%</p>
+                <p>{{ "可交易量" | langChart : lang.languageChart }}</p>
+            </div>
+            <ul>
+                <li [class.disable]="!item.win || item.trade == 0 " *ngFor="let item of table.table | sortHandicap : table.ptype" (click)="betRegister(table.ptype, item)">
+                    <p>{{ item.option | langChart : lang.languageChart }}</p>
+                    <p>{{ item.win }}</p>
+                    <p>${{ item.trade | formatNumber }}</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+
+<!-- 更新按鈕 -->
+<div class="count-down"  [class.goleft]="state == 'stay'">
+    <span [style.display]="msg? '' : 'none' ">{{ "更新" | langChart : lang.languageChart }}</span>
+    <!-- <i>{{ updateTime }}</i> -->
+</div>
+
+<!-- 對戰紀錄按鈕 -->
+ <!-- <div class="record_btn" (click)="getRecord()" [class.goleft]="state == 'stay'">
+    <img src="../../../img/icon/fight.png" height="25">
+</div> -->
+
+<!-- 對戰紀錄 -->
+<b-record *ngIf="recordFile" [recordFile]="recordFile" (callHandicap)="betListener($event)"></b-record>
+
+<!-- 下注視窗 -->
+<bet *ngIf="betInfo" [betInfo]="betInfo" [profileSurplus]="profileSurplus" [date]="marketItem.item.date" [time]="marketItem.item.mtime" (callHandicap)="betListener($event)"></bet>

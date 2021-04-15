@@ -1,0 +1,101 @@
+<header>
+  <div class="nav">
+    <!-- <div class="icon" (click)="cashPage.back()">
+      <i class="back icon icon-arrow-w"></i>
+    </div>
+    <span>{{ cashPage.title | langChart : lang.languageChart }}</span> -->
+    <ul>
+      <li class="back"  (click)="cashPage.back()"></li>
+      <li class="title">{{ cashPage.title | langChart : lang.languageChart }}</li>
+    </ul>
+  </div>
+  <!--cashPage.title 改成錢包-->
+</header>
+
+
+<main class="main">
+
+  <div style = "display: none;" class="balance">
+    <p>{{ "帳戶餘額" | langChart : lang.languageChart }}
+      <em>${{ profile.surplus | formatNumber }}</em>
+    </p>
+  </div>
+
+
+  <ul class="menu">
+    <li>
+
+      <p>{{ "總金額  (元)" | langChart : lang.languageChart }}</p>
+      <div><p>$</p> <em>{{ profile.surplus | formatNumber }}</em></div>
+      <span (click)="cashPage.go('deposit')"> {{ "去存款" | langChart : lang.languageChart }}</span>
+
+    </li>
+    <li class="other">
+      <div (click)="checkingWithdraw()">
+        <span class="cash-money"></span><p>{{ "取款" | langChart : lang.languageChart }}</p>
+      </div>
+      <div (click)="cashPage.go('betrecord')">
+        <span class="detail-record"></span><p>{{ "流水紀錄" | langChart : lang.languageChart }}</p>
+      </div>
+      <div (click)="cashPage.go('record')">
+        <span class="detail-record"></span><p>{{ "存提紀錄" | langChart : lang.languageChart }}</p>
+      </div>
+      <div (click)="cashPage.go('card')">
+        <span class="cards"></span><p>{{ "卡片管理" | langChart : lang.languageChart }}</p>
+      </div>
+    </li>
+    <!-- <li class="box-footer" >
+      <div>錢包明細</div> <p>點擊查看全部場館餘額  <span></span></p>
+    </li> -->
+
+
+
+    <!-- <li (click)="cashPage.go('card')">
+      <i>
+        <img src="../../img/icon/bank-card.png" alt="銀行卡">
+      </i>
+      {{ "卡片管理" | langChart : lang.languageChart }}
+      <i>
+        <img src="../../img/icon/arrow_gary.png" alt="arrow">
+      </i>
+    </li>
+    <li (click)="cashPage.go('record')">
+      <i>
+        <img src="../../img/icon/deposit_book.png" alt="交易紀錄">
+      </i>
+      {{ "交易紀錄" | langChart : lang.languageChart }}
+      <i>
+        <img src="../../img/icon/arrow_gary.png" alt="arrow">
+      </i>
+    </li> -->
+  </ul>
+
+  <ul class="event">
+    <li class="title"><p><span></span>存款送好礼</p> <p>存款即送50%首存红利<span>&gt;</span></p></li>
+    <li ><div class="banner" (click)="activity()"></div> </li>
+    <!-- <li class="title"><p><span></span>  {{ "交易紀錄" | langChart : lang.languageChart }}</p> <p> {{ "查看更多" | langChart : lang.languageChart }}<span>&gt;</span></p></li>
+    <li class="big-content">{{ "還沒有任何投注紀錄" | langChart : lang.languageChart }}</li> -->
+  </ul>
+</main>
+
+<!-- 充值 -->
+<main class="main_sub" *ngIf="cashPage.page === 'deposit'" [@subMain]>
+  <cash-deposit [memFullPayUrl]="profile?.memFullPayUrl"></cash-deposit>
+</main>
+<!-- 提領 --改成 "取款"-->
+<main class="main_sub" *ngIf="cashPage.page === 'withdraw'" [@subMain]>
+  <cash-withdraw></cash-withdraw>
+</main>
+<!-- 銀行卡 -->
+<main class="main_sub" *ngIf="cashPage.page === 'card'" [@subMain]>
+  <cash-bankcard></cash-bankcard>
+</main>
+<!-- 交易紀錄 -->
+<main class="main_sub" *ngIf="cashPage.page === 'record'" [@subMain]>
+  <cash-record [record]="record"></cash-record>
+</main>
+<main class="main_sub" *ngIf="cashPage.page === 'betrecord'" [@subMain]>
+  <betrecord></betrecord>
+</main>
+
+<footer-toolbar></footer-toolbar>

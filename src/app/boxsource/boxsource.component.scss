@@ -1,0 +1,324 @@
+$dark-blue: #39455b;
+$lighten-blue: #7689a4;
+$lighten-blue-bg: #95a6bf;
+
+header {
+  .nav {
+    font-size: 22px;
+    .back{
+      width: 5%;
+    height: 16px;
+    background: url(assets/icon/arrow_db.png) no-repeat;
+    background-size: contain;
+    margin: 5px 0 0 12px;
+    }
+  }
+}
+//箭頭未開啟是向下 目前是開啟向上
+.arrow-icon {
+  background: url(assets/icon/arrow_gb.png) no-repeat;
+  width: 11px;
+  height: 11px;
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  top: 50%;
+  left: 94.5%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: all 0.25s ease-in-out;
+}
+
+main {
+  background-color: #f0f0f0;
+  &.boxsource {
+    height: auto;
+    padding-bottom: 200px;
+    section {
+      width: 96vw;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px 8px 0 0;
+      .bloc_name {
+        width: 96vw;
+        padding: 5px 5px 5px 5px;
+        margin: 1vh 0 0 0;
+        border-bottom: 2px solid #d22442;
+        .tname {
+          width: 96vw;
+          font-size: 2.3vh;
+          color: #242424;
+          font-weight: 600;
+          line-height: 3vh;
+          padding: 0px 0 0 5px;
+          // overflow: hidden;
+          // text-overflow: ellipsis;
+          // white-space: nowrap;
+          display: inline-block;
+        }
+
+      }
+      .bet_area {
+        ul {
+          width: 96vw;
+          display: inline-block;
+          &.top {
+              font-size: 2vh;
+              color: #39455b;
+              line-height: 3vh;
+              padding: 5px 10px 0px 10px;
+              li {
+                float: left;
+                width: 90vw;
+                &.team {
+                  font-size: 2vh;
+                  color: #788ab3;
+                  font-weight: 500;
+                  span {
+                    &.vs {
+                      padding: 0 5px;
+                    }
+                  }
+                }
+                &.time {
+                  color: #646464;
+                  font-size: 1.8vh;
+                  font-family: Bahnschrift;
+                }
+              }
+          }
+          &.bet {
+            padding: 5px 10px 0px 10px;
+            li {
+              float: left;
+              ol {
+                li {
+                  color: #39455b;
+                  float: none;
+                  line-height: 5vh;
+                  font-size: 1.8vh;
+                  font-family: Bahnschrift;
+                }
+              }
+              &.bname {
+                width: 26vw;
+                ol {
+                  li {
+                    font-size: 2vh;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-family: Microsoft JhengHei;
+                  }
+                }
+              }
+              &.bnum {
+                width: 17vw;
+                margin: 0 3vw 0 0;
+                &.end {
+                  margin: 0;
+                }
+                ol {
+                  li {
+                    text-align: center;
+                    background: #f7f8fc;
+                    margin: 0 0 5px;
+                    border-radius: 3px;
+                    &.textred {
+                      color: #d22442;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*舊的橫列架構*/
+  ul[class="list"] {
+    height: calc(100vh - 111px);
+    // padding: 14px 13px;
+    padding-bottom: 200px;
+    // background-color: #f0f0f0;
+    > li {
+      &:first-child {
+        padding-top: 14px;
+      }
+      // padding: 14px 0px;
+      margin-bottom: 15px;
+      // border: 1px solid #fff;
+      // border-radius: 0 0 5px 5px;
+      // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      div.title {
+        position: relative;
+        height: 60px;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 15px;
+        background: #fff;
+        color: #bb7d08;
+        p:first-child {
+          margin-bottom: 10px;
+          color: $lighten-blue;
+        }
+        p:nth-of-type(2) {
+          color: $dark-blue;
+          font-size: 16px;
+          font-weight: bolder;
+        }
+        // &:before {
+        //     position: absolute;
+        //     background: linear-gradient(to bottom, #55ecdf 0%, #22adff 50%);
+        //     content: '';
+        //     width: 4px;
+        //     height: 100%;
+        //     left: 0;
+        //     top: 1px;
+        // }
+      }
+      div.time {
+        height: 0;
+        overflow-y: hidden;
+        transition: height 250ms ease-in-out;
+        -webkit-transition: height 250ms ease-in-out;
+
+        display: -webkit-flex;
+        background: $lighten-blue-bg;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 0 15px;
+        color: #fff;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        p {
+          font-weight: lighter;
+        }
+        p:first-child {
+          font-family: "微軟正黑體";
+          font-weight: lighter;
+          font-size: 16px;
+        }
+        p:last-child {
+          font-family: Bahnschrift;
+          font-size: 16px;
+        }
+      }
+      ul {
+        height: 0;
+        overflow-y: hidden;
+        transition: height 250ms ease-in-out;
+        -webkit-transition: height 250ms ease-in-out;
+        border-radius: 0 0 15px 15px;
+        background: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 0 15px;
+        color: #2f2f2f;
+
+        > li {
+          display: -webkit-flex;
+          height: 36px;
+          border-bottom: 1px solid #eee;
+          -webkit-align-items: center;
+          align-items: center;
+          -webkit-justify-content: space-between;
+          justify-content: space-between;
+          p {
+            color: $dark-blue;
+            font-size: 16px;
+            font-weight: lighter;
+            &:first-child {
+              font-family: "微軟正黑體";
+            }
+            &:last-child {
+              font-family: Bahnschrift;
+            }
+          }
+        }
+      }
+      div.closed-block {
+        height: 0;
+        overflow-y: hidden;
+        @keyframes heightscro {
+          from {
+            height: 0;
+          }
+          to {
+            height: 175;
+          }
+        }
+
+        position: absolute;
+        display: -webkit-flex;
+        color: #fff;
+        font-weight: bold;
+        width: 100%;
+        bottom: 0;
+        background: #000;
+        opacity: 0.7;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        div {
+          display: -webkit-flex;
+          padding: 35px 40px;
+          background: #232323;
+          border-radius: 5px;
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          -webkit-align-items: center;
+          align-items: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          p {
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px #000;
+          }
+          p:first-child {
+            font-size: 42px;
+          }
+          p:last-child {
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.active {
+        position: relative;
+        border-radius: 6px;
+        .arrow-icon {
+          transform: translate(-50%, -50%) rotate(-180deg);
+        }
+        div.title {
+          // background: linear-gradient(180deg,#fff 0,#eeeef5);
+          &:before {
+            display: none;
+          }
+        }
+        div.time {
+          height: 36px;
+        }
+        ul {
+          height: 143px;
+        }
+        div.closed-block {
+          animation: heightscro 250ms ease-in-out;
+          height: 175px;
+          &:hover {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+aside {
+  div.group > ul {
+    max-height: calc(100vh - 250px);
+  }
+}

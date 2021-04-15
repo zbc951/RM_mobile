@@ -1,0 +1,31 @@
+<header>
+  <div class="nav">
+    <ul>
+      <li class="back" (click)="location.back()"></li>
+      <!--2020_0410add-->
+      <li class="title">过往对战纪录</li>
+    </ul>
+  </div>
+</header>
+
+<div class="no-data" *ngIf="!recordFile">
+
+    <p>[{{id}}]无对战纪录</p>
+</div>
+<!--2020_0410add-->
+<!--card 是一個頁面-->
+<main id="main" *ngIf="recordFile">
+  <section class="b_record" >
+    <ul class="card" *ngFor="let item of recordFile">
+      <li class="title">{{ item.gtime }}</li>
+      <li><div class="wrap space"><div class="text_wrap"><p>联</p><p>盟</p></div></div><div class="wrap_no_limit">{{ item.lname }}</div></li>
+      <li><div class="wrap"><div class="text_wrap"><p>主</p><p>场</p><p>队</p><p>伍</p></div></div><div class="wrap_no_limit blue">{{ item.tname_h }}</div></li>
+      <li><div class="wrap"><div class="text_wrap"><p>客</p><p>场</p><p>队</p><p>伍</p></div></div><div class="wrap_no_limit blue">{{ item.tname_c }}</div></li>
+      <li><div class="wrap space"><div class="text_wrap"><p>场</p><p>场</p><p>波</p><p>胆</p></div></div><div class="wrap2">{{ item.score }}</div><div class="wrap">半场波胆</div><div class="wrap2 no_limit">{{ item.score_hr }}</div></li>
+    </ul>
+
+  </section>
+
+</main>
+
+

@@ -1,0 +1,47 @@
+<article *ngIf="recordLength > 0; else noData">
+    <!-- 頁次 -->
+    <div class="menu">
+        <div>
+            <ul>
+                <li [class.selected]="item == nowPage" *ngFor="let item of pages" (click)="getRecord(item)">{{ item }}</li>
+                <li class="yet">2</li>
+                <li class="yet">3</li>
+                <li class="yet">4</li>
+                <li class="yet">5</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 交易紀錄內容 -->
+    <div class="main" *ngIf="recordLength > 0; else noData">
+        <div   *ngFor="let item of record.list"  [ngClass]="{'ok' : item.progress >= 0,'failed': (item.progress < 0) || item.progress == 2}">
+            <p >
+                <span>{{ item.c_time }}</span>
+                <span *ngIf="item.progress == 0">{{ '處理中' | langChart : lang.languageChart }}</span>
+                <span *ngIf="item.progress == (1 || 3 || 4)">{{ '交易完成'  | langChart : lang.languageChart }}</span>
+                <span *ngIf="(item.progress < 0) || item.progress == 2">{{ '交易失敗' | langChart : lang.languageChart }}</span>
+            </p>
+            <p>
+                <span [class.red]="item.tab == 'wd'" [class.lighten_blue]="item.tab == 'dp'">{{ item.tab | langChart : lang.languageChart }}</span>
+                <span>{{ item.type | langChart : lang.languageChart }}</span>
+                <span>${{ item.gold | formatNumber }}</span>
+            </p>
+            <p>
+                <span>{{ "備註" | langChart : lang.languageChart }}</span>
+                <span>{{ item.reason }}</span>
+            </p>
+            <p>
+                <span>{{ "交易編號" | langChart : lang.languageChart }}</span>
+                <span>{{ item.no }}</span>
+            </p>
+        </div>
+    </div>
+</article>
+
+<ng-template #noData>
+    <div class="no-data">
+        <div>
+            <img src="../../../img/icon/nodata.png">
+        </div>
+        <p>{{ "您尚無交易紀錄!" | langChart : lang.languageChart }}</p>
+    </div>
+</ng-template>

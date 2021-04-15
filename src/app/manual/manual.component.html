@@ -1,0 +1,27 @@
+<header class="font-family-w">
+
+  <div class="nav">
+    <ul>
+      <li class="back" (click)="location.back()"></li>
+      <li class="title">{{ "系統規則" | langChart : lang.languageChart }}</li>
+    </ul>
+  </div>
+
+</header>
+
+<main>
+    <ul class="menu">
+        <li [class.selected]="subPage == 'rules'" (click)="subPage = 'rules'" class="active">{{ "總則" | langChart : lang.languageChart }}</li>
+        <li [class.selected]="subPage == 'PD'" (click)="subPage = 'PD'" class="normal">{{ "波膽" | langChart : lang.languageChart }}</li>
+        <div class="gray-paddimg"></div>
+    </ul>
+
+    <div class="main">
+        <manual-tw *ngIf="nowLang=='zh-tw'" [page]="subPage"></manual-tw>
+        <manual-cn *ngIf="nowLang=='zh-cn'" [page]="subPage"></manual-cn>
+        <manual-en *ngIf="nowLang=='en-us'" [page]="subPage"></manual-en>
+    </div>
+
+</main>
+
+<footer-toolbar></footer-toolbar>

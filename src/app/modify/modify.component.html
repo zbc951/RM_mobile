@@ -1,0 +1,83 @@
+<header class="modify">
+
+    <div class="nav">
+        <ul>
+            <li class="back" (click)="location.back()"></li>
+            <li class="title">{{ "修改個資" | langChart : lang.languageChart }}</li>
+            <li class="chat_img active"></li>
+            <li class="edit"></li>
+            <!-- <div class="chat_img"></div>
+          <div class="set"></div> -->
+
+        </ul>
+
+    </div>
+</header>
+
+
+<main>
+    <div class="hellocard">
+        <img class="manhead" src="../../img/manhead.jpg" alt="" width="70">
+        <div class="text">
+            <h1 class="fb">Hi,
+                <span class="fb">{{ username }}</span>
+                <!-- VIP符號 -->
+                <!-- <a></a> -->
+            </h1>
+            <!-- <span>加入<a class="fb">STG</a>第<a class="fb">6</a>天</span> -->
+        </div>
+    </div>
+    <div class="form">
+        <ul>
+            <li class="phone"><span>{{ "手 機" | langChart : lang.languageChart }}</span><input type="tel"
+                    [(ngModel)]="profile.phone"></li>
+            <!-- <li class="phone"><span></span><button type="button" (click)="verifyPhone()" [class.disabled]="this.profile.phoneVerification == '1'"
+                    [disabled]="this.profile.phoneVerification == '1'">{{ phoneVerificationMsg }}</button></li> -->
+            <li><span>{{ "電子信箱" | langChart : lang.languageChart }}</span><input type="test"
+                    [(ngModel)]="profile.email"></li>
+            <li><span class="QQ">QQ</span><input type="text" [(ngModel)]="profile.QQ"></li>
+            <li><span>{{ "微 信" | langChart : lang.languageChart }}</span><input type="text"
+                    [(ngModel)]="profile.WeChat"></li>
+        </ul>
+        <p>
+            <button class="blur_button" (click)="infoModify()"
+                [disabled]="!profile.phone || !profile.email || !profile.QQ || !profile.WeChat"
+                [class.disabled]="!profile.phone || !profile.email || !profile.QQ || !profile.WeChat">
+                {{ "確 認" | langChart : lang.languageChart }}
+            </button>
+        </p>
+    </div>
+
+    <div class="form">
+        <ul>
+            <li class="title">{{ "修改密碼" | langChart : lang.languageChart }}</li>
+            <li>
+                <span>{{ '舊密碼'| langChart : lang.languageChart }}</span>
+                <input type="password" [(ngModel)]="oldPwd" [maxLength]="12" pattern="^[A-Za-z0-9]{6,12}$"
+                    #opw="ngModel">
+            </li>
+            <li>
+                <span>{{ '新密碼'| langChart : lang.languageChart }}</span>
+                <input type="password" [(ngModel)]="newPwd" [maxLength]="12" pattern="^[A-Za-z0-9]{6,12}$"
+                    #npw="ngModel">
+            </li>
+            <li>
+                <span>{{ '確認密碼'| langChart : lang.languageChart }}</span>
+                <input type="password" [(ngModel)]="confirmPwd" [maxLength]="12" pattern="^[A-Za-z0-9]{6,12}$"
+                    #cpw="ngModel">
+            </li>
+        </ul>
+        <p>
+            <button class="blur_button" [disabled]="!oldPwd || !newPwd || !confirmPwd "
+                [class.disabled]="!oldPwd || !newPwd || !confirmPwd "
+                (click)="infoPassword(oldPwd, newPwd, confirmPwd)">
+                {{ "確 認" | langChart : lang.languageChart }}
+            </button>
+        </p>
+        <p style="color: #ff1c1c; font-size: 14px;">{{ "密碼須設定為 6~12 碼!" | langChart : lang.languageChart }} </p>
+    </div>
+
+</main>
+
+
+<footer-toolbar></footer-toolbar>

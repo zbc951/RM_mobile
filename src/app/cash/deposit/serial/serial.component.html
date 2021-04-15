@@ -1,0 +1,69 @@
+<!-- 流水號匯款 -->
+<div class="main_serial">
+  <div class="form">
+    <ul>
+      <li>
+        <span>{{ "收款銀行" | langChart : lang.languageChart }}</span>
+        <input class="none" type="text" value="{{ depositBank?.bank }}" #bank readonly>
+        <button type="button" [ngxClipboard]="bank">{{ "複 製" | langChart : lang.languageChart }}</button>
+      </li>
+      <li>
+        <span>{{ "支行" | langChart : lang.languageChart }}</span>
+        <input class="none" type="text" value="{{ depositBank?.banksubacc }}" #branch readonly>
+        <button type="button" [ngxClipboard]="branch">{{ "複 製" | langChart : lang.languageChart }}</button>
+      </li>
+      <li>
+        <span>{{ "收款帳號" | langChart : lang.languageChart }}</span>
+        <input class="none" type="text" value="{{ depositBank?.bankaccount }}" #account readonly>
+        <button type="button" [ngxClipboard]="account">{{ "複 製" | langChart : lang.languageChart }}</button>
+      </li>
+      <li>
+        <span>{{ "收款人" | langChart : lang.languageChart }}</span>
+        <input class="none" type="text" value="{{ depositBank?.bankname }}" #name readonly>
+        <button type="button" [ngxClipboard]="name">{{ "複 製" | langChart : lang.languageChart }}</button>
+      </li>
+      <li>
+        <span>{{ "匯款方式" | langChart : lang.languageChart }}</span>
+        <input class="none" type="text" value="网路转帐" #type readonly>
+        <button type="button" [ngxClipboard]="type">{{ "複 製" | langChart : lang.languageChart }}</button>
+      </li>
+      <li>
+        <span>{{ "匯款金額" | langChart : lang.languageChart }}</span>
+        <input class="tape1" type="tel" [(ngModel)]="serialGold">
+        <button type="button" ngxClipboard [cbContent]="serialGold">{{ "複 製" | langChart : lang.languageChart }}</button>
+      </li>
+      <li class="last_li">
+        <span>{{ "匯款帳號後 4 碼" | langChart : lang.languageChart }}</span>
+        <input class="tape1" type="tel" [(ngModel)]="serial" pattern="^[0-9]{4}$" #Serial="ngModel">
+        <!-- <span> 0 / 4</span> -->
+      </li>
+      <p>
+        <button class="blur_button" (click)="serialDeposit(serialGold, serial)" [disabled]="!serialGold || serialGold < 100 || serialGold > 50000 || !serial || Serial.errors"
+          [class.disabled]="!serialGold || serialGold < 100 || serialGold > 50000 || !serial || Serial.errors">
+          {{ "確定充值" | langChart : lang.languageChart }}
+        </button>
+      </p>
+      <p>{{ "單筆充值金額 100 ~ 50000 元，每日次數不限制。" | langChart : lang.languageChart }}</p>
+    </ul>
+  </div>
+
+  <div class="note">
+    <p>{{ "注意事項" | langChart : lang.languageChart }}</p>
+    <ul>
+      <li>1. {{ "請確實填寫匯款帳戶末四碼。" | langChart : lang.languageChart }}</li>
+      <li>2. {{ "如使用手機銀行或網上銀行匯款請在附言備註會員帳號。" | langChart : lang.languageChart }}</li>
+      <li>3. {{ "請在匯款成功後，在點擊確認鍵，否則點擊確認在五分鐘內未收到款項此存款單為無效。" | langChart : lang.languageChart
+        }}
+      </li>
+      <li>4. {{ "存款會在十分鐘內辦理，如有任何疑問，請隨時諮詢24/7在線客服。" | langChart : lang.languageChart }}
+      </li>
+      <li>5. {{ "訂單金額與網銀轉賬金額不符時，以實際到賬金額為準，且實際轉賬金額必須符合充值申請時的金額要求。" | langChart : lang.languageChart
+        }}
+      </li>
+      <li>6. {{ "收款賬戶名和賬號會不定期更換，請在獲取最新信息後充值，否則充值將無法到賬。" | langChart : lang.languageChart
+        }}
+      </li>
+    </ul>
+  </div>
+
+</div>

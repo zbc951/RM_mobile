@@ -1,0 +1,101 @@
+<article [class.goleft]="dialogStatue">
+<header>
+    <div class="nav">
+      <ul>
+        <li class="back" (click)="checkHistory()"></li>
+        <li class="title">{{ "單日帳務" | langChart : lang.languageChart }} <span class="count">{{detial.length}}</span></li>
+      </ul>
+    </div>
+    <!-- <div style="display: none;"  class="money-total">
+        <div class="left-area"><p>金錢總計</p><div class="font-family-B"><p class="font-family-B money">$0.00</p></div></div>
+        <div class="half"></div>
+        <div class="right-area"> <p>預估獲利總計</p> <div class="font-family-B"><p class=" money">$1.003.20</p></div> </div>
+    </div> -->
+</header>
+
+<!-- <header style="none">
+    <div class="nav">
+        <span class="title-font">{{ "交易明細" | langChart : lang.languageChart }}</span>
+        <span class="count">{{ detail | sortDetailList : 'btime' : dateSortDis : 'getlength' }}</span>
+    </div>
+    <div  class="money-total active">
+        <div class="left-area"><p>金錢總計</p><span class="font-family-B">$0.00</span></div>
+        <div class="half"></div>
+        <div class="right-area"> <p>預估獲利總計</p> <span class="font-family-B">$1.003.20</span> </div>
+    </div>
+</header> -->
+
+<main>
+    <div class="day-title" >
+        <!-- <p class="float">{{ selection.date }} <em>[{{ selection.count }}]</em></p> -->
+        <ul>
+            <li><label>{{ "金額" | langChart : lang.languageChart }}</label> <em class="font-family-B">{{ selection.gold | formatNumber }}</em></li>
+            <li><label>{{ "結算" | langChart : lang.languageChart }}</label> <em class="font-family-B" [ngClass]="{ green: selection.win > 0, red: selection.win < 0  }">{{ selection.win | formatNumber }}</em></li>
+        </ul>
+    </div>
+    <ul class="list">
+        <li *ngFor="let item of detial;">
+            <div class="title">
+                <p>{{ item.bid }}</p><p>{{ item.btime }}</p>
+            </div>
+            <table>
+                <div class="other-cash"> <span>{{ "手續費" | langChart : lang.languageChart }}</span> <p>5%</p></div>
+                <tr>
+                    <td>{{ "開賽時間" | langChart : lang.languageChart }}</td>
+                    <td>{{ item.stime }}</td>
+                </tr>
+                <tr>
+                    <td>{{ "賽事" | langChart : lang.languageChart }}</td>
+                    <td>
+                        <p class="game-evt">{{ item.lid }}</p>
+                        <p>
+                            {{ item.ht }}<em>[{{ "主" | langChart : lang.languageChart }}]</em> <i>v</i> {{ item.ct }}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ "投資內容" | langChart : lang.languageChart }}</td>
+                    <td>{{ item.ptype | langChart : lang.languageChart }} {{ item.option | langChart : lang.languageChart }}</td>
+                </tr>
+                <!-- <tr>
+                    <td >{{ "獲利%" | langChart : lang.languageChart }}</td>
+                    <td class="font-family-B">{{ item.profit }}%</td>
+                </tr> -->
+
+                <!-- <tr>
+                    <td>{{ "狀態" | langChart : lang.languageChart }}</td>
+                    <td> <p class="delete">{{ "撤單" | langChart : lang.languageChart }}</p> </td>
+                </tr> -->
+                <!-- <tr>
+                    <td >{{ "獲利%" | langChart : lang.languageChart }}</td>
+                    <td class="font-family-B">{{ item.profit }}%</td>
+                    <td>{{ "金額" | langChart : lang.languageChart }}</td>
+                    <td class="font-family-B">{{ item.gold | formatNumber }}</td>
+                    
+                </tr> -->
+            </table>
+            <ul class="get_info">
+                <li><label>{{ "獲利%" | langChart : lang.languageChart }}</label> <em>{{ item.profit }}%</em></li>
+                <li><label>{{ "金額" | langChart : lang.languageChart }}</label> <i class="font-family-B lighten-red">{{ item.gold | formatNumber }}</i></li>
+            </ul>
+            <ul class="get_info">
+                <li><label>{{ item.ptype | langChart : lang.languageChart }}{{ "結果" | langChart : lang.languageChart }}</label> <em>{{ item.final }}</em></li>
+                <li><label>{{ "投資結果" | langChart : lang.languageChart }}</label> <i class="font-family-B lighten-red" [ngClass]="{ green: item.win > 0, red: item.win < 0  }">{{ item.win | formatNumber }}</i></li>
+            </ul>
+            <div class="closed" *ngIf="item.detailed_content.hr == '-1' || item.detailed_content.cr == '-1' ">
+                <div>
+                    <p>CLOSED</p>
+                    <p>{{item.final}}-{{ "常按觀看注單" | langChart : lang.languageChart }}</p>
+                </div>
+            </div>
+            <div class="closed" *ngIf="item.result=='NC'">
+                <div>
+                    <p>CLOSED</p>
+                    <p>{{ "撤單" | langChart : lang.languageChart }}-{{ "常按觀看注單" | langChart : lang.languageChart }}</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</main>
+</article>
+

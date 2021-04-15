@@ -1,0 +1,403 @@
+
+
+
+
+main {
+  // margin: 16px 0 0 0;
+  section {
+    &.help_center {
+      top: 0;
+      padding-top: calc(6vh + 16px);
+      height: 100vh;
+      background: transparent;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding-bottom: 200px;
+      position: fixed;
+      width: 100%;
+      ul {
+        &.main_page {
+          background: #fff;
+          padding: 0 15px 0 15px;
+          position: relative;
+          color: #242424;
+          li {
+            border-bottom: 1px solid #cccdd1;
+            padding: 16px 0 16px 0;
+            position: relative;
+            &:last-child {
+              border-bottom: none;
+            }
+            &:before {
+              content: "";
+              position: absolute;
+              right: 0;
+              top: 20px;
+              transform: rotate(-45deg);
+              width: 8px;
+              height: 8px;
+              background-color: transparent;
+              border-right: 1px solid #d22442;
+              border-bottom: 1px solid #d22442;
+            }
+          }
+        }
+        &.question {
+          // margin: -10px 0 0 0;
+          // position: relative;
+          background: #fff;
+          padding: 0 15px 100px 15px;
+          position: absolute;
+          top: calc(5vh + 10px);
+          color: #242424;
+          transform: translateX(100%);
+          display: none;
+          transition: all 0.3s linear;
+          &.active{
+            transform: translateX(0%);
+            display: block;
+          }
+          li {
+            div {
+              display: inline-block;
+              .nb{
+                font-family: Bahnschrift;
+              }
+              .red{
+                color: #d22442;
+              }
+              &.wrap {
+                padding: 15px 0 10px 0;
+                color: #494949;
+                line-height: 22px;
+              }
+              &.wrap_2 {
+                text-align: center;
+                width: 100%;
+                .q1_teach_img1 {
+                  background: url("assets/help_center/q1_stage_1.png") no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 370px;
+                }
+                .q1_teach_img2 {
+                  background: url("assets/help_center/q1_stage_2.png") no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 508px;
+                }
+                .q1_teach_img3 {
+                  background: url("assets/help_center/q1_stage_3.png") no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 180px;
+                }
+                .q2_teach_img1{
+                  background: url("assets/help_center/q2_stage_1.png") no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 112px;
+                }
+                .q2_teach_img2{
+                  background: url("assets/help_center/q2_stage_02.png") no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 270px;
+                }
+                .q2_teach_img3{
+                  background: url("assets/help_center/q2_stage_03.png") no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 182px;
+                }
+                .q2_teach_img4{
+                  background: url("assets/help_center/q2_stage_04.png") no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 472px;
+                }
+                .q2_teach_img5{
+                  background: url("assets/help_center/q2_stage_05.png") no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 324px;
+                }
+                .q3_teach_img1{
+                  background: url(assets/help_center/q3_stage_01.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 92px;
+                }
+                .q3_teach_img2{
+                  background: url(assets/help_center/q3_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 68px;
+                }
+                .q3_teach_img3{
+                  background: url(assets/help_center/q3_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 210px;
+                }
+                .q3_teach_img4{
+                  background: url(assets/help_center/q3_stage_04.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 310px;
+                }
+                .q3_teach_img5{
+                  background: url(assets/help_center/q3_stage_05.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 222px;
+                }
+                .q4_teach_img1{
+                  background: url(assets/help_center/q4_stage_01.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 98px;
+                }
+                .q4_teach_img2{
+                  background: url(assets/help_center/q4_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height:182px;
+                }
+                .q4_teach_img3{
+                  background: url(assets/help_center/q4_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 436px;
+                }
+               
+                .q5_teach_img2{
+                  background: url(assets/help_center/q5_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 435px;
+                }
+                .q5_teach_img3{
+                  background: url(assets/help_center/q5_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px; 
+                  height: 322px;
+                }
+                .q5_teach_img4{
+                  background: url(assets/help_center/q5_stage_04.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 196px;
+                }
+                .q5_teach_img5{
+                  background: url(assets/help_center/q5_stage_05.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 512px;
+                }
+              
+
+              
+                
+                .q6_teach_img2{
+                  background: url(assets/help_center/q6_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 440px;
+                }
+                .q6_teach_img3{
+                  background: url(assets/help_center/q6_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 204px;
+                }
+                .q6_teach_img4{
+                  background: url(assets/help_center/q6_stage_04.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 436px;
+                }
+        
+                .q7_teach_img2{
+                  background: url(assets/help_center/q7_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 440px;
+                }
+                .q7_teach_img3{
+                  background: url(assets/help_center/q7_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 225px;
+                }
+                .q7_teach_img4{
+                  background: url(assets/help_center/q7_stage_04.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 210px;
+                }
+                .q7_teach_img5{
+                  background: url(assets/help_center/q7_stage_05.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 498px;
+                }
+                .q7_teach_img6{
+                  background: url(assets/help_center/q7_stage_06.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 258px;
+                }
+                .q7_teach_img7{
+                  background: url(assets/help_center/q7_stage_07.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 280px;
+                }
+                
+                .q8_teach_img2{
+                  background: url(assets/help_center/q8_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 428px;
+                }
+                .q8_teach_img3{
+                  background: url(assets/help_center/q8_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 446px;
+                }
+                .q8_teach_img4{
+                  background: url(assets/help_center/q8_stage_04.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 192px;
+                }
+                .q8_teach_img5{
+                  background: url(assets/help_center/q8_stage_05.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 500px;
+                }
+                .q8_teach_img6{
+                  background: url(assets/help_center/q8_stage_06.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 250px;
+                }
+                .q8_teach_img7{
+                  background: url(assets/help_center/q8_stage_07.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 295px;
+                }
+                .q8_teach_img8{
+                  background: url(assets/help_center/q8_stage_088.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 340px;
+                }
+                .q9_teach_img2{
+                  background: url(assets/help_center/q9_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 435px;
+                }
+                .q9_teach_img3{
+                  background: url(assets/help_center/q9_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 344px;
+                }
+                .q9_teach_img4{
+                  background: url(assets/help_center/q9_stage_04.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 354px;
+                }
+                .q9_teach_img5{
+                  background: url(assets/help_center/q9_stage_05.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 180px;
+                }
+                .q9_teach_img6{
+                  background: url(assets/help_center/q9_stage_06.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 285px;
+                }
+                .q9_teach_img7{
+                  background: url(assets/help_center/q9_stage_07.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 525px;
+                }
+                .q9_teach_img8{
+                  background: url(assets/help_center/q9_stage_08.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 525px;
+                }
+                .q10_teach_img2{
+                  background: url(assets/help_center/q10_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 185px;
+                }
+                .q10_teach_img3{
+                  background: url(assets/help_center/q10_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 316px;
+                }
+                .q10_teach_img4{
+                  background: url(assets/help_center/q10_stage_04.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 150px;
+                }
+                .q10_teach_img5{
+                  background: url(assets/help_center/q10_stage_05.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 368px;
+                }
+                .q11_teach_img1{
+                  background: url(assets/help_center/q11_stage_01.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 98px;
+                }
+                .q11_teach_img2{
+                  background: url(assets/help_center/q11_stage_02.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 86px;
+                }
+                .q11_teach_img3{
+                  background: url(assets/help_center/q11_stage_03.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 152px;
+                }
+                .q11_teach_img4{
+                  background: url(assets/help_center/q11_stage_04.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 280px;
+                }
+                .q11_teach_img5{
+                  background: url(assets/help_center/q11_stage_05.png) no-repeat;
+                  background-size: 100%;
+                  width: 290px;
+                  height: 95px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<header>
+    <div class="nav">
+        <div class="icon" (click)="location.back()"><i class="icon icon-arrow-w"></i></div>
+        <span>{{ "推廣連結" | langChart : lang.languageChart }}</span>
+    </div>
+</header>
+
+<main class="main_promote">
+
+    <div class="qr">
+        <qr-code class="item" [value]="memberLink" [size]="200"></qr-code>
+        <input class="url" type="url" value="{{ memberLink }}" #link readonly>
+        <button type="button" [ngxClipboard]="link">{{ "複 製 連 結" | langChart : lang.languageChart }}</button>
+    </div>
+
+</main>
+
+<footer-toolbar></footer-toolbar>

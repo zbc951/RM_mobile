@@ -1,0 +1,156 @@
+<header class="header_history">
+    <div class="nav">
+        <!-- <div class="back"></div>
+        <span class="title-font-size font-family-w">{{ "歷史帳務" | langChart : lang.languageChart }}</span> -->
+        <ul>
+          <li class="back" (click)="changePage(['homepage'])" *ngIf="!selectionAcc"></li>
+          <li class="back" (click)="selectionAcc = undefined" *ngIf="selectionAcc"></li>
+          <li class="title">{{ "歷史帳務" | langChart : lang.languageChart }}</li>
+          <li class="search"(click)="dialogStatus = !dialogStatus"></li>
+        </ul>
+    </div>
+</header>
+<main class="history">
+    <ul class="list">
+        <!-- 本週日期 -->
+        <li *ngIf="thisWeekAcc.list.length > 0">
+            <div class="title font-family-w">{{ "本週日期" | langChart : lang.languageChart }}</div>
+            <ul>
+                <li class="th">
+                    <p class="font-family-w">{{ "本期" | langChart : lang.languageChart }}</p>
+                    <p class="font-family-w">{{ "累積流水" | langChart : lang.languageChart }}</p>
+                    <p class="font-family-w">{{ "總收益" | langChart : lang.languageChart }}</p>
+                </li>
+                <li class="tr" *ngFor="let item of thisWeekAcc.list" (click)="selectAcc(item.count, item.dtime, item.gold, item.win);">
+                    <p class="font-family-b">{{ item.dtime }} <i [hidden]="item.count == 0">{{ item.count }}</i></p>
+                    <p class="font-family-b" [ngClass]="{ gold: item.gold > 0 }">{{ item.gold | formatNumber }}</p>
+                    <p class="font-family-b" [ngClass]="{ green: item.win > 0, red: item.win < 0  }">{{ item.win | formatNumber }}</p>
+                    <p class="forward" [hidden]="item.count == 0"><i></i></p>
+                </li>
+                <li class="tr final">
+                    <p class="font-family-w">{{ "總計" | langChart : lang.languageChart }}</p>
+                    <p class="font-family-b" [ngClass]="{ gold: thisWeekAcc.totGold > 0 }">{{ thisWeekAcc.totGold | formatNumber }}</p>
+                    <p class="font-family-b" [ngClass]="{ green: thisWeekAcc.totWin > 0, red: thisWeekAcc.totWin < 0  }">{{ thisWeekAcc.totWin | formatNumber }}</p>
+                </li>
+            </ul>
+        </li>
+        <!-- 上週日期 -->
+        <li *ngIf="lestsWeekAcc.list.length > 0">
+            <div class="title font-family-w">{{ "上週日期" | langChart : lang.languageChart }}</div>
+            <ul>
+                <li class="th">
+                    <p>{{ "本期" | langChart : lang.languageChart }}</p>
+                    <p>{{ "累計流水" | langChart : lang.languageChart }}</p>
+                    <p>{{ "總收益" | langChart : lang.languageChart }}</p>
+                </li>
+                <li class="tr" *ngFor="let item of lestsWeekAcc.list" (click)="selectAcc(item.count, item.dtime, item.gold, item.win);">
+                    <p class="font-family-b">{{ item.dtime }} <i [hidden]="item.count == 0">{{ item.count }}</i></p>
+                    <p class="font-family-b" [ngClass]="{ gold: item.gold > 0 }">{{ item.gold | formatNumber }}</p>
+                    <p class="font-family-b" [ngClass]="{ green: item.win > 0, red: item.win < 0  }">{{ item.win | formatNumber }}</p>
+                    <p class="font-family-b" class="forward" [hidden]="item.count == 0"><i></i></p>
+                </li>
+                <li class="tr final">
+                    <p class="font-family-w">{{ "總計" | langChart : lang.languageChart }}</p>
+                    <p class="font-family-b" [ngClass]="{ gold: lestsWeekAcc.totGold > 0 }">{{ lestsWeekAcc.totGold | formatNumber }}</p>
+                    <p class="font-family-b" [ngClass]="{ green: lestsWeekAcc.totWin > 0, red: lestsWeekAcc.totWin < 0  }">{{ lestsWeekAcc.totWin | formatNumber }}</p>
+                </li>
+            </ul>
+        </li>
+        <!-- 自訂日期 -->
+        <li *ngIf="customWeekAcc.list.length > 0">
+            <div class="title">{{ nowAccount | langChart : lang.languageChart }}</div>
+            <ul>
+                <li class="th">
+                    <p>{{ "日期" | langChart : lang.languageChart }}</p>
+                    <p>{{ "累計流水" | langChart : lang.languageChart }}</p>
+                    <p>{{ "總收益" | langChart : lang.languageChart }}</p>
+                </li>
+                <li class="tr" *ngFor="let item of customWeekAcc.list" (click)="selectAcc(item.count, item.dtime, item.gold, item.win);">
+                    <p>{{ item.dtime }} <i [hidden]="item.count == 0">{{ item.count }}</i></p>
+                    <p [ngClass]="{ gold: item.gold > 0 }">{{ item.gold | formatNumber }}</p>
+                    <p [ngClass]="{ green: item.win > 0, red: item.win < 0  }">{{ item.win | formatNumber }}</p>
+                    <p class="forward" [hidden]="item.count == 0  || nowAccount == '年'"><i></i></p>
+                </li>
+                <li class="tr">
+                    <p>{{ "總計" | langChart : lang.languageChart }}</p>
+                    <p [ngClass]="{ gold: customWeekAcc.totGold > 0 }">{{ customWeekAcc.totGold | formatNumber }}</p>
+                    <p [ngClass]="{ green: customWeekAcc.totWin > 0, red: customWeekAcc.totWin < 0  }">{{ customWeekAcc.totWin | formatNumber }}</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</main>
+
+<h-detail-dialog *ngIf="selectionAcc" [selectionAcc]="selectionAcc" (callHistory)="hDetailListener()"></h-detail-dialog>
+
+
+<!-- 功能按鈕 -->
+<!-- <div class="menu-btn" (click)="dialogStatus = !dialogStatus">
+    <div>
+        <p class="icon"></p>
+    </div>
+</div> -->
+
+<!-- 功能視窗 -->
+<aside *ngIf="dialogStatus" [@goleft]>
+    <div class="sidebar">
+      <div class="title-box">
+        <div class="close-wrap">
+            <div >
+                <div><p class="icon icon-delete"></p></div>
+            </div>
+        </div>
+        <p class="title">{{ "選擇帳務時間" | langChart : lang.languageChart }}</p>
+        <p class="finish"  (click)="dialogStatus = false">{{ "完成" | langChart : lang.languageChart }}</p>
+      </div>
+
+      <div class="foler-group">
+        <div class="search">
+            <div class="timebg">
+              <!-- <input class="input date" type="date" (change)="sdate=$event.target.value; switchHistory('');" value="{{ sdate }}">
+              <span>~</span>
+              <input class="input date" type="date" (change)="edate=$event.target.value; switchHistory('');" value="{{ edate }}"> -->
+            </div>
+            <ul>
+              <li  (click)="switchHistory('biweekly');  dialogStatus = false">{{ "近兩週" | langChart : lang.languageChart }}</li>
+              <li (click)="switchHistory('tmonth');    dialogStatus = false">{{ "本月" | langChart : lang.languageChart }}</li>
+              <li (click)="switchHistory('lmonth'); dialogStatus = false">{{ "上一個月" | langChart : lang.languageChart }}</li>
+              <li (click)="switchHistory('lyear'); dialogStatus = false">{{ "一年" | langChart : lang.languageChart }}</li>
+            </ul>
+        </div>
+      </div>
+<!--
+        <div class="title-box">
+
+                <p class="title">{{ "選擇帳務時間" | langChart : lang.languageChart }}</p>
+                <div class="foler-group">
+                    <div class="time2">
+                        <div class="time-wrap">
+                            <input class="inputdate" type="date" (change)="sdate=$event.target.value; switchHistory('');" value="{{ sdate }}">
+                        </div>
+                        <div class="time-wrap">
+                            <input class="inputdate" type="date" (change)="edate=$event.target.value; switchHistory('');" value="{{ edate }}">
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p class="all" [class.selected]="nowAccount == '近兩週'" (click)="switchHistory('biweekly');  dialogStatus = false">{{ "近兩週" | langChart : lang.languageChart }}</p>
+                        <p class="all" [class.selected]="nowAccount == '本月'" (click)="switchHistory('tmonth');    dialogStatus = false">{{ "本月" | langChart : lang.languageChart }}</p>
+                        <p class="all" [class.selected]="nowAccount == '上一個月'" (click)="switchHistory('lmonth'); dialogStatus = false">{{ "上一個月" | langChart : lang.languageChart }}</p>
+                        <p class="all" [class.selected]="nowAccount == '一年'" (click)="switchHistory('lyear'); dialogStatus = false">{{ "一年" | langChart : lang.languageChart }}</p>
+                    </div>
+                </div>
+                <div class="close-wrap">
+                    <div class="close-btn" (click)="dialogStatus = false">
+                        <div>
+                            <p class="icon icon-delete"></p>
+                        </div>
+                    </div>
+                </div>
+        </div> -->
+
+
+
+    </div>
+</aside>
+
+<footer-toolbar></footer-toolbar>

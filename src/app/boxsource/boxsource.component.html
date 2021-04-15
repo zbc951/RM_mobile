@@ -1,0 +1,189 @@
+<header>
+  <div class="nav">
+    <ul>
+      <li class="back" (click)="location.back()"></li>
+      <li class="title">{{ "賽事結果" | langChart : lang.languageChart }}</li>
+      <li class="search" (click)="dialogStatus = !dialogStatus"></li>
+    </ul>
+  </div>
+</header>
+
+<div class="no-data" *ngIf="boxSourceLength == 0">
+    <div><img src="../../img/icon/nodata.png"></div>
+    <p>{{ "本日暫無賽事資料!" | langChart : lang.languageChart }}</p>
+</div>
+
+<main id="main" class="boxsource" *ngIf="boxSourceLength > 0" >
+  <section id="card{{ i }}" [class.active]="selectBtn == i" (click)="selectBtn = i;" *ngFor="let item of boxSource | sortMarketList: 'lname' : leagueSortDis ; let i = index;">
+    <div class="bloc_name">
+      <label class="tname" title="{{ item.lname }}">{{ item.lname }}</label>
+    </div>
+
+    <div class="bet_area">
+      <ul class="top">
+        <li class="team">
+          <span>{{ item.ht }}</span>
+          <span class="vs">vs</span>
+          <span>{{ item.ct }}</span>
+        </li>
+        <li class="time">{{ item.time }}</li>
+      </ul>
+
+      <ul class="bet">
+        <li class="bname">
+          <ol>
+            <li>{{ "波膽" | langChart : lang.languageChart }}</li>
+            <li>{{ "總得分" | langChart : lang.languageChart }}</li>
+          </ol>
+        </li>
+        <li class="bnum">
+          <ol>
+            <li class="textred">{{ item.PD }}</li>
+            <li>{{ item.am }}</li>
+          </ol>
+        </li>
+        <li class="bname">
+          <ol>
+            <li>{{ "上半波膽" | langChart : lang.languageChart }}</li>
+            <li>{{ "首入球" | langChart : lang.languageChart }}</li>
+          </ol>
+        </li>
+        <li class="bnum end">
+          <ol>
+            <li class="textred">{{ item.PDHR }}</li>
+            <li> / </li>
+          </ol>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+  <!-- 舊的橫列架構 -->
+  <!-- <ul class="list">
+      <li id="card{{ i }}" class="box" [class.active]="selectBtn == i" (click)="selectBtn = i;" *ngFor="let item of boxSource | sortMarketList: 'lname' : leagueSortDis ; let i = index;">
+          <div class="title">
+              <p>{{ item.lname }}</p><p>{{ item.ht }} v {{ item.ct }}</p>
+              <span class="arrow-icon"></span>
+          </div>
+          <div class="time">
+              <p>{{ "開賽時間" | langChart : lang.languageChart }}</p><p>{{ item.time }}</p>
+          </div>
+          <ul>
+              <li><p>{{ "波膽" | langChart : lang.languageChart }}</p><p>{{ item.PD }}</p></li>
+              <li><p>{{ "上半波膽" | langChart : lang.languageChart }}</p><p>{{ item.PDHR }}</p></li>
+              <li><p>{{ "總得分" | langChart : lang.languageChart }}</p><p>{{ item.am }}</p></li>
+              <li><p>{{ "首入球時間" | langChart : lang.languageChart }}</p><p>{{ item.btime }}</p></li>
+          </ul>
+          <div class="closed-block" *ngIf="item.PD=='赛事取消' || item.PDHR=='赛事取消' ||  item.am=='赛事取消'">
+              <div>
+                  <p>CLOSED</p>
+                  <p>{{ "常按觀看注單" | langChart : lang.languageChart }}</p>
+              </div>
+          </div>
+      </li>
+  </ul> -->
+</main>
+
+<!-- 分類按鈕 -->
+<!-- <div class="menu-btn" (click)="dialogStatus = !dialogStatus">
+    <div><p class="icon"></p></div>
+</div> -->
+<!-- 分類視窗 -->
+<aside *ngIf="dialogStatus" [@goleft]>
+    <div class="sidebar">
+      <div class="title-box">
+        <div class="close-wrap">
+            <div class="close-btn" (click)="dialogStatus = false">
+                <div><p class="icon icon-delete"></p></div>
+            </div>
+        </div>
+        <p class="title">{{ "選擇聯盟" | langChart : lang.languageChart }}</p>
+        <p class="finish" (click)="dialogStatus = false">{{ "完成" | langChart : lang.languageChart }}</p>
+    </div>
+
+    <div class="foler-group">
+      <!-- <div class="search">
+          <input type="text" [(ngModel)]="addTeam" placeholder="{{ '請輸入隊名' | langChart : lang.languageChart }}">
+      </div> -->
+      <div class="foler-group">
+        <div class="time1">
+            <div class="time-wrap">
+                <input class="inputdate" type="date" (change)="date=$event.target.value; getBoxSource(date);" value="{{ date }}">
+            </div>
+        </div>
+      </div>  
+      <div class="group">
+          <p [class.selected]="leagueSortDis == undefine" class="all arrow" (click)="leagueSortDis = undefine; dialogStatus = false">{{ "全部聯盟" | langChart : lang.languageChart }}</p>
+      </div>
+
+      <!-- <div class="group">
+          <p class="left-arrow" >{{ "選擇日期" | langChart : lang.languageChart }}</p>
+          <ul>
+              <li class="font-family-b" [class.selected]="sortSelect == date.item" *ngFor="let date of dateSortList" (click)="sortMarket(['date', date.item]); sortSelect = date.item;">
+                  <p class="font-family-b" >{{ date.item }}</p>
+                  <p class="font-family-b" >({{ date.count }})</p>
+              </li>
+          </ul>
+      </div> -->
+      <!-- <div class="group">
+          <p class="left-arrow" >{{ "選擇聯盟" | langChart : lang.languageChart }}</p>
+          <ul>
+              <li [class.selected]="sortSelect == league.item" *ngFor="let league of leagueSortList" (click)="sortMarket(['league', league.item]); sortSelect = league.item;">
+                  <p>{{ league.item }}</p>
+                  <p>({{ league.count }})</p>
+              </li>
+          </ul>
+      </div> -->
+      <div class="group">
+        <p>{{ "聯盟選擇" | langChart : lang.languageChart }}</p>
+        <ul>
+            <li [class.selected]="leagueSortDis == item.item" *ngFor="let item of leagueList" (click)="leagueSortDis = item.item; dialogStatus = false">
+                <p>{{ item.item }}</p>
+                <p>{{ item.count }}</p>
+            </li>
+        </ul>
+    </div>
+
+  </div>
+
+        <!-- <div class="title-box">
+                <p class="title" ></p>
+
+                <div class="foler-group">
+                    <div class="time1">
+                        <div class="time-wrap">
+                            <input class="inputdate" type="date" (change)="date=$event.target.value; getBoxSource(date);" value="{{ date }}">
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <p [class.selected]="leagueSortDis == undefine" class="all arrow" (click)="leagueSortDis = undefine; dialogStatus = false">{{ "全部聯盟" | langChart : lang.languageChart }}</p>
+                    </div>
+                    <div class="group">
+                        <p>{{ "聯盟選擇" | langChart : lang.languageChart }}</p>
+                        <ul>
+                            <li [class.selected]="leagueSortDis == item.item" *ngFor="let item of leagueList" (click)="leagueSortDis = item.item; dialogStatus = false">
+                                <p>{{ item.item }}</p>
+                                <p>{{ item.count }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="close-wrap">
+                    <div class="close-btn" (click)="dialogStatus = false">
+                        <div><p class="icon icon-delete"></p></div>
+                    </div>
+                </div>
+        </div> -->
+
+    </div>
+</aside>
+
+<!-- 滾動按鈕 -->
+<ul class="fast-scroll" *ngIf="boxSourceLength > 0">
+    <li scrollTo scrollTargetSelector="#main" scrollYTarget="0"><div><p class="icon icon-fastscroll"></p></div></li>
+    <li scrollTo scrollTargetSelector="#card{{ boxSourceLength - 1 }}"><div><p class="icon icon-fastscroll"></p></div></li>
+</ul>
+
+
+<footer-toolbar></footer-toolbar>

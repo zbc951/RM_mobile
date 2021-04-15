@@ -1,0 +1,69 @@
+@mixin icon-size {
+  width: 25px;
+  height: 25px;
+}
+@mixin icon($img) {
+  background-image: url($img);
+  background-repeat: no-repeat;
+  display: block;
+  vertical-align: middle;
+  margin: 0 auto 5px auto;
+}
+
+.icon-serial {
+  background-size: 100%;
+  @include icon('assets/icon/cash/serial.png');
+  @include icon-size;
+}
+.icon-unionpay {
+  @include icon('assets/UnionPay_41.png');
+  @include icon-size;
+}
+.icon-wechat {
+  background-size: 100%;
+  @include icon('assets/icon/cash/wechat.png');
+  @include icon-size;
+}
+.icon-qq {
+  background-size: 100%;
+  @include icon('assets/icon/cash/qq.png');
+  @include icon-size;
+}
+.icon-alipay {
+  background-size: 100%;
+  @include icon('assets/icon/cash/alipay');
+  @include icon-size;
+}
+.icon-union {
+  background-size: 100%;
+  @include icon('assets/icon/cash/union.png');
+  @include icon-size;
+}
+.icon-yunshanfu {
+  background-size: 100%;
+  @include icon('assets/icon/cash/yunshanfu.png');
+  @include icon-size;
+}
+.icon-huaban {
+  background-size: 100%;
+  @include icon('assets/icon/cash/huaban.png');
+  @include icon-size;
+}
+
+.icon-fashalpay {
+  background-size: 100%;
+  @include icon('assets/icon/cash/fashalpay.png');
+  @include icon-size;
+}
+
+.icon-wqpay {
+  background-size: 100%;
+  @include icon('assets/icon/cash/wqpay.png');
+  @include icon-size;
+}
+
+.icon-webbank {
+  background-size: 100%;
+  @include icon('assets/icon/cash/webbank.png');
+  @include icon-size;
+}

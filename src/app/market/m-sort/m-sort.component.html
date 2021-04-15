@@ -1,0 +1,41 @@
+<aside [@dialog]="state">
+    <div class="sidebar">
+        <div class="title-box">
+            <div class="close-wrap">
+                <div class="close-btn" (click)="state = 'out'">
+                    <div><p class="icon icon-delete"></p></div>
+                </div>
+            </div>
+            <p class="title">{{ "選擇賽事" | langChart : lang.languageChart }}</p>
+            <p class="finish" (click)="DeliveryConditions()">{{ "完成" | langChart : lang.languageChart }}</p>
+        </div>
+       
+        <div class="foler-group">
+            <div class="search">
+                <input type="text" [(ngModel)]="addTeam" placeholder="{{ '請輸入隊名' | langChart : lang.languageChart }}">
+            </div>
+            <div class="group">
+                <p [class.selected]="sortSelect == 'all'" class="all arrow" (click)="sortMarket(['date', '-1']); sortSelect = 'all';">{{ "全部賽事" | langChart : lang.languageChart }}</p>
+            </div>
+            <div class="group">
+                <p class="left-arrow" >{{ "選擇日期" | langChart : lang.languageChart }}</p>
+                <ul>
+                    <li class="font-family-b" [class.selected]="sortSelect == date.item" *ngFor="let date of dateSortList" (click)="sortMarket(['date', date.item]); sortSelect = date.item;">
+                        <p class="font-family-b" >{{ date.item }}</p>
+                        <p class="font-family-b" >({{ date.count }})</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="group">
+                <p class="left-arrow" >{{ "選擇聯盟" | langChart : lang.languageChart }}</p>
+                <ul>
+                    <li [class.selected]="sortSelect == league.item" *ngFor="let league of leagueSortList" (click)="sortMarket(['league', league.item]); sortSelect = league.item;">
+                        <p>{{ league.item }}</p>
+                        <p>({{ league.count }})</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       
+    </div>
+</aside>

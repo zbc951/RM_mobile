@@ -1,0 +1,91 @@
+<!-- 銀行卡 -->
+<article id="bankcard" *ngIf="memberBankList.length != 0">
+    <div class="card">
+        <p>{{ memberBankList[0].mbank }}</p>
+        <p><span><img src="../../../img/bankcard/bankCard.png" width="26"></span></p>
+        <p><span>{{ "帳號" | langChart : lang.languageChart }}</span>{{ memberBankList[0].mbaccount }}</p>
+        <p><span>{{ "戶名" | langChart : lang.languageChart }}</span>{{ memberBankList[0].mbname }}</p>
+        <div></div>
+    </div>
+    <div class="note">
+        <p>{{ "注意事項" | langChart : lang.languageChart }}</p>
+        <ul>
+            <li>{{ "您的提領銀行卡已綁定，如需修改提領銀行卡請洽詢克服。" | langChart : lang.languageChart }}</li>
+        </ul>
+    </div>
+</article>
+<!-- 新增銀行卡   *ngIf="memberBankList.length == 0" -->
+<article id="add_bankcard" *ngIf="memberBankList.length == 0" >
+    <div class="form">
+        <ul>
+            <li class="title">{{ "新增銀行卡" | langChart : lang.languageChart }}</li>
+            <li>
+                <span>{{ "開戶銀行" | langChart : lang.languageChart }}</span>
+                <select [(ngModel)]="seleBank">
+                    <option value="titleKey">{{ "- 選擇銀行 -" | langChart : lang.languageChart }}</option>
+                    <option [value]="item?.bank" *ngFor="let item of addBankList">{{ item?.bank }}</option>
+                </select>
+            </li>
+            <li class="li_2_select">
+                <span>{{ "開戶城市" | langChart : lang.languageChart }}</span>
+                <select [(ngModel)]="seleProvince">
+                    <option  value="titleKey">{{ "- 選擇省份 -" | langChart : lang.languageChart }}</option>
+                    <option [value]="areaKey" *ngFor="let areaKey of chinaAreaKeys">{{ areaKey }}</option>
+                </select>
+                <select [(ngModel)]="seleCity">
+                    <option  value="titleKey">{{ "- 選擇地級市 -" | langChart : lang.languageChart }}</option>
+                    <option [value]="city" *ngFor="let city of chinaArea[seleProvince]">{{ city }}</option>
+                </select>
+            </li>
+            <li>
+                <span>{{ "分行名稱" | langChart : lang.languageChart }}</span>
+                <input type="text" [(ngModel)]="addBankBranch">
+            </li>
+            <li>
+                <span>{{ "戶名" | langChart : lang.languageChart }}</span>
+                <input type="text" [(ngModel)]="addName">
+            </li>
+            <li>
+                <span>{{ "銀行帳號" | langChart : lang.languageChart }}</span>
+                <input type="text" [(ngModel)]="addAccount" pattern="[0-9-\s]{1,}$" #addAcc="ngModel">
+                <i *ngIf="addAcc.invalid && addAcc.dirty">*{{ "格式有誤" | langChart : lang.languageChart }}</i>
+            </li>
+            <li>
+                <span>{{ "確認帳號" | langChart : lang.languageChart }}</span>
+                <input type="text" [(ngModel)]="addAccountCon" pattern="[0-9-\s]{1,}$" #addAccCon="ngModel">
+                <i *ngIf="addAccCon.invalid && addAccCon.dirty">*{{ "格式有誤" | langChart : lang.languageChart }}</i>
+            </li>
+
+            <li>
+                <span>{{ "手 機" | langChart : lang.languageChart }}</span>
+                <input type="text" [(ngModel)]="addPhone" pattern="[0-9-\s]{1,}$" #addP="ngModel">
+                <i *ngIf="addP.invalid && addP.dirty">*{{ "格式有誤" | langChart : lang.languageChart }}</i>
+            </li>
+            <li>
+                <span>QQ</span>
+                <input type="text" [(ngModel)]="addQQ">
+            </li>
+            <li>
+                <span>{{ "微信" | langChart : lang.languageChart }}</span>
+                <input type="text" [(ngModel)]="addWechat">
+            </li>
+            <li>
+                <span>{{ "提款安全碼" | langChart : lang.languageChart }}</span>
+                <input type="text" [(ngModel)]="safety">
+            </li>
+        </ul>
+        <p>
+            <button [disabled]=" seleBank == 'titleKey' || seleProvince == 'titleKey' || seleCity == 'titleKey' || !addBankBranch || !addName || !addAccount || !addAccountCon || !addBtn || !addPhone || !addQQ || !addWechat || !safety"
+                [class.disabled]="seleBank == 'titleKey' || seleProvince == 'titleKey' || seleCity == 'titleKey' || !addBankBranch || !addName || !addAccount || !addAccountCon || !addBtn || !addPhone || !addQQ || !addWechat || !safety"
+                (click)="addBankCard()" class="blur_button">{{ "新 增" | langChart : lang.languageChart }}</button>
+        </p>
+    </div>
+
+    <div class="note">
+        <p>{{ "注意事項" | langChart : lang.languageChart }}</p>
+        <ul>
+            <li>{{ "為了您的帳戶安全，提領銀行卡只能綁定一筆，綁定後如需修改銀行卡請洽詢克服。" | langChart : lang.languageChart }}</li>
+        </ul>
+    </div>
+
+</article>

@@ -1,0 +1,174 @@
+<header class="option" *ngIf="!token" >
+    <div class="nav">
+       <ul>
+         <li  class="title">{{ "我的" | langChart : lang.languageChart }}</li>
+       </ul>
+    </div>
+</header>
+
+<div class="iframe_b" *ngIf="token" >
+  <div  class="back_page"(click)="GOtoken()" ></div>
+</div>
+
+
+<main class="option">
+ <div class="scroll_box">
+  <div class="hellocard_box">
+    <div class="hellocard">
+      <img class="manhead" src="../../img/manhead.jpg" alt="" width="70">
+      <div class="text">
+        <h1 class="fb">Hi,
+          <span class="fb">{{ profile.username }}</span>
+          <!-- VIP符號 -->
+          <!-- <a></a> -->
+        </h1>
+        <!-- <span>加入<a class="fb">STG</a>第<a class="fb">6</a>天</span> -->
+      </div>
+    </div>
+   </div>
+   
+    <ul class="money">
+      <li  [style.display]="chkSwToken == true ? 'none': '' ">
+        <p>{{ "提現手續費" | langChart : lang.languageChart }}</p>
+        <span class="fb">{{(profile.Fee)?profile.Fee:5}}%</span>
+      </li>
+      <li>
+        <p>{{ "可用餘額" | langChart : lang.languageChart }}</p>
+        <span class="fb">$ {{ profile.surplus | formatNumber }}</span>
+      </li>
+      <li>
+        <p>{{ "交易中金額" | langChart : lang.languageChart }}</p>
+        <span class="fb">$ {{detail | formatNumber }}</span>
+      </li>
+    </ul>
+    <ul class="menu">
+      <li (click)="changePage(['cash'])"  [style.display]="chkSwToken == true ? 'none': '' ">
+        <p class="icon-ft icon-ft-money"></p>
+        <span>{{ "我的錢包" | langChart : lang.languageChart }}</span>
+      </li>
+      <li (click)="GOtoken()"  *ngIf="chkSwToken">
+        <p class="icon-ft icon-ft-money"></p>
+        <span>{{ "會員中心" | langChart : lang.languageChart }}</span>
+      </li>
+      <li (click)="changePage(['history'])">
+        <p class="icon-ft icon-ft-betrd"></p>
+        <span>{{ "投注紀錄" | langChart : lang.languageChart }}</span>
+      </li>
+      <li (click)="go_Stored_value('record')"  [style.display]="chkSwToken == true ? 'none': '' ">
+        <p class="icon-ft icon-ft-moneyrd"></p>
+        <span>{{ "存提紀錄" | langChart : lang.languageChart }}</span>
+      </li>
+      <li (click)="go_Stored_value('card')"  [style.display]="chkSwToken == true ? 'none': '' ">
+        <p class="icon-ft icon-ft-card"></p>
+        <span>{{ "卡片管理" | langChart : lang.languageChart }}</span>
+      </li>
+    </ul>
+  <!--2020_0424add-->
+    <ul class="list">
+      <li (click)="changePage(['modify'])"  [style.display]="chkSwToken == true ? 'none': '' ">
+        <span class="edit"></span>
+        <p>{{ "修改個資" | langChart : lang.languageChart }}</p>
+      </li>
+      <li (click)="changePage(['billboard'])">
+        <span class="post"></span>
+        <p>{{ "公告" | langChart : lang.languageChart }}</p>
+      </li>
+     
+      <li (click)="changePage(['feedback'])">
+        <span class="feedback"></span>
+        <p>{{ "客服" | langChart : lang.languageChart }}</p>
+      </li>
+      
+      <li (click)="changePage(['addhome'])" [style.display]="chkSwToken == true ? 'none': '' ">
+        <span class="mobile"></span>
+        <p>{{ "加到主畫面" | langChart : lang.languageChart }}</p>
+      </li>
+      <!--2020_0508add-->
+      <li (click)="openagPage()" [style.display]="chkSwToken == true ? 'none': ''" >
+        <span class="add_proxy"></span>
+        <p>{{ "新增代理" | langChart : lang.languageChart }}</p>
+      </li>
+      <!-- <li >
+        <span class="set_page"></span>
+        <p>設定</p>
+      </li> -->
+     
+       <!-- <li (click)="changePage(['cash'])">
+        <span class="cash"></span>
+        <p>{{ "充值提領" | langChart : lang.languageChart }}</p>
+      </li> -->
+       <!-- <li (click)="changePage(['manual'])">
+        <span class="rule"></span>
+        <p>{{ "系統規則" | langChart : lang.languageChart }}</p>
+      </li> -->
+      <!-- <li (click)="settingBtn = !settingBtn">
+        <span class="lang"></span>
+        <p>{{ "語言" | langChart : lang.languageChart }}</p>
+      </li> -->
+      <!-- <li (click)="changePage(['boxsource'])">
+        <span class="result"></span>
+        <p>{{ "賽事結果" | langChart : lang.languageChart }}</p>
+      </li> -->
+      <!-- <li (click)="openWebPage()">
+        <span class="score"></span>
+        <p>{{ "及時比分" | langChart : lang.languageChart }}</p>
+      </li> -->
+      <!-- <li (click)="changePage(['Help'])">
+        <span class="help"></span>
+        <p>帮助中心</p>
+      </li> -->
+    </ul>
+    
+  
+    <ul class="out">
+      <li (click)="logout()">
+        <span class="logout"></span>
+        <p>{{ "登出" | langChart : lang.languageChart }}</p>
+      </li>
+    </ul>
+      <!-- <ul class="info">
+          <li>
+              <label>{{ "會員帳號" | langChart : lang.languageChart }}</label>
+              <p>{{ profile.username }}</p>
+          </li>
+          <li>
+              <label>{{ "帳戶餘額" | langChart : lang.languageChart }}</label>
+              <p class="balance">${{ profile.surplus | formatNumber }}</p>
+          </li>
+      </ul> -->
+  
+      <!--<div class="list">
+          <ul class="row">
+              <li (click)="changePage(['manual'])"><i class="icon icon-rule"></i><p>{{ "系統規則" | langChart : lang.languageChart }}</p></li>
+              <li (click)="settingBtn = !settingBtn"><i class="icon icon-lang"></i><p>{{ "語 言" | langChart : lang.languageChart }}</p></li>
+              <li (click)="changePage(['boxsource'])"><i class="icon icon-race-result"></i><p>{{ "賽事結果" | langChart : lang.languageChart }}</p></li>
+          </ul>
+          <ul class="row">
+              <li (click)="changePage(['billboard'])"><i class="icon icon-announcement"></i><p>{{ "公 告" | langChart : lang.languageChart }}</p></li>
+              <li (click)="changePage(['cash'])"><i class="icon icon-recharge-collar"></i><p>{{ "充值提領" | langChart : lang.languageChart }}</p></li>
+              <li (click)="logout()"><i class="icon icon-signout"></i><p>{{ "登 出" | langChart : lang.languageChart }}</p></li>
+          </ul>
+          <ul class="row">
+              <li (click)="changePage(['promote'])"><i class="icon icon-promotion"></i><p>{{ "推廣連結" | langChart : lang.languageChart }}</p></li>
+              <li (click)="changePage(['feedback'])"><i class="icon icon-service"></i><p>{{ "客 服" | langChart : lang.languageChart }}</p><span [hidden]="!this.member.profile.helpcount">{{ this.member.profile.helpcount }}</span></li>
+              <li (click)="changePage(['modify'])"><i class="icon icon-modify"></i><p>{{ "修改個資" | langChart : lang.languageChart }}</p></li>
+          </ul>
+  
+      </div>-->
+ </div>
+ <iframe class="iframe" *ngIf="token" width="100%" height="100%" frameborder="0" align="center" scrolling="no" [src]="url"></iframe>
+</main>
+
+<!-- 語言選擇視窗 -->
+<article class="modal" [style.display]="settingBtn == true ? '': 'none' ">
+    <div class="alert">
+        <p class="title">{{ "語 言" | langChart : lang.languageChart }}</p>
+        <ul>
+            <li (click)="changeLanguage('zh-cn')">简体中文</li>
+            <li (click)="changeLanguage('zh-tw')">繁體中文</li>
+            <!-- <li (click)="changeLanguage('en-us')">English (beta)</li> -->
+        </ul>
+    </div>
+</article>
+
+<footer-toolbar></footer-toolbar>

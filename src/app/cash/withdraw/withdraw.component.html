@@ -1,0 +1,78 @@
+<div class="withdraw" *ngIf="memberBankList.length > 0; else noData">
+
+  <div class="form">
+    <ul>
+      <li>
+        <span>{{ "銀行卡" | langChart : lang.languageChart }}</span>
+        <span>{{ memberBankList[0].mbank }} </span>
+        <span class="font-family-b">{{ memberBankList[0].mbaccount }}</span>
+      </li>
+      <li>
+        <span>{{ "存入銀行" | langChart : lang.languageChart }}</span>
+        <span>{{ memberBankList[0].mbank }}</span>
+      </li>
+      <li>
+        <span>{{ "存入帳戶" | langChart : lang.languageChart }}</span>
+        <span class="font-family-b">{{ memberBankList[0].mbaccount }}</span>
+      </li>
+      <li>
+        <span>{{ "戶名" | langChart : lang.languageChart }}</span>
+        <span>{{ memberBankList[0].mbname }}</span>
+      </li>
+      <li>
+        <span>{{ "提領金額" | langChart : lang.languageChart }}</span>
+        <input type="number" [(ngModel)]="gold">
+      </li>
+      <!--2020_0410add-->
+      <li>
+        <span>{{ "提領密碼" | langChart : lang.languageChart }}</span>
+        <input type="password" [(ngModel)]="safety">
+      </li>
+      <li>
+        <span>{{ "活動" | langChart : lang.languageChart }}</span>
+        <span>{{ ((member.profile.NeedOrNotFee == 'Y')?'以參加優惠活動':'無參加優惠活動') | langChart : lang.languageChart }}</span>
+      </li>
+    </ul>
+    <p>
+      <button [disabled]="!gold || gold < 1 || !selectedBank.mbank ||!safety" [class.disabled]="!gold || gold < 1 || !selectedBank.mbank ||!safety"
+        (click)="Withdraw(gold, selectedBank)" class="blur_button">{{ "確定提領" | langChart : lang.languageChart }}</button>
+    </p>
+    <p style="padding-top: 9px;">{{ "單筆提領金額最低 100 元。" | langChart : lang.languageChart }}</p>
+    <p *ngIf="member.profile.NeedOrNotFee == 'N'">{{ "本次提領免手續費" | langChart : lang.languageChart }}!!</p>
+    <p *ngIf="member.profile.NeedOrNotFee != 'N'">{{ "本次提領手續費" | langChart : lang.languageChart }}{{member.profile.Fee}}%</p>
+  </div>
+
+  <div class="note">
+    <p>{{ "注意事項" | langChart : lang.languageChart }}</p>
+    <ul>
+      <li style="color: red;">
+        {{ "首儲7倍流水，與再儲3倍流水，符合其中一個條件者，享有每週五次提款免手續費。" | langChart : lang.languageChart }}
+      </li>
+      <li>{{ "每週第五次以後的提款，本公司將收取提款金額的5%行政處理費用。" | langChart : lang.languageChart
+        }}
+      </li>
+
+      <li>{{ "當週的累計時間跟輸贏報表相同,為星期天中午12:00-下星期天中午12:00。" | langChart : lang.languageChart
+      }}
+    </li>
+      <li> {{ "未設定過提領密碼，請使用登入密碼驗證，需要修改請聯絡客服。" | langChart : lang.languageChart }}
+      </li>
+      <li>{{ "第一次輸入銀行帳戶即綁定該帳戶，如需修改提款帳戶，請聯繫客服人員修改。" | langChart : lang.languageChart }}</li>
+      <li>{{ "如利用本平台進行任何洗錢詐騙行為，本公司將保留權力終止會員服務及凍結該會員帳號。" | langChart : lang.languageChart
+        }}
+      </li>
+      <li>{{ "為了確保客戶在平台上的遊戲品質以及資金流動安全性，單筆提款金額達5萬以上，需提前預約申請，本公司將立即為您審核並安排出款程序。" | langChart
+        : lang.languageChart }}</li>
+    </ul>
+  </div>
+
+</div>
+
+<ng-template #noData>
+  <div class="no-data">
+    <div>
+      <img src="../../../img/icon/nodata.png">
+    </div>
+    <p>{{ "請您先設定銀行卡" | langChart : lang.languageChart }}</p>
+  </div>
+</ng-template>

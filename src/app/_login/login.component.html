@@ -1,0 +1,63 @@
+<article>
+    <div class="top">
+      <!-- <div class="close">X</div> -->
+      <span>{{ '登入' | langChart : lang.languageChart }}{{textSession}}</span>
+    </div>
+
+    <div>
+        <div class="logo">
+            <img src="../../img/logo.png" alt="STG">
+            <!-- <span>YUN-FU</span> -->
+        </div>
+        <span class="btn-clear" (click)="Lbutton = !Lbutton">{{ '滑動失效' | langChart : lang.languageChart }}</span>
+        <span class="btn-clear" (click)="clearTemporary()">{{ '清除紀錄' | langChart : lang.languageChart }}</span>
+        <div class="form">
+            <span class="mem"></span>
+            <input type="text" [(ngModel)]="un" placeholder="{{ '帳號' | langChart : lang.languageChart }}">
+            <span class="psw"></span>
+            <input type="password" [(ngModel)]="pw" placeholder="{{ '密碼' | langChart : lang.languageChart }}">
+        </div>
+        <div class="radio" *ngIf="rememberForm">
+            <label>
+            <input type="checkbox" [(ngModel)]="rem">
+            <div class="checkbox"></div>
+            <span>{{ '記住帳密' | langChart : lang.languageChart }}</span>
+        </label>
+       
+            
+        </div>
+        <!-- <div class="verification_wrap">
+            <input type="text" placeholder="圖形驗證">
+            <div class="code_img"></div>
+            <div class="refresh"></div>
+        </div> -->
+        <!-- {{ "登 入" | langChart : lang.languageChart }} -->
+        <div #mainScreen class="btn_scroll" (panstart)="onPanStart($event)"  [ngStyle]="{'display':(Lbutton || loading) ? 'none' : 'inline-block' }"
+        (panmove)="onPan($event)" >
+            <div class="scroll" [ngStyle]="{'width.%': widthExp}" ><span></span></div>
+            <button class="login_btn"
+            >{{ "向右滑動登入" | langChart : lang.languageChart }}</button>
+        </div>
+        <button class="login-btn" (click)="login()" *ngIf="!loading" style="background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);" [ngStyle]="{'display':!Lbutton ? 'none' : 'inline-block' }">{{ "登 入" | langChart : lang.languageChart }}</button>
+        <button class="login-btn-Loading" *ngIf="loading">{{ "加載中" | langChart : lang.languageChart }}。。。</button>
+        <!-- <button class="register-btn" (click)="register()">{{ "註 冊" | langChart : lang.languageChart }}</button> -->
+        <!--2020_0420add-->
+        <div class="help_wrap">
+            <button class="help-btn" (click)="showChatlink()"><p>24H</p>{{ "客服" | langChart : lang.languageChart }}</button>
+            <div class="forget"  onclick="showPanel()">{{ "忘記密碼" | langChart : lang.languageChart }}?</div>
+        </div>
+        
+
+        <!-- <ul class="lang">
+            <li (click)="changeLanguage('zh-cn')">简体中文</li>
+            <li (click)="changeLanguage('zh-tw')">繁體中文</li>
+            <li (click)="changeLanguage('en-us')">English</li>
+        </ul> -->
+        <div class="btn_wrap">
+            <!--2020_0420add_把原本的24H關掉惹-->
+            <!-- <button class="red" onclick="showPanel()"><p><span class="row">24</span>H客服</p></button> -->
+            <button class="blue" style="display: none;"><p>APP{{ "下載" | langChart : lang.languageChart }}</p></button>
+        </div>
+        <!-- <p class="copyright">Copyright © 2017 . All rights reserved.</p> -->
+    </div>
+</article>

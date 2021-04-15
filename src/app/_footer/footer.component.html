@@ -1,0 +1,43 @@
+
+
+<footer [@active]="footer_out"  [class.goleft]="status == false" >
+    <!-- <div (click)="openWebPage()">
+        <p class="icon-ft icon-ft-score"></p>
+        <p>{{ "及時比分" | langChart : lang.languageChart }}</p>
+    </div> -->
+  
+    <div *ngIf="router_seat != 'market'" [ngClass]="{'active': activeCSS == 'HomepageComponent'}" (click)="changePage(['homepage'])">
+            <p class="icon-ft icon-ft-home"></p>
+            <p>{{ "首頁" | langChart : lang.languageChart }}</p>
+    </div>
+    <div *ngIf="router_seat == 'market'" (click)="footer.getopen()">
+        <p class="icon-ft icon-ft-set"></p>
+        <p>{{ "設置菜單" | langChart : lang.languageChart }}</p>
+    </div>
+    <div [ngClass]="{'active': activeCSS == 'MarketComponent'}" (click)="changePage(['market'])">
+        <p class="icon-ft icon-ft-market"></p>
+        <p>{{ "市場列表" | langChart : lang.languageChart }}</p>
+    </div>
+    <!-- <div [ngClass]="{'active': activeCSS == 'MarketComponent'}" (click)="changePage(['market'])">
+        <p class="icon-ft icon-ft-market"></p>
+        <p>{{ "市場列表" | langChart : lang.languageChart }}</p>
+    </div> -->
+    <div [ngClass]="{'active': activeCSS == 'DetailComponent'}" (click)="changePage(['detail'])">
+        <p class="icon-ft icon-ft-details"></p>
+        <p>{{ "交易明細" | langChart : lang.languageChart }}</p>
+    </div>
+    <div [ngClass]="{'active': activeCSS == 'HistoryComponent'}" (click)="changePage(['history'])">
+        <p class="icon-ft icon-ft-history"></p>
+        <p>{{ "歷史帳務" | langChart : lang.languageChart }}</p>
+    </div>
+    <div [ngClass]="{'active': activeCSS == 'OptionsComponent'}" >
+        <p class="icon-ft icon-ft-mine" (click)="changePage(['options'])"></p>
+        <p (click)="changePage(['options'])">{{ "我的" | langChart : lang.languageChart }}</p>
+        <span [hidden]="!this.member.profile.helpcount || activeCSS == 'OptionsComponent' ">
+            {{ this.member.profile.helpcount }}</span>
+
+            <div class="top_block" (click)="Zoom()">
+                <em></em><p >{{((footer_out)?'收起':'展開') | langChart : lang.languageChart}}</p>
+            </div>
+    </div>
+</footer>

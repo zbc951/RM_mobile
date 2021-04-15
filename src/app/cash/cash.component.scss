@@ -1,0 +1,301 @@
+$dark_: #242424;
+$lighten-blue: #7689a4;
+$lighten-blue-bg: #95a6bf;
+$gray:#c7c9d1;
+$red:#d78c71;
+
+
+@mixin dark-red {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#dd9981+0,e7a891+50,f4b9a4+100 */
+background: #dd9981; /* Old browsers */
+background: -moz-linear-gradient(top,  #dd9981 0%, #e7a891 50%, #f4b9a4 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #dd9981 0%,#e7a891 50%,#f4b9a4 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #dd9981 0%,#e7a891 50%,#f4b9a4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dd9981', endColorstr='#f4b9a4',GradientType=0 ); /* IE6-9 */
+
+
+}
+// * {
+//   font-family: "微軟正黑體";
+// }
+.font-family-b {
+  font-family: Bahnschrift;
+}
+
+header {
+  .nav {
+    font-size: 22px;
+  }
+}
+
+main[class="main"] {
+  // height: calc(100vh - 95px);
+
+  div.balance {
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    background: linear-gradient(
+      to right bottom,
+      #e5e5e5 0%,
+      #f7f7f7 10%,
+      #ffffff 20%,
+      #ffffff 80%,
+      #f7f7f7 90%,
+      #e5e5e5 100%
+    );
+    height: 60px;
+    line-height: 60px;
+    color: #2f2f2f;
+    border-bottom: 2px solid #043f73;
+    em {
+      font-size: 19px;
+    }
+  }
+
+  ul.menu {
+    width: 92vw;
+    margin: 0 auto;
+    margin-top: 12px;
+    border-radius: 15px;
+
+
+    box-shadow: 0px 0px 3px 0px #9bafbf;
+    margin-bottom:25px;
+    li {
+      background-color: #fff;
+      line-height: 55px;
+      color: $dark_;
+      font-weight: 700;
+      // border: 0px #f3f3f3 solid;
+      border-bottom-width: 2px;
+      padding-left: 17px;
+      padding-right: 35px;
+
+      &:first-child {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        border-radius: 15px 15px 0 0;
+        position: relative;
+        p {
+          line-height: 20px;
+          font-weight: lighter;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-family: "微軟正黑體";
+        }
+        div {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+          margin-left: -2px;
+          font-family: Bahnschrift;
+          p {
+            line-height: 18px;
+            font-size: 12px;
+            font-family: Bahnschrift;
+            font-weight: bolder;
+            margin-bottom: 0px;
+          }
+          em {
+            font-size: 25px;
+            line-height: 27px;
+            font-family: Bahnschrift;
+          }
+        }
+        span {
+          position: absolute;
+          width: 86px;
+          height: 36px;
+          border-radius: 30px;
+          background: linear-gradient(to right, #fe4646 0%,#a5003d 100%);
+          color: #fff;
+          text-align: center;
+          font-size: 16px;
+          font-weight: lighter;
+          line-height: 35px;
+          left: 80.5%;
+          top: 57%;
+          transform: translate(-50%, -50%);
+          box-shadow: 0px 4px 4px 0px #d0d0d0;
+        }
+      }
+      &:last-child {
+        border-radius: 0 0 15px 15px;
+      }
+      &.other {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 27px 0 10px 0;
+        border-bottom: 1px solid #e7e7e7;
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: calc(100% / 3);
+          span {
+            height: 36px;
+            &.cash-money {
+              background: url(./assets/cash/cash-money.png) no-repeat;
+              background-size: cover;
+              background-position: center center;
+              width: 38px;
+
+            }
+            &.detail-record {
+              background: url(./assets/cash/detail-h.png) no-repeat;
+              background-size: cover;
+              background-position: center center;
+              width: 34px;
+
+            }
+            &.cards {
+              background: url(./assets/cash/cards.png) no-repeat;
+              background-size: cover;
+              background-position: right center;
+              width: 41px;
+
+            }
+          }
+          p{
+            line-height: 36px;
+          }
+        }
+      }
+      &.box-footer{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding-left: 17px;
+          padding-right: 30px;
+          line-height: 55px;
+          div{
+              font-size: 19px;
+              font-weight: lighter;
+          }
+          p{
+            font-size: 15px;
+              color: $lighten-blue;
+              font-weight: lighter;
+              span{
+                  width: 14px;
+                  height: 14px;
+                  border: 1px solid $lighten-blue;
+                  border-radius: 2px;
+                  position: relative;
+                  display: inline-block;
+                  &:before,&:after{
+                      position: absolute;
+                      content:'';
+                      background-color:$lighten-blue ;
+                      left: 50%;
+                    top: 50%;
+                    transform: translate(-50% ,-50%);
+                  }
+                  &:before{
+                      width: 70%;
+                      height: 1px;
+                  }
+                  &:after{
+                    width: 1px;
+                    height: 70%;
+
+                }
+
+              }
+          }
+      }
+      i:first-child {
+        margin-right: 27px;
+        img {
+          position: relative;
+          top: 5px;
+          width: 26px;
+        }
+      }
+      i:last-child {
+        float: right;
+        img {
+          width: 18px;
+        }
+      }
+    }
+  }
+  ul.event{
+    width: 92vw;
+    margin: 0 auto;
+    background: #fff;
+    padding: 17px 17px 0px 17px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px 0px #9bafbf;
+    li.title{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        p{
+            span{
+                display: inline-block;
+
+            }
+            &:first-child{
+                color: $dark_;
+                font-size: 18px;
+                font-weight: bolder;
+                span{
+                    background: linear-gradient(to top, #fe4646 0%,#a5003d 100%);
+                    width: 4px;
+                    height: 15px;
+                    border-radius: 8px;
+                    margin-right: 3px;
+                }
+            }
+            &:last-child{
+                font-size: 14.5px;
+                color:$lighten-blue;
+                span{
+                    color:$gray;
+                    margin-left: 7px;
+                }
+                &.red{
+                    color:$red;
+                }
+            }
+        }
+
+    }
+    li{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .banner{
+            background: url(./assets/cash/banner.png) no-repeat;
+            width: 380px;
+            height: 100px;
+            background-size: contain;
+            background-position: center center;
+        }
+    }
+    li.big-content{
+        height: calc(100vh - 549px);
+        font-size: 17px;
+        color:$lighten-blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+}
+
+.main_sub {
+  z-index: 700;
+  height: auto;
+  position: absolute;
+  top: 0px;
+  background-color: #f0f0f0;
+}

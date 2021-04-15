@@ -1,0 +1,338 @@
+//color
+$dark-blue:#39455b;
+$lighten-blue:#758aa4;
+$lighten-gray:#f0f0f0;
+$lighten-red:#de807b;
+.font-family-w{
+    font-family: '微軟正黑體';
+}
+.title-font-size{
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+.active{
+    color: $dark-blue;
+}
+main {
+    &.activity{
+        background: none;
+        height: auto;
+        padding: 50px 12px 100px 12px;
+        overflow-y: scroll;
+        .card1{
+            background: #fff;
+            margin: 20px 0 0 0;
+            border-radius: 8px;
+            overflow: hidden;
+            .banner{
+                background: url(./assets/event/a1_01.jpg) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100%;
+                height: 145px;
+                position: relative;
+                border-radius: 8px 8px 0 0;
+                overflow: hidden;
+                .check{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                background: url(./assets/event/check.png) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100px;
+                height: 25px;
+
+                }
+            }
+            .content{
+                background: #839ab0 url(./assets/event/a1_02.jpg) no-repeat;
+                background-size: 100%;
+                background-position: top;
+                width: 100%;
+                height: 136vh;
+                position: relative;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+
+        .card2{
+            background: #fff;
+            margin: 20px 0 0 0;
+            border-radius: 8px;
+            overflow: hidden;
+            .banner{
+                background: url(./assets/event/a2_01.jpg) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100%;
+                height: 145px;
+                position: relative;
+                border-radius: 8px 8px 0 0;
+                overflow: hidden;
+                .check{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                background: url(./assets/event/check.png) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100px;
+                height: 25px;
+
+                }
+            }
+            .content{
+                background: #839ab0 url(./assets/event/a2_02.jpg) no-repeat;
+                background-size: 100%;
+                background-position: top;
+                width: 100%;
+                height: 103vh;
+                position: relative;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+
+        .card3{
+            background: #fff;
+            margin: 20px 0 0 0;
+            border-radius: 8px;
+            overflow: hidden;
+            .banner{
+                background: url(./assets/event/a3_01.jpg) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100%;
+                height: 145px;
+                position: relative;
+                border-radius: 8px 8px 0 0;
+                overflow: hidden;
+                .check{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                background: url(./assets/event/check.png) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100px;
+                height: 25px;
+
+                }
+            }
+            .content{
+                background: #839ab0 url(./assets/event/a3_02.jpg) no-repeat;
+                background-size: 100%;
+                background-position: top;
+                width: 100%;
+                height: 209vh;
+                position: relative;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+
+
+
+
+
+        .card4{
+            background: #fff;
+            margin: 20px 0 0 0;
+            border-radius: 8px;
+            overflow: hidden;
+            .banner{
+                background: url(./assets/event/a4_01.jpg) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100%;
+                height: 145px;
+                position: relative;
+                border-radius: 8px 8px 0 0;
+                overflow: hidden;
+                .check{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                background: url(./assets/event/check.png) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100px;
+                height: 25px;
+
+                }
+            }
+            .content{
+                background: #839ab0 url(./assets/event/a4_02.jpg) no-repeat;
+                background-size: 100%;
+                background-position: top;
+                width: 100%;
+                height: 218vh;
+                position: relative;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+        .card5{
+            background: #fff;
+            margin: 20px 0 0 0;
+            border-radius: 8px;
+            overflow: hidden;
+            .banner{
+                background: url(./assets/event/a5_01.jpg) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100%;
+                height: 145px;
+                position: relative;
+                border-radius: 8px 8px 0 0;
+                overflow: hidden;
+                .check{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                background: url(./assets/event/check.png) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100px;
+                height: 25px;
+
+                }
+            }
+            .content{
+                background: #839ab0 url(./assets/event/a5_02.jpg) no-repeat;
+                background-size: 100%;
+                background-position: top;
+                width: 100%;
+                height: 218vh;
+                position: relative;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+
+
+
+        .card6{
+            background: #fff;
+            margin: 20px 0 0 0;
+            border-radius: 8px;
+            overflow: hidden;
+            .banner{
+                background: url(./assets/event/a6_01.jpg) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100%;
+                height: 145px;
+                position: relative;
+                border-radius: 8px 8px 0 0;
+                overflow: hidden;
+                .check{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                background: url(./assets/event/check.png) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100px;
+                height: 25px;
+
+                }
+            }
+            .content{
+                background: #839ab0 url(./assets/event/a6_02.jpg) no-repeat;
+                background-size: 100%;
+                background-position: top;
+                width: 100%;
+                height: 218vh;
+                position: relative;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+        .card7{
+            background: #fff;
+            margin: 20px 0 0 0;
+            border-radius: 8px;
+            overflow: hidden;
+            .banner{
+                background: url(./assets/event/a7_01.jpg) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100%;
+                height: 145px;
+                position: relative;
+                border-radius: 8px 8px 0 0;
+                overflow: hidden;
+                .check{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                background: url(./assets/event/check.png) no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100px;
+                height: 25px;
+
+                }
+            }
+            .content{
+                background: #839ab0 url(./assets/event/a7_02.jpg) no-repeat;
+                background-size: 100%;
+                background-position: top;
+                width: 100%;
+                height: 218vh;
+                position: relative;
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+    }
+    ul[class="menu"] {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #fff;
+        height: 55px;
+        > li {
+            float: left;
+            width: 50vw;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            color: #242424;
+            font-weight: 700;
+            border: 0px #f3f3f3 solid;
+            border-right-width: 2px;
+
+
+            &.selected {
+                position: relative;
+                &:before {
+                    position: absolute;
+                    background: $lighten-red;//#22adff
+                    content: '';
+                    height: 2px;
+                    width:32px;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+        .gray-paddimg{
+            width: 100%;
+        background-color: #f0f0f0;
+        height: 10px;
+        }
+    }
+
+    div[class="main"] {
+        height: calc(100Vh - 68px);
+        padding: 18px 20px 0px 20px;
+        overflow-y: scroll;
+        background: #fff;
+
+    }
+}
+

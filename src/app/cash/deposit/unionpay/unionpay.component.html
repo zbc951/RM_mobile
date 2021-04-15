@@ -1,0 +1,51 @@
+<!-- 流水號匯款 -->
+<div class="main_serial">
+  <div class="form" *ngIf="qrcodeflag==false" >
+    <ul>      
+      <li>
+        <span>{{ "金額" | langChart : lang.languageChart }}</span>
+        <input class="tape1" type="tel" [(ngModel)]="serialGold">
+        <button type="button" ngxClipboard [cbContent]="serialGold">{{ "複 製" | langChart : lang.languageChart }}</button>
+      </li>    
+      <p>
+        <button class="blur_button" (click)="serialDeposit(serialGold, 1234)" [disabled]="!serialGold || serialGold < 100 || serialGold > 50000 "
+          [class.disabled]="!serialGold || serialGold < 100 || serialGold > 50000 ">
+          {{ "確定充值" | langChart : lang.languageChart }}
+        </button>
+      </p>
+      <p>{{ "單筆充值金額 100 ~ 50000 元，每日次數不限制。" | langChart : lang.languageChart }}</p>
+    </ul>
+  </div>
+
+  <div *ngIf="qrcodeflag==true" >
+    <div class="note">    
+    <ul>   
+        <li>
+          {{ "支付方式" | langChart : lang.languageChart }} : {{qrcodebackDate.payname}}
+        </li>     
+        <li>
+          {{ "單號" | langChart : lang.languageChart }} 
+          <input class="tape1" type="text" [(ngModel)]="depositNo"  required /> 
+          <button type="button" ngxClipboard [cbContent]="depositNo">{{ "複 製" | langChart : lang.languageChart }}</button>
+        </li>   
+        <li> 
+          {{ "實際支付金額" | langChart : lang.languageChart }} : {{qrcodebackDate.realamount}}   
+        </li>         
+      </ul>
+      <br/>
+      <p>{{ "qrcode" | langChart : lang.languageChart }}</p>
+          <img src={{qrcodebackDate.qrcode}}>    
+    </div>
+  </div>
+
+  <div class="note">
+    <p>{{ "注意事項" | langChart : lang.languageChart }}</p>
+    <ul>
+      <li>1. {{ "金額偏差可以上浮或下浮，範圍是0-0.20元。" | langChart : lang.languageChart }}</li>
+      <li>2. {{ "支付成功會在十分鐘內辦理如有任何疑問請隨時諮詢24/7在線客服" | langChart : lang.languageChart }}</li>
+      <li>3. {{ "訂單金額與轉賬金額不符時以實際到賬金額為準且實際轉賬金額必須符合充值申請時的金額要求" | langChart : lang.languageChart}}</li>
+    </ul>
+  </div>
+
+  
+</div>

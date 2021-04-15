@@ -1,0 +1,207 @@
+<header class="billboard">
+  <div class="nav">
+    <ul>
+      <li class="back" (click)="location.back()"></li>
+      <li class="title">{{ "消息中心" | langChart : lang.languageChart }}</li>
+      <!-- <li class="edit">{{ "編輯" | langChart : lang.languageChart }}</li> -->
+    </ul>
+  </div>
+  <section>
+    <ul>
+        <!-- class="have" 這是下面的 數字用css 寫在裡面 隱含數-->
+      <li class="board active" (click)="openbillboard('board')">{{ "公 告" | langChart : lang.languageChart }}</li>
+      <li class="message  " (click)="openbillboard('message')">{{ "通知" | langChart : lang.languageChart }}</li>
+      <li class="event" (click)="openbillboard('event')">{{ "活動" | langChart : lang.languageChart }}</li>
+      <li class="game-board" (click)="openbillboard('gameBoard')">{{ "賽事公告" | langChart : lang.languageChart }}</li>
+    </ul>
+  </section>
+  
+</header>
+<!--通知訊息-->
+<main  class="message">
+  <!-- <div  class="content" *ngFor="let item of billboard">
+    <p>{{ item.dtime }}</p>
+    <div>{{ item.content }}</div>
+  </div>
+  <div class="padding-bar"></div> -->
+  <ul>
+    <li class="yet" *ngFor="let item of billboard">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ item.dtime }}</h1>
+          <!-- <span class="time">{{ item.dtime }}</span> -->
+        </div>
+        <p class="message">{{ item.content }}</p>
+      </div>
+    </li>
+  </ul>
+  <!-- 20200219 art Tim-->
+</main>
+<!--公告-->
+<main style="display: none;" class="board">
+  <div style="display: none;" class="content" *ngFor="let item of billboard">
+    <p>{{ item.dtime }}</p>
+    <div>{{ item.content }}</div>
+  </div>
+  <ul>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+    <li class="yet">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "公告標題" | langChart : lang.languageChart }}</h1>
+          <span class="time">2020-02-01</span>
+        </div>
+        <p class="message">通知通知通知通知通知通知通知通知...</p>
+      </div>
+    </li>
+
+
+
+  </ul>
+  <!-- 20200219 art Tim-->
+</main>
+
+<!--賽事公告 default-->
+<main class="game-board" style="display: none;">
+  <div style="display: none;" class="content" *ngFor="let item of billboard">
+    <p>{{ item.dtime }}</p>
+    <div>{{ item.content }}</div>
+  </div>
+  <div class="padding-bar"></div>
+  <ul>
+    <li>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "賽事" | langChart : lang.languageChart }}{{ "公告標題" | langChart : lang.languageChart }}
+          </h1>
+          <span class="time">05日2月,02:06:00</span>
+        </div>
+        <p class="message">賽事公告標題賽事公告標題賽事公告標題賽事公告標題賽事公告標題賽事公告標題</p>
+      </div>
+    </li>
+  </ul>
+  <!-- 20200219 art Tim-->
+</main>
+
+<!--內頁 通知詳情-->
+<header style="display: none;" class="billboard-content clear-height">
+  <!-- <div class="nav" style="display: none;">
+        <div class="icon" (click)="location.back()"><i class="icon icon-arrow-w"></i></div>
+        <span>{{ "公 告" | langChart : lang.languageChart }}</span>
+    </div> -->
+  <div class="nav delete-padding">
+    <ul>
+      <li class="back" (click)="location.back()"></li>
+      <li class="btn">{{ "通知詳情" | langChart : lang.languageChart }}</li>
+      <li class="delete">{{ "刪除" | langChart : lang.languageChart }}</li>
+    </ul>
+  </div>
+  <div class="padding-bar"></div>
+</header>
+
+<main style="display: none;" class="message-content">
+  <!-- <div class="content" *ngFor="let item of billboard" >
+        <p>{{ item.dtime }}</p>
+        <div>{{ item.content }}</div>
+    </div> -->
+  <div class="padding-bar"></div>
+  <ul>
+    <li class="title">
+      <div class="horn-icon"></div>
+      <div class="li-content">
+        <div class="top-area">
+          <h1 class="title">{{ "通知標題" | langChart : lang.languageChart }}</h1>
+
+        </div>
+        <p class="message">2020-02-14 10:33:14</p>
+      </div>
+    </li>
+    <li class="content">通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知通知</li>
+  </ul>
+  <!-- 20200219 art Tim-->
+</main>
+
+
+
+<footer-toolbar></footer-toolbar>

@@ -1,0 +1,52 @@
+@import "./../app.variables";
+
+$dark-blue:#39455b;
+$dark_black:#242424;
+
+.dark-blue.dark-blue.dark-blue{
+    color:$dark-blue;
+}
+.rules {
+    font-weight: 700;
+    padding-bottom:300px;
+    .arr{
+        height: 50px;
+    }
+    div{
+        margin-top: 20px;
+        font-size: 18px;
+    }
+    h2{
+        margin-bottom: 10px;
+        color: red;
+    }
+    p {
+        color: $dark_black;
+        margin-bottom: 4px;
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    ul {
+        li{
+            &:first-child{
+                margin-top: 10px;
+            }
+            color: $dark_black;
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 22px;
+            border: 0px $dark_black dashed;
+            border-bottom-width: 2px;
+            padding-bottom: 10px;
+            span {
+                // margin-right: 21px;
+            }
+            .red {
+                color: #d27d5e;
+            }
+        }
+    }
+
+}
+
+

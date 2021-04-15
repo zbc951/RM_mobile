@@ -1,0 +1,91 @@
+<header class="feedback">
+    <div class="nav">
+        <!-- <div class="icon" (click)="location.back()"><i class="icon icon-arrow-w"></i></div> -->
+      <ul>
+        <li [class.selected]="subPage == 'onLine'"  (click)="subPage = 'onLine'">{{ "我的客服" | langChart : lang.languageChart }}</li>
+        <!-- <li [class.selected]="subPage == 'offLine'"(click)="subPage = 'offLine'"  >{{ "意見反饋" | langChart : lang.languageChart }}</li> -->
+      </ul>
+      <!-- <span>{{ "我的客服" | langChart : lang.languageChart }}</span>
+      <span>{{ "意見反饋" | langChart : lang.languageChart }}</span> -->
+      <div class="hellocard">
+        <img class="manhead" src="../../img/manhead.jpg" alt="" width="70">
+        <div class="text">
+          <h1 class="fb">Hi,  {{ profile.username || '- -' }}</h1>
+          <span>{{ "歡迎來到客服中心" | langChart : lang.languageChart }}</span>
+        </div>
+      </div>
+    </div>
+</header>
+
+<main>
+
+    <!-- 在線客服 -->
+    <div class="cnt_onLine" *ngIf="subPage == 'onLine'">
+
+         <div *ngIf="P_ID == 58" class="row first" id="target" (click)="showChatlink()">
+            <!-- <img src="../../img/icon/livechat01.png" alt="customer" width="50"> -->
+            <div class="left">
+                <p>{{ "主線客服" | langChart : lang.languageChart }}</p>
+                <span class="sub">
+                    Customer service</span><br/>
+                <span><span class="fb"></span> {{ "服務 貼心至上" | langChart : lang.languageChart }}</span>
+            </div>
+            <div class="RightArrow"></div>
+        </div>
+
+
+        <!-- <div class="row second" (click)="QQalert()" >
+            <div class="left">
+                <p class="sec">QQ{{ "客服" | langChart : lang.languageChart }}</p>
+                <span class="sub blue">Message area</span><br/>
+                <span><span class="fb"></span> {{ "服務 貼心至上" | langChart : lang.languageChart }}</span>
+            </div>
+            <div class="RightArrow blue"></div>
+        </div> -->
+        <!-- <div class="row">
+            <img src="../../img/icon/wechat.png" alt="微信" width="70">
+            <div>
+                <p><span>微信</span>wiselink1988</p>
+                <button type="button" class="green" (click)="qrCode('WeChat')">QR Code</button>
+            </div>
+        </div>
+        <div class="row">
+            <img src="../../img/icon/weibo.png" alt="微博" width="70">
+            <div>
+                <p><span>微博</span></p>
+                <button type="button" class="red" (click)="qrCode('Weibo')">QR Code</button>
+                <button type="button" class="red_b" (click)="openApps('Weibo')">{{ "+ 加關注" | langChart : lang.languageChart }}</button>
+            </div>
+        </div> -->
+    </div>
+    <!-- 留言反應 -->
+    <!-- <div class="cnt_offLine" *ngIf="subPage == 'offLine'">
+        <div class="back"  (click)="subPage = 'onLine'">{{ "返回上一頁" | langChart : lang.languageChart }}</div>
+        <div class="form">
+            <p>{{ "反應內容" | langChart : lang.languageChart }} <span>( {{ problem.value.length }} / 500 )</span></p>
+            <textarea [(ngModel)]="problemT" [maxLength]="500" #problem ></textarea>
+            <p><button class="blur_button" type="button" [disabled]="!problemT" [class.disabled]="!problemT" (click)="submitQues()">{{ "送 出" | langChart : lang.languageChart }}</button></p>
+        </div>
+        <div class="massage" *ngFor="let item of feedback">
+            <span class="read" [style.display]="(item.status == 1 && item.chk == 0 )? '': 'none' ">{{ "新回覆" | langChart : lang.languageChart }}!</span>
+            <div class="title">{{ item.adddate }}</div>
+            <div class="q"><span>Q：</span>{{ item.problem }}</div>
+            <div class="a"><span>A：</span>{{ item.reply }}</div>
+        </div>
+    </div> -->
+
+</main>
+
+<article class="modal" id="qrcode_page">
+    <div class="dialog">
+        <div class="title">{{ qrCodeTitle }} {{ "掃一掃" | langChart : lang.languageChart }}</div>
+        <img class="close" src="../../img/icon/delete.png">
+        <div class="cnt">
+            <img *ngIf="qrCodeTitle == 'QQ'" src="../../img/qq_qrcode.png" height="260" width="220" alt="qq_qrcode">
+            <img *ngIf="qrCodeTitle == '微信'" src="../../img/wechat_qrcode.png" height="220" width="220" alt="qq_qrcode">
+            <qr-code *ngIf="qrCodeTitle == '微博'" [value]="qrCodeLink" [size]="240"></qr-code>
+        </div>
+    </div>
+</article>
+
+<footer-toolbar></footer-toolbar>

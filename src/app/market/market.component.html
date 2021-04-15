@@ -1,0 +1,261 @@
+<header class="market" *ngIf="status == true" id = 'header'>
+  <div class="nav">
+    <ul>
+      <li class="back" (click)="changePage(['homepage'])"></li>
+      <li class="title" *ngIf="sortAllDis" >
+        {{(search)?search: "全部賽事" | langChart : lang.languageChart }}</li>
+      <li class="btn" (click)="MarketSortComponent.state = 'stay'" *ngIf="sortDateDis">
+        {{(sortDateDis == '-1')? ('全部時間' | langChart : lang.languageChart):sortDateDis}}</li>
+      <li class="btn" (click)="MarketSortComponent.state = 'stay'" *ngIf="sortLeagueDis">{{sortLeagueDis}}</li>
+      <li class="wallet" (click)="upgetProfile()"></li>
+      <li class="search" (click)="MarketSortComponent.state = 'stay'"></li>
+    </ul>
+
+  </div>
+
+
+</header>
+<header *ngIf="status == false">
+
+</header>
+<aside class="market_title" *ngIf="status == true" id='aside'>
+  <section class="title">
+    <span class="broadcast"></span>
+    <div class="msg">
+      <div [style.-webkit-animation]="marqueeStyle">{{ billboard }}</div>
+    </div>
+    <div class="hot" (click)="SwitchHot('open')">{{ "熱門賽事" | langChart : lang.languageChart }}</div>
+  </section>
+  <div class="info">
+    <div class="left">
+      <span class="name fb">{{ profile.username || '- -' }}<a></a></span><br />
+      <span class="money fb">${{ profile.surplus | formatNumber  }}</span>
+    </div>
+    <div class="reflash" (click)="getMarket()">{{ "刷新" | langChart : lang.languageChart }}</div>
+  </div>
+</aside>
+<main class="market" [class.goleft]="status == false" *ngIf="ALLmarketList ||marketList;"  id='main'>
+  <!-- <section style="height: 140px;" *ngIf="Changecss"></section> -->
+  <article *ngIf="sortAllDis">
+    <!-- 進行中 -->
+    <!-- <div class="title ing">進行中</div> -->
+    <!-- 全部賽事 -->
+    <section *ngFor="let tomarketList of ALLmarketList |KeysPipe;">
+      <div class="bloc_name">{{tomarketList.key}}</div>
+      <div class="bet_area" *ngFor="let item of tomarketList.value" [class.sec]="(item.css%2 == 1)">
+        <ul class="top" (click)="checkHandicap(item, gtype)">
+          <!-- <li class="mk_move"></li>
+            <li class="mk_live"></li> -->
+          <li class="fb no">No.{{ item.gid | last4}}</li>
+          <li class="fb">&nbsp;&nbsp;{{ item.date }}</li>
+          <li class="fb">&nbsp;&nbsp;{{ item.mtime }}</li>
+          <span *ngIf="item.reciprocal" class="timeout"><span
+              *ngIf="item['msg']">{{ item['msg'] | langChart : lang.languageChart  }}&nbsp;&nbsp;</span>{{ item.reciprocal }}</span>
+          <li class="crude">{{ "更多" | langChart : lang.languageChart }}<span class="fb">(99)</span></li>
+        </ul>
+        <ul class="team" (click)="checkHandicap(item, gtype)">
+          <li class="HT">
+            <span>{{ item.ht }}[{{ "主" | langChart : lang.languageChart }}]</span>
+            <!-- <img src="../../img/market/team_logo/tl_00001.png" alt=""> -->
+          </li>
+          <li class="fb">vs</li>
+          <li class="CT">
+            <span>{{ item.ct }}</span>
+            <!-- <img src="../../img/market/team_logo/tl_00002.png" alt=""> -->
+          </li>
+        </ul>
+        <div class="bet_btn">
+          <!-- <span class="fb">1-3</span>
+          <span class="fb">0-0</span>
+          <span class="fb">3-1</span> -->
+
+          <!--尚未開賽 class 2020-0223-->
+          <!-- <span class="fb lock"></span>
+          <span class="fb lock"></span>
+          <span class="fb lock"></span> -->
+          <!--尚無賽事 class 2020-0223-->
+          <span class="fb " [ngClass]="{'empty': item.hotr1?.option ,lock : !item.hotr1?.option}"
+            (click)="Quick_bet(item, gtype , item.hotr1)">{{ item.hotr1?.option | langChart : lang.languageChart }}</span>
+          <span class="fb " [ngClass]="{'empty': item.hotr2?.option ,lock : !item.hotr2?.option}"
+            (click)="Quick_bet(item, gtype , item.hotr2)">{{ item.hotr2?.option | langChart : lang.languageChart }}</span>
+          <span class="fb " [ngClass]="{'empty': item.hotr3?.option ,lock : !item.hotr3?.option}"
+            (click)="Quick_bet(item, gtype , item.hotr3)">{{ item.hotr3?.option | langChart : lang.languageChart }}</span>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <article *ngIf="sortDateDis">
+
+    <!-- 日期賽事 -->
+    <section>
+      <!-- <div class="bloc_name">{{tomarketList.key}}</div> -->
+      <div class="bet_area" *ngFor="let item of marketList | sortMarketList: 'date' : sortDateDis; let i = index"
+         [class.sec]="(i%2 == 1)">
+        <ul class="top" (click)="checkHandicap(item, gtype)">
+          <!-- <li class="mk_move"></li>
+                  <li class="mk_live"></li> -->
+          <li class="fb no">No.{{ item.gid | last4}}</li>
+          <li class="fb">&nbsp;&nbsp;{{ item.date }}</li>
+          <li class="fb">&nbsp;&nbsp;{{ item.mtime }}</li>
+          <span *ngIf="item.reciprocal" class="timeout"><span
+              *ngIf="item['msg']">{{ item['msg'] | langChart : lang.languageChart  }}&nbsp;&nbsp;</span>{{ item.reciprocal }}</span>
+          <li class="crude">{{ "更多" | langChart : lang.languageChart }}<span class="fb">(99)</span></li>
+        </ul>
+        <ul class="alliance" (click)="checkHandicap(item, gtype)">{{item.lid}}</ul>
+        <ul class="team" (click)="checkHandicap(item, gtype)">
+          <li class="HT">
+            <span>{{ item.ht }}[{{ "主" | langChart : lang.languageChart }}]</span>
+            <!-- <img src="../../img/market/team_logo/tl_00001.png" alt=""> -->
+          </li>
+          <li class="fb">vs</li>
+          <li class="CT">
+            <span>{{ item.ct }}</span>
+            <!-- <img src="../../img/market/team_logo/tl_00002.png" alt=""> -->
+          </li>
+        </ul>
+        <div class="bet_btn">
+          <span class="fb " [ngClass]="{'empty': item.hotr1?.option ,lock : !item.hotr1?.option}"
+            (click)="Quick_bet(item, gtype , item.hotr1)">{{ item.hotr1?.option | langChart : lang.languageChart }}</span>
+          <span class="fb " [ngClass]="{'empty': item.hotr2?.option ,lock : !item.hotr2?.option}"
+            (click)="Quick_bet(item, gtype , item.hotr2)">{{ item.hotr2?.option | langChart : lang.languageChart }}</span>
+          <span class="fb " [ngClass]="{'empty': item.hotr3?.option ,lock : !item.hotr3?.option}"
+            (click)="Quick_bet(item, gtype , item.hotr3)">{{ item.hotr3?.option | langChart : lang.languageChart }}</span>
+        </div>
+      </div>
+    </section>
+
+
+  </article>
+
+
+
+  <article *ngIf="sortLeagueDis">
+    <!-- 聯盟賽事 -->
+    <section *ngFor="let tomarketList of ALLmarketList |KeysPipe:sortLeagueDis">
+      <div>
+        <div class="bloc_name">{{tomarketList.key}}</div>
+        <div class="bet_area" *ngFor="let item of tomarketList.value" (click)="checkHandicap(item, gtype)"
+          [class.sec]="(item.css%2 == 1)">
+          <ul class="top">
+            <!-- <li class="mk_move"></li>
+                  <li class="mk_live"></li> -->
+            <li class="fb no">No.{{ item.gid | last4}}</li>
+            <li class="fb">&nbsp;&nbsp;{{ item.date }}</li>
+            <li class="fb">&nbsp;&nbsp;{{ item.mtime }}</li>
+            <span *ngIf="item.reciprocal" class="timeout"><span
+                *ngIf="item['msg']">{{ item['msg'] | langChart : lang.languageChart  }}&nbsp;&nbsp;</span>{{ item.reciprocal }}</span>
+            <li class="crude">{{ "更多" | langChart : lang.languageChart }}<span class="fb">(99)</span></li>
+          </ul>
+          <ul class="team">
+            <li class="HT">
+              <span>{{ item.ht }}[{{ "主" | langChart : lang.languageChart }}]{{item.css}}</span>
+              <!-- <img src="../../img/market/team_logo/tl_00001.png" alt=""> -->
+            </li>
+            <li class="fb">vs</li>
+            <li class="CT">
+              <span>{{ item.ct }}</span>
+              <!-- <img src="../../img/market/team_logo/tl_00002.png" alt=""> -->
+            </li>
+          </ul>
+          <div class="bet_btn">
+            <span class="fb " [ngClass]="{'empty': item.hotr1?.option ,lock : !item.hotr1?.option}"
+              (click)="Quick_bet(item, gtype , item.hotr1)">{{ item.hotr1?.option | langChart : lang.languageChart }}</span>
+            <span class="fb " [ngClass]="{'empty': item.hotr2?.option ,lock : !item.hotr2?.option}"
+              (click)="Quick_bet(item, gtype , item.hotr2)">{{ item.hotr2?.option | langChart : lang.languageChart }}</span>
+            <span class="fb " [ngClass]="{'empty': item.hotr3?.option ,lock : !item.hotr3?.option}"
+              (click)="Quick_bet(item, gtype , item.hotr3)">{{ item.hotr3?.option | langChart : lang.languageChart }}</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </article>
+
+</main>
+
+<main *ngIf="!ALLmarketList && !marketList" class="empty-page">
+  <div>
+    <span></span>
+    <p>{{ "空空如也" | langChart : lang.languageChart }}~</p>
+  </div>
+</main>
+
+
+
+<!-- 設置菜單 -->
+<!--2020 0223 改 "盤口設定"-->
+<aside class="set-page" *ngIf="footer.menu.open">
+  <div class="sidebar">
+    <ul>
+      <li>{{ "聯賽篩選" | langChart : lang.languageChart }} <p
+          (click)="footer.getopen();MarketSortComponent.state = 'stay';">{{ "更多" | langChart : lang.languageChart }}
+          <span></span> </p>
+      </li>
+      <li>{{ "投注賽事" | langChart : lang.languageChart }} <div class="check" (click)="SwitchEvents()">
+          <p class="pleft" [class.active]="!Hotmode">{{ "全部" | langChart : lang.languageChart }}</p>
+          <p class="pright" [class.active]="Hotmode">{{ "熱門" | langChart : lang.languageChart }}</p>
+        </div>
+      </li>
+      <li>{{ "排序規則" | langChart : lang.languageChart }} <div class="check" (click)="ToggleSort()">
+          <p class="pleft " [class.active]="!timemode">{{ "聯盟" | langChart : lang.languageChart }}</p>
+          <p class="pright" [class.active]="timemode">{{ "時間" | langChart : lang.languageChart }}</p>
+        </div>
+      </li>
+      <!-- <li>盤口設置 <div class="check"> <p class="active">歐洲盤</p><p>香港盤</p></div> </li>
+      <li>主題風格 <div class="check"> <p class="active">日間</p><p>夜間</p></div> </li> -->
+      <li (click)="footer.getopen()">{{ "關閉" | langChart : lang.languageChart }}</li>
+    </ul>
+  </div>
+</aside>
+
+
+<footer-toolbar [status]="status"></footer-toolbar>
+
+<!-- <div class="menu-btn" [class.goleft]="status == false" (click)="MarketSortComponent.state = 'stay'">
+    <div><p class="icon"></p></div>
+</div> -->
+
+<handicap *ngIf="marketItem" [marketItem]="marketItem" [profileSurplus]="profile.surplus" [QuickV]="QuickV"
+  (callMarket)="handicapListener($event)"></handicap>
+
+<m-sort (sortEmitter)="sortDisplay($event)" (sendSearch)="ReceptionConditions($event)"></m-sort>
+
+
+<article class="Windows-2 flex-row  center" [class.display-none]="openHot == false" *ngIf="marketListHoT?.length>0">
+  <div class="all-box flex-column space-between">
+    <div class="top-btns flex-row space-between">
+      <div class="change font-family-w flex-row space-between a-center" (click)="hotCumulative = hotCumulative+1">
+        {{ "換一批" | langChart : lang.languageChart }}<div class="icon"></div>
+      </div>
+      <div class="close" (click)="SwitchHot('close')"></div>
+    </div>
+    <div class="Windows-content flex-column end a-center">
+      <div class="box1" *ngFor="let item of marketListHoT |RandomTeam:hotCumulative"
+        (click)="checkHandicap(item, gtype);openHot = false">
+        <div class="gaming-data flex-column space-between">
+          <p class="name font-family-w">{{item.lid}}</p>
+          <p class="time">{{ item.date }}&nbsp;{{ item.mtime }}</p>
+          <p class="w-vs">VS</p>
+        </div>
+        <div class="country1 flex-column end a-center">
+          <div class="country-icon"></div>
+          <div class="mt">
+            <p class=" font-family-w">{{ item.ht }} </p><span>[{{ "主" | langChart : lang.languageChart }}]</span>
+          </div>
+
+
+
+        </div>
+        <div class="country2 flex-column end a-center">
+          <div class="country-icon"></div>
+          <p class="font-family-w">{{ item.ct }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="bottom-btn font-family-w" (click)="changePage(['market'])">來一注&gt;&gt;</div> -->
+  </div>
+
+</article>

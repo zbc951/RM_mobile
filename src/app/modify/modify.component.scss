@@ -1,0 +1,203 @@
+@font-face{
+    font-family: 'my_font';
+    src:local('微軟正黑體');
+    unicode-range: U+4E00-9FFF ,U+2E80-2EFF;
+  }
+  @font-face{
+    font-family: 'my_font';
+    src:local(Bahnschrift);
+    unicode-range: U+0020-007F;
+  }
+
+
+header {
+    &.modify {
+      background: #fff;
+      padding: 0px 0 10px 0;
+      div{
+        &.nav {
+            ul{
+
+                span,div{
+                    display: inline-block;
+                }
+                span{
+                    line-height: 1;
+                    position: absolute;
+                    transform: translate(-50%,-50%);
+                    top: 50%;
+                    left: 50%;
+                }
+                div{
+                    line-height: 1;
+
+                    &.set{
+                        width: 25px;
+                        height: 25px;
+                        background: url(./assets/icon/set.png) no-repeat;
+                        background-size: contain;
+                        position: relative;
+                        cursor: pointer;
+                        vertical-align: sub;
+                        float: right;
+                    }
+                    &.chat_img{
+                        width: 25px;
+                        height: 25px;
+                        background: url(./assets/header/chat.png) no-repeat;
+                        background-size: contain;
+                        position: relative;
+                        cursor: pointer;
+                        margin: 0 12px 0 12px;
+                        vertical-align: sub;
+                        float: right;
+                        &:before {
+                            content: "";
+                            width: 8px;
+                            height: 8px;
+                            position: absolute;
+                            transform: translate(-50%, -50%);
+                            top: 0%;
+                            left: 106%;
+                            border-radius: 100px;
+                            background-color: red;
+                          }
+                    }
+                }
+            }
+          }
+      }
+
+    }
+  }
+
+
+
+main {
+    // height: calc(100Vh - 95px);
+    // padding-bottom: 65px;
+    div{
+      &.hellocard {
+        width: 100%;
+        height: 90px;
+        padding: 0 0 0 16px;
+        background: #fff;
+        margin: 0 0 12px 0;
+        .manhead {
+          float: left;
+          border-radius: 80px;
+          width: 70px;
+          height: 70px;
+          background: #ccc;
+          margin: 11px 0 0 0;
+        }
+
+        .text {
+          float: left;
+          text-align: left;
+          margin: 10px 0 0 15px;
+          h1 {
+            color: #242424;
+            font-size: 20px;
+            font-weight: 400;
+            span {
+              color: #242424;
+              font-size: 20px;
+            }
+            a {
+              width: 45px;
+              height: 18px;
+              background: url(assets/market/vip001.png) no-repeat;
+              background-size: cover;
+              display: inline-block;
+            }
+          }
+          span {
+            color: #646464;
+            font-size: 15px;
+            line-height: 25px;
+          }
+        }
+      }
+    }
+    div[class="form"] {
+        background-color: #fff;
+        padding-bottom: 19px;
+        margin-bottom: 15px;
+        &:last-child{
+            margin: 0;
+        }
+        // &:not(:last-of-type) {
+        //     border-bottom: 1px dotted #b1b1c1;
+        //     background: #f8f8f8;
+        // }
+        ul > li {
+            padding-left: 15px;
+            letter-spacing: 1px;
+            height: 50px;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            border-bottom: 1px #dcdcdc solid;
+
+            &.phone:first-child {
+                border-bottom-width: 0;
+            }
+            &.phone:nth-child(2) {
+                height: 35px;
+            }
+            &.title {
+                color: #5a5a5a;
+                font-size: 18px;
+                text-align: left;
+                padding-right: 15px;
+            }
+            span {
+                display: inline-block;
+                color: #242424;
+                width: 86px;
+                font-family: 'my_font';
+                font-weight: normal;
+                &.QQ{
+                    font-weight: bold;
+                }
+            }
+            input {
+                width: 66%;
+                height: 31px;
+                border: 1px #dadada solid;
+                border-radius: 4px;
+                font-size: 15px;
+                font-weight: 600;
+                color: #646464;
+                padding-left: 10px;
+                // background: linear-gradient(to bottom, #f3f3f3 40%, #ffffff 100%);
+                background-color: #fff;
+                font-family: 'my_font';
+                outline: none;
+                &:focus{
+                  border: 1px red solid;
+                }
+            }
+            button {
+                background: linear-gradient(to top, #efefef 0%, #ffffff 10%);
+                color: #062744;
+                font-weight: 00;
+                width: 100px;
+                height: 30px;
+                border: 1px #dadada solid;
+                border-radius: 4px;
+                position: relative;
+                top: -15px;
+                &.disabled {
+                    background: #efefef;
+                }
+            }
+        }
+        p {
+            margin-top: 19px;
+            text-align: center;
+            font-family: 'my_font';
+        }
+    }
+}

@@ -1,0 +1,116 @@
+<div class="mbet_dialog" [style.display]="state == 'out' ? 'none': '' ">
+    <!-- 下單資訊 -->
+    <div class="bdi_content" *ngIf="!betSucc">
+
+        <div class="title">
+            <div class="close"  (click)="closeDialog()" ></div>
+            <div class="handicap-title">
+
+                <p><em><span></span>{{ betInfo.lid }}<span></span></em></p>
+                <p class="time">|{{date}}|{{time}}</p>
+                <p><em>{{ betInfo.ht }}[{{ "主" | langChart : lang.languageChart }}]</em> <em>v {{ betInfo.ct }}</em>
+                </p>
+
+                <!-- <span>{{ betInfo.date }}&nbsp;{{ betInfo.time }}</span> |  -->
+            </div>
+            <!-- <div class="fee">
+                {{ "手續費" | langChart : lang.languageChart }} <em>5%</em>
+            </div> -->
+        </div>
+        <div class="against">
+            <p> {{ "您正在" | langChart : lang.languageChart }} <em
+                    class="reject">{{ "反對" | langChart : lang.languageChart }}</em></p>
+            <p>{{ "這場賽事結果為" | langChart : lang.languageChart }} <em>{{ betInfo.ptype | langChart : lang.languageChart }}
+                    <em class="num">{{ betInfo.option | langChart : lang.languageChart }}</em></em></p>
+            <p class="title">{{ betInfo.ptype | langChart : lang.languageChart }}&nbsp;
+              <em class="num">{{ betInfo.option | langChart : lang.languageChart }}</em>
+              &nbsp;&nbsp;&nbsp; 
+              <em class="num">@{{ betInfo.win }}</em>
+            </p>
+        </div>
+        <div class="cnt">
+            <p>{{ "餘額" | langChart : lang.languageChart }}&nbsp;:&nbsp;<em
+                    class="num">${{ this.profileSurplus | formatNumber }}</em>{{ '元' | langChart : lang.languageChart }} <span>{{ '手續費' | langChart : lang.languageChart }} <em class="num">5%</em></span>
+            </p>
+            <p style="padding-top: 0px;">{{ "最低交易金額為" | langChart : lang.languageChart }}&nbsp;:&nbsp;<em
+                class="num">100</em>{{ '元' | langChart : lang.languageChart }}
+            </p>
+            <div class="input-box">
+                <input placeholder="{{ '請輸入金額' | langChart : lang.languageChart }}" type="tel" [(ngModel)]="inputGold" [disabled]="betBtnWaiting">
+            </div>
+
+            <div class="btn-group">
+                <button (click)="inputBonus(1000)" [disabled]="betBtnWaiting"><span
+                        class="num">+1</span>{{ "千" | langChart : lang.languageChart }}</button>
+                <button (click)="inputBonus(5000)" [disabled]="betBtnWaiting"><span
+                        class="num">+5</span>{{ "千" | langChart : lang.languageChart }}</button>
+                <button (click)="inputBonus(10000)" [disabled]="betBtnWaiting"><span
+                        class="num">+1</span>{{ "萬" | langChart : lang.languageChart }}</button>
+                <button (click)="inputBonus(50000)" [disabled]="betBtnWaiting"><span
+                        class="num">+5</span>{{ "萬" | langChart : lang.languageChart }}</button>
+                <button (click)="inputBonus(100000)" [disabled]="betBtnWaiting"><span
+                        class="num">+10</span>{{ "萬" | langChart : lang.languageChart }}</button>
+                <button (click)="inputGold = undefined"
+                    [disabled]="betBtnWaiting">{{ "清除" | langChart : lang.languageChart }}</button>
+                <button class="bet-all-btn" (click)="allInBouns()"
+                    [disabled]="betBtnWaiting">{{ "餘額全投" | langChart : lang.languageChart }}</button>
+            </div>
+            <ul class="info">
+                <li>
+                    <p>
+                        {{ "可贏金額" | langChart : lang.languageChart }}：
+                        <em class="num">${{ winCalc(inputGold, betInfo.win) }}</em>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <!-- <button class="cancel-btn" (click)="closeDialog()" [class.disabled]="betBtnWaiting"
+                [disabled]="betBtnWaiting">{{ "取 消" | langChart : lang.languageChart }}</button> -->
+            <button class="ok-btn" (click)="bet(inputGold)"
+                [class.disabled]="betBtnWaiting || !inputGold || inputGold < 100 || inputGold > profileSurplus"
+                [disabled]="betBtnWaiting || !inputGold || inputGold < 100 || inputGold > profileSurplus">
+                {{ betBtnText }}
+            </button>
+        </div>
+    </div>
+
+    <!-- 下單成功資訊 -->
+    <div class="bdi_succ" *ngIf="betSucc">
+        <p class="title">{{ "交易成功" | langChart : lang.languageChart }}</p>
+        <div class="cnt">
+            <ul>
+                <li><label>{{ "聯 盟" | langChart : lang.languageChart }}</label>
+                    <p>{{ betSucc.lid }}</p>
+                </li>
+                <li><label>{{ "賽事時間" | langChart : lang.languageChart }}</label>
+                    <p>|{{date}}|{{time}}</p>
+                </li>
+                <li><label>{{ "賽 事" | langChart : lang.languageChart }}</label>
+                    <p>{{ betSucc.ht }}<em>[{{ "主" | langChart : lang.languageChart }}]</em> v {{ betSucc.ct }}</p>
+                </li>
+                <li><label>{{ "選 項" | langChart : lang.languageChart }}</label>
+                    <p>{{ betSucc.ptype | langChart : lang.languageChart }}
+                        {{ betSucc.option | langChart : lang.languageChart }}</p>
+                </li>
+                <li><label>{{ "單 號" | langChart : lang.languageChart }}</label>
+                    <p>{{ betSucc.bid }}</p>
+                </li>
+                <li><label>{{ "投資金額" | langChart : lang.languageChart }}</label>
+                    <p><em class="textred">${{ betSucc.gold | formatNumber }}</em></p>
+                </li>
+                <li><label>{{ "獲 利" | langChart : lang.languageChart }}</label>
+                    <p>{{ betSucc.win }}%</p>
+                </li>
+                <li><label>{{ "預估獲利" | langChart : lang.languageChart }}</label>
+                    <p><em class="textred">{{ betSucc.estWin }}</em></p>
+                </li>
+            </ul>
+        </div>
+        <div class="button_wrap">
+            <button type="button" (click)="closeDialog()">{{ "關 閉" | langChart : lang.languageChart }}</button>
+            <button type ="button" (click)="router.navigate(['detail'])">{{ "前往交易明细" | langChart : lang.languageChart }}</button>
+        </div>
+        
+    </div>
+</div>

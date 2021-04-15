@@ -1,0 +1,213 @@
+<header>
+    <div class="nav">
+      <ul>
+        <li class="title">{{ "交易明細" | langChart : lang.languageChart }} <span class="count">{{ detail | sortDetailList : 'btime' : dateSortDis : 'getlength' }}</span> </li>
+        <!-- <li class="count"></li> -->
+        <li class="search" (click)="dialogStatus = !dialogStatus"></li>
+      </ul>
+        <!-- <span class="title-font">{{ "交易明細" | langChart : lang.languageChart }}</span>
+        <span></span> -->
+    </div>
+    <div  class="money-total active" *ngIf="detailLength != 0 ">
+        <div class="left-area"><p>{{ "金額總計" | langChart : lang.languageChart }}</p><div class="font-family-B"><p class="font-family-B money" >${{ detail | calcDetailTot : dateSortDis : 'gold' | formatNumber }}</p></div></div>
+        <div class="half"></div>
+        <div class="right-area"> <p>{{ "預估獲利總計" | langChart : lang.languageChart }}</p> <div class="font-family-B"><p class="font-family-B money" [ngClass]="{'green': (detail | calcDetailTot : dateSortDis : 'estWin' | formatNumber)>0 ,'red': (detail | calcDetailTot : dateSortDis : 'estWin' | formatNumber) < 0}">${{ detail | calcDetailTot : dateSortDis : 'estWin' | formatNumber }}</p></div> </div>
+    </div>
+</header>
+<div class="header-bg"></div>
+ <main  class="have" *ngIf="detailLength != 0 ">
+    <ul>
+        <!-- <li *ngFor="let item of detail | sortDetailList: 'btime' : dateSortDis;">
+            <div class="subtitle"> <p class="num">{{ item.bid }}</p> <span class="time">{{ item.btime }}</span> </div>
+            <div class="detail-content">
+                <div class="left-area">
+                    <div class="left-box">
+                        <p class="open-time">{{ "開賽時間" | langChart : lang.languageChart }}</p>
+                        <p class="game-name">{{ "賽事" | langChart : lang.languageChart }}</p>
+                        <p class="game-content">{{ "注單內容" | langChart : lang.languageChart }}</p>
+                        <p class="get">{{ "獲利" | langChart : lang.languageChart }}%</p>
+                        <p class="other">{{ "功能" | langChart : lang.languageChart }}</p>
+                    </div>
+
+                </div>
+                <div class="right-area">
+                    <div class="right-box">
+                        <p class="open-time">{{ item.stime }}</p>
+                        <p class="game-name"><span>{{ item.ht }}</span>[{{ "主" | langChart : lang.languageChart }}]v{{ item.ct }}</p>
+                        <p class="game-content">{{ item.ptype | langChart : lang.languageChart }} {{ item.option | langChart : lang.languageChart }}</p>
+                        <p class="get">{{ item.profit }}%</p>
+                        <div class="other" (click)="cancellation(item)"><p>{{ "撤單" | langChart : lang.languageChart }}</p></div>
+                        <p class="other-cash">{{ "手續費" | langChart : lang.languageChart }}5%</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="detail-footer">
+                <div class="left"><p>{{ "投資金額" | langChart : lang.languageChart }}</p><div class="half"></div><span class="font-family-B">{{ item.gold | formatNumber }}</span></div>
+                <div class="right"><p>{{ "預估獲利" | langChart : lang.languageChart }}</p><div class="half"> </div> <span class="font-family-B  textred" [ngClass]="{'green': (item.estWin | formatNumber)>0 ,'red': (item.estWin | formatNumber) < 0}">{{ item.estWin | formatNumber }}</span></div>
+            </div>
+        </li> -->
+        <li *ngFor="let item of detail | sortDetailList: 'btime' : dateSortDis;">
+            <div class="subtitle"> <p class="num">{{ item.bid }}</p> <span class="time">{{ item.btime }}</span> </div>
+            <div class="detail-content2">
+                <section>
+                    <span class="title">{{ "開賽時間" | langChart : lang.languageChart }}</span>
+                    <span class="data">{{ item.stime }}</span>
+                </section>
+                <section>
+                    <span class="title">{{ "賽事" | langChart : lang.languageChart }}</span>
+                    <span class="data"><span style="color: #d22442;">{{ item.ht }}</span >[{{ "主" | langChart : lang.languageChart }}]v{{ item.ct }}</span>
+                </section>
+                <section>
+                    <span class="title">{{ "注單內容" | langChart : lang.languageChart }}</span>
+                    <span class="data">{{ item.lid2 }}{{ item.ptype | langChart : lang.languageChart }} {{ item.option | langChart : lang.languageChart }}</span>
+                </section>
+                <section>
+                    <span class="title">{{ "獲利" | langChart : lang.languageChart }}%</span>
+                    <span class="data">{{ item.profit }}%</span>
+                    <span class="cash">{{ "手續費" | langChart : lang.languageChart }}5%</span>
+                </section>
+                <section>
+                    <span class="title">{{ "功能" | langChart : lang.languageChart }}</span>
+                    <span class="data other"  (click)="cancellation(item)" *ngIf="item.revoke == 'Y'">{{ "撤單" | langChart : lang.languageChart }}</span>
+                    <span _ngcontent-c9="" class="cash">{{ "提示:5分鐘後撤單按鈕消失" | langChart : lang.languageChart }}</span>
+                </section>
+            </div>
+            <div class="detail-footer">
+                <div class="left"><p>{{ "投資金額" | langChart : lang.languageChart }}</p><div class="half"></div><span class="font-family-B textred">{{ item.gold | formatNumber }}</span></div>
+                <div class="right"><p class="will_get">{{ "預估獲利" | langChart : lang.languageChart }}</p><div class="half"> </div> <span class="font-family-B red textred" [ngClass]="{'green': (item.estWin | formatNumber)>0 ,'red': (item.estWin | formatNumber) < 0}">{{ item.estWin | formatNumber }}</span></div>
+            </div>
+        </li>
+    </ul>
+</main>
+<main class="empty" *ngIf="detailLength == 0 ">
+    <div class="empty-page">
+        <div class="icon"></div>
+        <p>{{ "您尚無交易明細!" | langChart : lang.languageChart }}!</p>
+    </div>
+</main>
+
+<article *ngIf="openMsg" class="window">
+    <div class="Windows-content">
+        <!-- <img src='../../img/ffffff.png' alt="">  -->
+        <h1 class="">{{ "撤單" | langChart : lang.languageChart }}</h1>
+        <div class="inner ">
+            <ul>
+                <li class="darket"> <p>{{ "單號" | langChart : lang.languageChart }}</p> <span class="font-family-B">{{ MsgData.bid }}</span></li>
+                <li><p>{{ "注單內容" | langChart : lang.languageChart }}</p> <span>{{ MsgData.ptype | langChart : lang.languageChart }}</span><span class="font-family-B">{{ MsgData.option | langChart : lang.languageChart }}</span></li>
+                <li class="darket"><p>{{ "投資金額" | langChart : lang.languageChart }}</p> <span class="font-family-B">{{ MsgData.gold | formatNumber }}</span></li>
+                <li> <p>{{ "賽事" | langChart : lang.languageChart }}</p><span class="red">{{ MsgData.ht }}</span> <span> [{{ "主" | langChart : lang.languageChart }}] v {{ MsgData.ct }}</span></li>
+            </ul>
+
+        </div>
+        <div class="bottom-area flex-row ">
+            <div class="trun-off " (click)="closedMsg()">{{ "關 閉" | langChart : lang.languageChart }}</div>
+            <div class="see-more " (click)="SendOutCancellation()">{{ "確定" | langChart : lang.languageChart }}</div>
+        </div>
+</div>
+</article>
+
+<article *ngIf="OpenCancellation" class="window">
+    <div class="Windows-content">
+        <!-- <img src='../../img/ffffff.png' alt="">  -->
+        <h1 class="">{{ "撤單" | langChart : lang.languageChart }}</h1>
+        <div class="inner ">
+            <ul>
+               
+                <li> <p>{{ "狀態" | langChart : lang.languageChart }}</p><span >{{ CancellationMsg }}</span> </li>
+            </ul>
+
+        </div>
+        <div class="bottom-area flex-row ">
+            <div class="see-more "  (click)="closedCancellation()" style="width: 100%;">{{ "確定" | langChart : lang.languageChart }}</div>
+        </div>
+</div>
+</article>
+
+
+
+
+
+
+
+<!-- 分類按鈕 -->
+<!-- <div class="menu-btn" (click)="dialogStatus = !dialogStatus">
+    <div>
+        <p class="icon"></p>
+    </div>
+</div> -->
+
+<!-- 分類視窗 -->
+<aside *ngIf="dialogStatus" [@goleft]>
+    <div class="sidebar">
+
+      <div class="title-box">
+        <div class="close-wrap">
+            <div class="close-btn" (click)="dialogStatus = false">
+                <div><p class="icon icon-delete"></p></div>
+            </div>
+        </div>
+        <p class="title">{{ "日期搜尋" | langChart : lang.languageChart }}</p>
+        <p class="finish"(click)="dialogStatus = false">{{ "完成" | langChart : lang.languageChart }}</p>
+      </div>
+
+      <div class="foler-group">
+        <div class="search">
+            <!-- <input type="text" [(ngModel)]="addTeam" placeholder="{{ '請輸入文字' | langChart : lang.languageChart }}"> -->
+            <div>
+              <!-- <input class="date" type="date" placeholder="{{ '' | langChart : lang.languageChart }}">
+              <span>~</span>
+              <input class="date" type="date" placeholder="{{ '' | langChart : lang.languageChart }}"> -->
+            </div>
+
+            <ul>
+              <!-- <li class="active">今日</li>
+              <li>昨日</li>
+              <li>上週</li>
+              <li>上月</li> -->
+              <li  class="all arrow" (click)="dateSortDis = undefine; dialogStatus = false">{{ "全部日期" | langChart : lang.languageChart }}</li>
+              <li  *ngFor="let item of dateList"  (click)="dateSortDis = item.date; dialogStatus = false">
+                <p>{{ item.date }}({{ item.count }})</p>
+            </li>
+            </ul>
+        </div>
+        <!-- <div class="group">
+            <p class="left-arrow" >{{ "選擇日期" | langChart : lang.languageChart }}</p>
+            <ul>
+                <li class="font-family-b" [class.selected]="sortSelect == date.item" *ngFor="let date of dateSortList" (click)="sortMarket(['date', date.item]); sortSelect = date.item;">
+                    <p class="font-family-b" >{{ date.item }}</p>
+                    <p class="font-family-b" >({{ date.count }})</p>
+                </li>
+            </ul>
+        </div> -->
+      </div>
+        <!-- <div class="title-box">
+                <p class="title">{{ "選擇日期" | langChart : lang.languageChart }}</p>
+                <div class="foler-group">
+                    <div class="group">
+                        <p [class.selected]="dateSortDis == undefine" class="all arrow" (click)="dateSortDis = undefine; dialogStatus = false">{{ "全部日期" | langChart : lang.languageChart }}</p>
+                    </div>
+                    <div class="group">
+                        <p>{{ "選擇日期" | langChart : lang.languageChart }}</p>
+                        <ul>
+                            <li [class.selected]="dateSortDis == item.date" *ngFor="let item of dateList" (click)="dateSortDis = item.date; dialogStatus = false">
+                                <p>{{ item.date }}</p>
+                                <p>{{ item.count }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="close-wrap">
+                    <div class="close-btn" (click)="dialogStatus = false">
+                        <div>
+                            <p class="icon icon-delete"></p>
+                        </div>
+                    </div>
+                </div>
+        </div> -->
+
+    </div>
+</aside>
+
+
+<footer-toolbar></footer-toolbar>

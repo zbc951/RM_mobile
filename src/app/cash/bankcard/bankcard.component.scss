@@ -1,0 +1,116 @@
+article[id="bankcard"] {
+    div.card {
+        background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #debd67), color-stop(20%, #ba9656), color-stop(40%, #ad8951), color-stop(60%, #ad8951), color-stop(80%, #c19f5b), color-stop(95%, #debd67));
+        background-image:-webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #e9a992), color-stop(20%, #de9a82), color-stop(40%, #dd9981), color-stop(60%, #f5bba6), color-stop(80%, #e9a992), color-stop(95%, #e9a992));
+        background: linear-gradient(to right, #fe4646 0%,#a5003d 100%);
+        
+        // background-image: -moz-linear-gradient(left, #debd67 0%, #ba9656 20%, #ad8951 40%, #ad8951 60%, #c19f5b 80%, #debd67 95%);
+        // background-image: -webkit-linear-gradient(left, #debd67 0%, #ba9656 20%, #ad8951 40%, #ad8951 60%, #c19f5b 80%, #debd67 95%);
+        // background-image: linear-gradient(left, #debd67 0%, #ba9656 20%, #ad8951 40%, #ad8951 60%, #c19f5b 80%, #debd67 95%);
+
+        position: relative;
+        margin: 0px auto;
+        width: 93vw;
+        height: 153px;
+        padding: 14px 18px;
+        margin-top: 14px;
+        border-radius: 5px;
+        color: #fff;
+
+        p:first-child {
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 11px;
+            // text-shadow: 0px 0px 9px #333;
+        }
+        p > span {
+            font-size: 15px;
+            display: inline-block;
+            text-align: right;
+            width: 30px;
+            margin-right: 23px;
+        }
+        p:nth-child(3) {
+            margin-top: 1px;
+            margin-bottom: 8px;
+            border: 0px rgba(243, 243, 243, 0.5) dotted;
+            border-bottom-width: 1.5px;
+            line-height: 37px;
+        }
+        div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: calc(93vw * 3 / 4);
+            height: 153px;
+            border-color: rgba(255, 255, 255, 0.3) transparent transparent transparent;
+            border-style: solid solid solid solid;
+            border-width: 153px 0px 0px 180px;
+        }
+    }
+
+}
+
+
+article[id="add_bankcard"] {
+    div.form {
+        //box-shadow: 0px 0px 14px 3px rgba(45, 130, 204, 0.8);
+        background-color: #fff;
+        padding-bottom: 25px;
+        ul > li {
+            margin-left: 15px;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            border: 0px #e6e6e6 dotted;
+            border-bottom-width: 2px;
+            &.title {
+                color: #de9a82;
+                font-size: 18px;
+                text-align: center;
+                padding-right: 15px;
+            }
+            span {
+                display: inline-block;
+                color: #535252;
+                width: 81px;
+            }
+            select {
+                height: 31px;
+                border: 1px #dadada solid;
+                border-radius: 4px;
+                font-size: 14px;
+                color: #535252;
+                padding-left: 10px;
+                background: linear-gradient(to bottom, #f3f3f3 40%, #ffffff 100%);
+            }
+            &.li_2_select select {
+                width: 30vw;
+                margin-right: 3vw;
+            }
+            input {
+                height: 31px;
+                width: 64vw;
+                border: 1px #dadada solid;
+                border-radius: 4px;
+                font-size: 15px;
+                letter-spacing: 1px;
+                font-weight: 600;
+                color: #535252;
+                padding-left: 10px;
+                background: linear-gradient(to bottom, #f3f3f3 40%, #ffffff 100%);
+            }
+            i {
+                color: #ffcd1c;
+                display: inline-block;
+                position: relative;
+                left: 81px;
+            }
+        }
+        p {
+            margin-top: 12px;
+            text-align: center;
+        }
+    }
+
+}

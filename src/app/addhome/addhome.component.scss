@@ -1,0 +1,64 @@
+//color
+$dark-blue:#39455b;
+$lighten-blue:#758aa4;
+$lighten-gray:#f0f0f0;
+$lighten-red:#de807b;
+.font-family-w{
+    font-family: '微軟正黑體';
+}
+.title-font-size{
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+.active{
+    color: $dark-blue;
+}
+main {
+    ul[class="menu"] {
+        // background: linear-gradient(to right bottom, #e5e5e5 0%, #f7f7f7 10%, #ffffff 20%, #ffffff 80%, #f7f7f7 90%, #e5e5e5 100%);
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #fff;
+        height: 55px;
+        > li {
+            float: left;
+            width: 50vw;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            color: #242424;
+            font-weight: 700;
+            border: 0px #f3f3f3 solid;
+            border-right-width: 2px;
+
+         
+            &.selected {
+                position: relative;
+                &:before {
+                    position: absolute;
+                    background: $lighten-red;//#22adff
+                    content: '';
+                    height: 2px;
+                    width:32px;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+        .gray-paddimg{
+            width: 100%;
+        background-color: #f0f0f0;
+        height: 10px;
+        }
+    }
+
+    div[class="main"] {
+
+        padding: 18px 20px 0px 20px;
+        overflow-y: scroll;
+
+        
+    }
+}
+

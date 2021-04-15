@@ -1,0 +1,48 @@
+<article  *ngIf="record ; else noData">
+    <!-- 頁次 -->
+    <ul class="money">
+        <li>
+          <p>{{ '是否未達流水' | langChart : lang.languageChart }}</p>
+          <span class="fb">{{((record.waterfailnum == 0)?'達標':'未達標') | langChart : lang.languageChart}}</span>
+        </li>
+        <li>
+          <p>{{ '手續費' | langChart : lang.languageChart }}</p>
+          <span class="fb">{{record.Fee}}%</span>
+        </li>
+        <li>
+          <p>{{ '本週第幾張提值' | langChart : lang.languageChart }}</p>
+          <span class="fb">{{record.nowWeekOrders}}</span>
+        </li>
+      </ul>
+    <!-- 交易紀錄內容 -->
+    <div class="main" >
+        <div class="ok"   *ngFor="let item of record.waterfail" >
+            <p >
+                <span>{{ '單號' | langChart : lang.languageChart }}:{{ item.orderid }}</span>
+                <span></span>
+            </p>
+            <p>
+                <span >{{ '目標流水' | langChart : lang.languageChart }}</span>
+
+                <span>${{ item.targetWater  | formatNumber }}</span>
+            </p>
+            <p>
+                <span>{{ '目標流水' | langChart : lang.languageChart }}</span>
+                <span>${{ item.nowwater | formatNumber }}</span>
+            </p>
+            <p>
+                <span>{{ '存值金額' | langChart : lang.languageChart }}</span>
+                <span>${{ item.ordernum | formatNumber }}</span>
+            </p>
+        </div>
+    </div>
+</article>
+
+<ng-template #noData>
+    <div class="no-data">
+        <div>
+            <img src="../../../img/icon/nodata.png">
+        </div>
+        <p>{{ "您尚無交易紀錄!" | langChart : lang.languageChart }}</p>
+    </div>
+</ng-template>

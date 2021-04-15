@@ -1,0 +1,575 @@
+<header>
+  <div class="nav">
+    <ul>
+      <li class="back" (click)="location.back()" *ngIf="!status"></li>
+      <li class="back" (click)="status = ''" *ngIf="status"></li>
+      <li class="title">帮助中心</li>
+    </ul>
+  </div>
+</header>
+
+
+<!--2020_0423add-->
+<main id="main" >
+  <section class="help_center">
+    <ul class="main_page" >
+      <li (click)="status =1">如何注册</li>
+      <li (click)="status =2">下注操作说明</li>
+      <li (click)="status =3">绑定提款卡操作说明</li>
+      <li (click)="status =4">流水号存款操作说明</li>
+      <li (click)="status =5">云闪付存款操作说明</li>
+      <li (click)="status =6">微信扫码支付充值操作说明</li>
+      <li (click)="status =7">微信转银行卡操作说明</li>
+      <li (click)="status =8">支付宝存款操作说明</li>
+      <li (click)="status =9">网关卡存款操作说明</li>
+      <li (click)="status =10">人工客服渠道存款操作说明</li>
+      <li (click)="status =11">提款操作说明</li>
+    </ul>
+
+
+    <!--內頁_1-->
+    <!--ul是整體  每個li是一個项目 wrap包住標題 wrap2包住圖片-->
+    <!--把header改 "如何注册"        去掉active會向右邊滑動隱藏-->
+    <!--現在內頁是覆蓋式 蓋住主頁    -->
+    <!--如果不做覆蓋式 position: absolute 跟 top: calc(5vh + 10px) 刪除 把遮屏的position: relative打开 就變成塊狀不覆蓋-->
+    <ul class="no1 question " [class.active]="status == 1">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>至登入页面点选<div class="red">【注册】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q1_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>输入资料后点选<div class="red">【送出】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q1_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>画面跑出<div class="red">【注册成功】</div>视窗代表已成功完成注册
+        </div>
+        <div class="wrap_2">
+          <div class="q1_teach_img3"></div>
+        </div>
+      </li>
+    </ul>
+
+    <!--2020_0410add-->
+    <!--內頁_2-->
+    <!--把header改 "下注操作說明"-->
+    <ul class="no2 question" [class.active]="status == 2">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>进入<div class="red">【市场列表】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q2_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择您要投注的赛事
+        </div>
+        <div class="wrap_2">
+          <div class="q2_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>选择项目后点击下单
+        </div>
+        <div class="wrap_2">
+          <div class="q2_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>输入<div class="red">【下注金额】</div>后，按下<div class="red">【确认投资】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q2_teach_img4"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">5.</div>网页弹出<div class="red">【交易成功】</div>即完成下注
+        </div>
+        <div class="wrap_2">
+          <div class="q2_teach_img5"></div>
+        </div>
+      </li>
+    </ul>
+
+    <!--2020_0413add-->
+    <!--內頁_3-->
+    <!--把header改 "綁定提款卡操作說明"-->
+    <ul class="no3 question" [class.active]="status == 3">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>进入<div class="red">【我的】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q3_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【卡片管理】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q3_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>点击<div class="red">【添加银行卡】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q3_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>输入资料并按下<div class="red">【确认】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q3_teach_img4"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">5.</div>确认注意事项显示<div class="red">【已绑定】</div>即綁定成功
+        </div>
+        <div class="wrap_2">
+          <div class="q3_teach_img5"></div>
+        </div>
+      </li>
+    </ul>
+
+     <!--2020_0423add-->
+    <!--內頁_4-->
+    <!--把header改 "流水号存款操作說明"-->
+    <ul class="no4 question" [class.active]="status == 4">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>点击<div class="red">【充值】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q4_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【流水号】</div>支付方式
+        </div>
+        <div class="wrap_2">
+          <div class="q4_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>复制相关讯息至银行卡转帐，按下<div class="red">【确认充值】</div><br/>
+          <div class="red">（讯息务必填写正确，否则会影响上分速度）</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q4_teach_img3"></div>
+        </div>
+      </li>
+     
+    </ul>
+
+    <!--2020_0423add-->
+    <!--內頁_5-->
+    <!--把header改 "云闪付存款操作说明"-->
+    <ul class="no5 question" [class.active]="status == 5">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>点击<div class="red">【充值】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q4_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【云闪付】</div>支付方式，选择支付通道及充值金额後，点击<div class="red">【确定充值】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q5_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.下载储存二维码</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q5_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>打开APP，点击 <div class="red">【掃一掃】</div></div>
+        <div class="wrap_2">
+          <div class="q5_teach_img4"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">5.</div>使用扫描功能扫二维码进行充值</div>
+        <div class="wrap_2">
+          <div class="q5_teach_img5"></div>
+        </div>
+      </li>
+    </ul>
+
+    <!--2020_0423add-->
+    <!--內頁_6-->
+    <!--把header改 "微信扫码支付充值操作流程"-->
+     <ul class="no6 question" [class.active]="status == 6">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>点击<div class="red">【充值】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q4_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【微信支付】</div>支付方式，选择支付通道及充值金额後，点击<div class="red">【确定充值】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q6_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>点击<div class="red">【微信收款條碼付款】</div>進行下一步的操作
+        </div>
+        <div class="wrap_2">
+          <div class="q6_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>扫码支付</div>
+        <div class="wrap_2">
+          <div class="q6_teach_img4"></div>
+        </div>
+      </li>
+    </ul>
+
+    <!--2020_0423add-->
+    <!--內頁_7-->
+    <!--把header改 "微信转银行卡操作說明"-->
+    <ul class="no7 question" [class.active]="status == 7">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>点击<div class="red">【充值】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q4_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【微信支付】</div>支付方式，选择支付通道及充值金额後，点击<div class="red">【确定充值】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q7_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>点击红色区块<div class="red">【微信转银行卡】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q7_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>复制 <div class="red">【银行卡号】</div>、<div class="red">【银行名称】</div>、<div class="red">【收款人姓名】</div></div>
+        <div class="wrap_2">
+          <div class="q7_teach_img4"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">5.</div>到微信<div class="red">【收付款】</div>畫面，点击<div class="red">【向银行卡或手机号转帐】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q7_teach_img5"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">6.</div>点击<div class="red">【向银行卡转帐】</div>，进行下一步
+        </div>
+        <div class="wrap_2">
+          <div class="q7_teach_img6"></div>
+        </div>
+      </li>
+       <li>
+        <div class="wrap">
+          <div class="nb">7.</div>填写以复制的<div class="red">【银行卡号】</div>、<div class="red">【银行名称】</div>、<div class="red">【收款人姓名】</div>
+        ，并点击<div class="red">【下一步】</div>完成转帐</div>
+        <div class="wrap_2">
+          <div class="q7_teach_img7"></div>
+        </div>
+      </li>
+    </ul>
+
+    <!--2020_0413add-->
+    <!--內頁_8-->
+    <!--把header改 "支付宝存款操作说明"-->
+    <ul class="no8 question" [class.active]="status == 8">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>点击<div class="red">【充值】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q4_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【支付宝】</div>支付方式，输入充值金额後，点击
+          <div class="red">【确定充值】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q8_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>截图保存至相冊<br/>
+          <div class="red">【请勿保存二维码重复扫码】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q8_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>点击支付宝 <div class="red">【掃一掃】</div></div>
+        <div class="wrap_2">
+          <div class="q8_teach_img4"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">5.</div>点击<div class="red">【相簿】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q8_teach_img5"></div>
+        </div>
+      </li>
+       <li>
+        <div class="wrap">
+          <div class="nb">6.</div>点选<div class="red">【截图保存二维码照片】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q8_teach_img6"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">7.</div>输入充值金额後，点击<div class="red">【确认付款】</div><br/>
+          <div class="red">（務必输入正確金额，否则会影响上分时间）</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q8_teach_img7"></div>
+        </div>
+      </li>
+       <li>
+        <div class="wrap">
+          <div class="nb">8.</div>点击<div class="red">【立即付款】</div>後，即可完成充值
+        </div>
+        <div class="wrap_2">
+          <div class="q8_teach_img8"></div>
+        </div>
+      </li>
+    </ul>
+
+     <!--2020_0413add-->
+    <!--內頁_9-->
+    <!--把header改 "网关卡存款操作说明"-->
+    <ul class="no9 question" [class.active]="status == 9">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>点击<div class="red">【充值】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q4_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【网关卡】</div>支付方式，充值金额後，点击<br/>
+          <div class="red">【确定充值】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q9_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>输入付款姓名后，点击<div class="red">【确认并继续】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q9_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>复制 <div class="red">【收款人】</div>、<div class="red">【银行】</div>、
+          <div class="red">【帐号】</div></div>
+        <div class="wrap_2">
+          <div class="q9_teach_img4"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">5.</div>点击 <div class="red">【转帐汇款】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q9_teach_img5"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">6.</div>点击 <div class="red">【帐号转帐】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q9_teach_img6"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">7.</div>确认转帐资讯正确，点击 <div class="red">【下一步】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q9_teach_img7"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">8.</div>再次确认转帐信息，点击 <div class="red">【确认】</div>即完成
+        </div>
+        <div class="wrap_2">
+          <div class="q9_teach_img8"></div>
+        </div>
+      </li>
+    </ul>
+
+     <!--2020_0413add-->
+    <!--內頁_10-->
+    <!--把header改 "人工客服渠道存款操作说明"-->
+    <ul class="no10 question" [class.active]="status == 10">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>点击<div class="red">【充值】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q4_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【人工充值】</div>支付方式
+        </div>
+        <div class="wrap_2">
+          <div class="q10_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>选择<div class="red">【在线激活】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q10_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>输入验证码，点选<div class="red">【提交】</div></div>
+        <div class="wrap_2">
+          <div class="q10_teach_img4"></div>
+        </div>
+      </li>
+
+      <li>
+        <div class="wrap">
+          <div class="nb">5.</div>成功连线后，输入存款资讯，让人工客服协助完成存款</div>
+        <div class="wrap_2">
+          <div class="q10_teach_img5"></div>
+        </div>
+      </li>
+      
+     
+    </ul>
+    
+     <!--2020_0423add-->
+    <!--內頁_11-->
+    <!--把header改 "提款操作说明"-->
+    <ul class="no11 question" [class.active]="status == 11">
+      <li>
+        <div class="wrap">
+        <div class="nb">1.</div>进入<div class="red">【我的】</div>
+      </div>
+      <div class="wrap_2">
+        <div class="q11_teach_img1"></div>
+      </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">2.</div>选择<div class="red">【我的钱包】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q11_teach_img2"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">3.</div>点击<div class="red">【取款】</div>
+        </div>
+        <div class="wrap_2">
+          <div class="q11_teach_img3"></div>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <div class="nb">4.</div>填入资料并按下<div class="red">【确认提领】</div></div>
+        <div class="wrap_2">
+          <div class="q11_teach_img4"></div>
+        </div>
+      </li>
+
+      <li>
+        <div class="wrap">
+          <div class="nb">5.</div>网页弹出通知视窗，待客服人员确认后提领完成</div>
+        <div class="wrap_2">
+          <div class="q11_teach_img5"></div>
+        </div>
+      </li>
+      
+     
+    </ul>
+  </section>
+
+</main>
+
+<!-- <main id="main">
+  <section >
+    按鈕點入的切換(內頁)
+  </section>
+
+</main> -->
+
+

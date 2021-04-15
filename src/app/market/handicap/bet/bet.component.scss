@@ -1,0 +1,505 @@
+$dark-blue: #242424;
+@mixin footer-btn-color-red {
+  background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+}
+@mixin footer-btn-color-gray {
+  background: #d4d4d4;
+}
+.close {
+  display: inline-block;
+  border-radius: 100px;
+  border: 2px solid white;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 95%;
+  top: -20%;
+  &:after {
+    background-color: white;
+    content: "";
+    width: 80%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &:before {
+    background-color: white;
+    content: "";
+    width: 80%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+div[class="mbet_dialog"] {
+  z-index: 9999;
+  position: fixed;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+
+  /* 下注視窗 */
+  .bdi_content {
+    animation: main_display 450ms ease-in-out;
+    -webkit-animation: main_display 450ms ease-in-out;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 13px;
+    width: 75vw;
+    div[class="title"] {
+      display: -webkit-flex;
+      height: 100px;
+      padding: 16px 10px 10px 10px;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      position: relative;
+      .handicap-title {
+        display: -webkit-flex;
+        font-size: 15px;
+        font-weight: bold;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        width: 100%;
+        p {
+          font-family: "微軟正黑體";
+          &.time{
+            font-family: Bahnschrift;
+            text-align: center;
+            margin: 0 0 10px 0;
+            color: #69839a;
+            font-weight: lighter;
+          }
+        }
+        p:first-child {
+          text-align: center;
+          font-weight: bold;
+          line-height: 15px;
+          em {
+            font-weight: bold;
+            font-family: "微軟正黑體";
+            color: $dark-blue;
+            font-size: 17px;
+            position: relative;
+            span {
+              position: relative;
+              transform: translate(-50%, -50%) rotate(0deg) skew(-25deg);
+              top: 55%;
+              background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+              width: 2px;
+              height: 100%;
+              display: inline-block;
+              &:first-child {
+                left: -3%;
+                &:before {
+                  content: "";
+                  position: absolute;
+                  top: 0%;
+                  left: -8px;
+                  width: 2px;
+                  height: 100%;
+                  background: linear-gradient(
+                    to right,
+                    #fe4646 0%,
+                    #a5003d 100%
+                  );
+                }
+              }
+              &:last-child {
+                left: 5%;
+                &:before {
+                  content: "";
+                  position: absolute;
+                  top: 0%;
+                  left: 8px;
+                  width: 2px;
+                  height: 100%;
+                  background: linear-gradient(
+                    to right,
+                    #fe4646 0%,
+                    #a5003d 100%
+                  );
+                }
+              }
+            }
+            span:before {
+            }
+          }
+        }
+        p:last-child {
+          color: $dark-blue;
+          display: flex;
+          justify-content: center;
+          // align-items:flex-start;
+          transform: translate(-50%, -50%);
+          left: 50%;
+          top: -5%;
+          position: relative;
+          em {
+            width: 40%;
+            font-family: "微軟正黑體";
+            display: flex;
+            flex-direction: column;
+            &:first-child {
+              width: 35%;
+              font-family: "微軟正黑體";
+              margin-right: 27px;
+              text-align: center;
+              display: inline-block;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              width: calc(50% - 27px);
+            }
+            &:last-child {
+              width: 35%;
+              font-family: "微軟正黑體";
+              margin-left: 27px;
+              text-align: center;
+              display: inline-block;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              width: calc(50% - 27px);
+            }
+          }
+          &:before {
+            content: "vs";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            font-size: 17px;
+          }
+        }
+      }
+      .fee {
+        font-size: 13px;
+        font-weight: bold;
+        em {
+          color: #cc0a0a;
+        }
+      }
+    }
+    div[class="against"] {
+      background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+      color: #fff;
+      line-height: 20px;
+      text-align: center;
+      font-weight: bold;
+      width: 93%;
+      margin: 0 auto;
+      border-radius: 7px;
+      padding: 12px 0 20px 0;
+      p {
+        font-family: "微軟正黑體";
+        font-size: 15px;
+        font-weight: lighter;
+        .num {
+          font-size: 2.2vh;
+          line-height: 4vh;
+          font-family: Bahnschrift;
+        }
+      }
+      em {
+        // color: #fbb03b;
+        color: #fff;
+        &.reject {
+          animation: flashing 280ms alternate infinite 200ms ease-out;
+          -webkit-animation: flashing 280ms alternate infinite 200ms ease-out;
+          font-size: 2.6vh;
+          font-weight: 700;
+          color: #fff45c;
+          padding: 0 0 0 1vw;
+        }
+      }
+      .title {
+        color: #fff;
+        .num {
+          color: #fff45c;
+          font-family: Bahnschrift;
+        }
+      }
+    }
+    div[class="cnt"] {
+      font-weight: bold;
+      text-align: center;
+      p {
+        font-family: "微軟正黑體";
+        font-weight: lighter;
+        text-align: left;
+        width: 93%;
+        margin: 0 auto;
+        color: #646464;
+        padding: 12px 0;
+        font-size: 2vh;
+        span {
+          float: right;
+        }
+        em.num {
+          font-family: Bahnschrift;
+          color: #69839a;
+          font-weight: 500;
+        }
+      }
+
+      .input-box {
+        position: relative;
+        input {
+          // background: linear-gradient(to bottom, #f3f3f3 40%, #ffffff 100%);
+          font-family: Bahnschrift;
+          color: $dark-blue;
+          background-color: #fff;
+          width: 93%;
+          margin: 0 auto;
+          height: 37px;
+          text-align: right;
+          border-radius: 5px;
+          border: 1px solid #cccccc;
+          font-size: 2.3vh;
+          letter-spacing: 0.3px;
+          padding: 0 35px 0 15px;
+          position: relative;
+          outline-color: red;
+          &::placeholder {
+            color: #cacaca;
+            font-weight: bold;
+            font-family: "微軟正黑體";
+            text-align: left;
+          }
+        }
+        &:before {
+          content: "元";
+          position: absolute;
+          top: 50%;
+          left: 89%;
+          transform: translate(-50%, -50%);
+          font-size: 17px;
+          color: #242424;
+          z-index: 1;
+          font-family: "微軟正黑體";
+        }
+      }
+
+      div.btn-group {
+        display: -webkit-flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        width: 93%;
+        margin: 10px auto 0 auto;
+        button {
+          font-family: "微軟正黑體";
+          background-color: #fff;
+          color: $dark-blue;
+          width: 23.5%;
+          line-height: 33px;
+          border-radius: 5px;
+          border: 1px solid #cccccc;
+          margin-bottom: 10px;
+          font-size: 17px;
+          font-weight: 600;
+          span.num {
+            font-family: Bahnschrift;
+          }
+          &.bet-all-btn {
+            width: 49%;
+          }
+          &:before {
+            background: linear-gradient(#ffffff 0%, rgba(255, 255, 255, 0) 50%);
+            content: "";
+            width: calc(100% - 5px);
+            height: 14px;
+            top: 2px;
+            left: 2.5px;
+            border-radius: 3px;
+          }
+          &:active {
+            background: linear-gradient(to bottom, #ffffff 0%, #efefef 50%);
+          }
+        }
+      }
+      ul.info {
+        width: 93%;
+        margin: 0 auto 0 auto;
+        font-size: 17px;
+        li {
+          display: -webkit-flex;
+          -webkit-align-items: center;
+          align-items: center;
+          -webkit-justify-content: space-between;
+          justify-content: space-between;
+          p {
+            text-align: center;
+            color: $dark-blue;
+            font-family: "微軟正黑體";
+            font-weight: bold;
+            line-height: 19px;
+            em {
+              color: #cd4351;
+              font-family: Bahnschrift;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+
+    div[class="footer"] {
+      display: -webkit-flex;
+      height: 46px;
+
+      //   border-top: 1px solid #999;
+      button {
+        font-size: 19px;
+        font-weight: bold;
+        width: 100%;
+        // background: linear-gradient(
+        //   to bottom,
+        //   #ffffff 0%,
+        //   #efefef 50%,
+        //   #ffffff 100%
+        // );
+        //  @include footer-btn-color-red;
+        &.cancel-btn {
+          color: #333333;
+          border-right: 1px solid #999;
+          border-radius: 0 0 5px 5px;
+        }
+        &.ok-btn.disabled {
+          color: #f0f0f0;
+          @include footer-btn-color-gray;
+        }
+        &.ok-btn {
+          border-radius: 0 0 13px 13px;
+          // color: #043f73;
+          // color: $dark-blue;
+
+          color: #fff;
+          @include footer-btn-color-red;
+        }
+        &.disabled {
+          color: #f0f0f0;
+          @include footer-btn-color-gray;
+        }
+
+        &:active {
+          background: linear-gradient(
+            to bottom,
+            #efefef 0%,
+            #ffffff 50%,
+            #efefef 100%
+          );
+        }
+      }
+    }
+  }
+
+  /*交易成功_視窗*/
+  .bdi_succ {
+    font-size: 15px;
+    font-weight: bold;
+    //padding: 1px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 0 23px 7px rgba(#161654, 0.3);
+    width: 92%;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    p.title {
+      background: #242424;
+      color: #fff;
+      line-height: 36px;
+      border-radius: 12px 12px 0 0;
+      text-align: center;
+    }
+    div.cnt {
+      ul {
+        li {
+          padding: 13px 15px;
+
+          &:nth-child(odd) {
+            background-color: #f6f6f6;
+          }
+          label {
+            color: #39455b;
+            display: inline-block;
+            width: 19vw;
+            height: 17px;
+            text-align: justify;
+            vertical-align: text-top;
+            overflow: hidden;
+            margin-right: 13px;
+            &:after {
+              content: "";
+              display: inline-block;
+              width: 100%;
+            }
+          }
+          p {
+            color: #7689a4;
+            width: 58vw;
+            display: inline-block;
+            vertical-align: text-top;
+            font-weight: lighter;
+            overflow-wrap: break-word;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+    .button_wrap {
+      display: flex;
+      button {
+        background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+        width: 50%;
+        height: 45px;
+        line-height: 43px;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 0 0 12px 12px;
+        font-family: "微軟正黑體";
+        display: inline-block;
+        padding: 0;
+        &:first-child{
+          border-radius: 0 0 0 12px;
+          background: #aeaeae;
+        }
+        &:last-child{
+          border-radius: 0 0 12px 0;
+        }
+        &:active {
+          background: linear-gradient(
+            to bottom,
+            #efefef 0%,
+            #ffffff 50%,
+            #efefef 100%
+          );
+        }
+      }
+    }
+  }
+}
+
+.textred {
+  color: #dc614e;
+  font-weight: 600;
+  font-size: 2vh;
+}

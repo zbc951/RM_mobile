@@ -1,0 +1,49 @@
+<section class="modal">
+    <div class="alert">
+        <div class="title">
+            <p>{{ "對戰紀錄" | langChart : lang.languageChart }}</p>
+            <!--2020_0410add-->
+            <!-- <p class="b_record" (click)="router.navigate(['HistoricalBattle',recordFile.gid])">过往对战纪录</p> -->
+        </div>
+        <div class="cnt">
+            
+            <ul *ngFor="let item of recordFile">
+                <li class="time">{{ item.gtime }}</li>
+                <li>
+                    <div class="wrap">
+                        <p>{{ "聯盟" | langChart : lang.languageChart }}</p>
+                    </div><p class="space">{{ item.lname }}</p>
+                </li>
+                <li><div class="wrap"><p>{{ "主場隊伍" | langChart : lang.languageChart }}</p></div><p class="space blue">{{ item.tname_h }}</p></li>
+                <li><div class="wrap"><p>{{ "客場隊伍" | langChart : lang.languageChart }}</p></div><p class="space blue">{{ item.tname_c }}</p></li>
+                <li class="footer">
+                    <div class="wrap"><p>{{ "全場" | langChart : lang.languageChart }}{{ "波膽" | langChart : lang.languageChart }}</p></div>
+                    <div class="wrap2"><p>{{ item.score }}</p></div>
+                    <div class="wrap"><p>{{ "波膽上半" | langChart : lang.languageChart }}</p></div>
+                    <div class="wrap2 clear_border"><p>{{ item.score_hr }}</p></div>
+                </li>
+                <!-- <li *ngFor="let item of recordFile">
+                 
+                    <div class="game-info">
+                        <p class="time">{{ item.time }}</p>
+                        <label>{{ item.lidname }}</label>
+                        <p class="counter">{{ item.ht }}<br/>
+                             <i>VS</i> {{ item.ct }}</p>
+                    </div>
+                    <div class="bodan-info">
+                        <div>
+                            <p>{{ "波膽" | langChart : lang.languageChart }}</p>
+                            <p class="bodan1">{{ item.PD }}</p>
+                        </div>
+                        <div>
+                            <p>{{ "波膽上半" | langChart : lang.languageChart }}</p>
+                            <p class="bodan1">{{ item.PDHR }}</p>
+                        </div>
+
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+        <button type="button" (click)="closeDialog()">{{ "關 閉" | langChart : lang.languageChart }}</button>
+    </div>
+</section>

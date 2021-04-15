@@ -1,0 +1,28 @@
+<header class="font-family-w">
+
+  <div class="nav">
+    <ul>
+      <li class="back" (click)="location.back()"></li>
+      <li class="title">{{ "操作說明" | langChart : lang.languageChart }}</li>
+    </ul>
+  </div>
+
+</header>
+
+<main>
+    <!-- <ul class="menu">
+        <li [class.selected]="subPage == 'ios'" (click)="subPage = 'ios'" class="active">{{ "ios" | langChart : lang.languageChart }}</li>
+        <li [class.selected]="subPage == 'Android'" (click)="subPage = 'Android'" class="normal">{{ "Android" | langChart : lang.languageChart }}</li>
+        <div class="gray-paddimg"></div>
+    </ul> -->
+
+    <div class="main">
+      <addhome-i ></addhome-i>
+        <!-- <addhome-i *ngIf="subPage=='ios'"></addhome-i>
+        <addhome-a *ngIf="subPage=='Android'"></addhome-a> -->
+
+    </div>
+
+</main>
+
+<footer-toolbar></footer-toolbar>

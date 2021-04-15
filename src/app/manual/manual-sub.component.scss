@@ -1,0 +1,71 @@
+@import "./../app.variables";
+
+$dark-blue:#39455b;
+$dark_black:#242424;
+
+.dark-blue.dark-blue.dark-blue{
+    color:$dark-blue;
+}
+.rules {
+    font-weight: 700;
+    padding-bottom:300px;
+    p {
+        color: $dark_black;
+        margin-bottom: 4px;
+        font-size: 17px;
+    }
+    ul {
+        li{
+            &:first-child{
+                margin-top: 10px;
+            }
+            color: $dark_black;
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 22px;
+            border: 0px $dark_black dashed;
+            border-bottom-width: 2px;
+            padding-bottom: 10px;
+            span {
+                // margin-right: 21px;
+            }
+            .red {
+                color: #d27d5e;
+            }
+        }
+    }
+
+}
+
+
+
+.PD {
+    font-weight: 700;
+    color: #242424;
+    padding-bottom: 300px;
+    p {
+        color: #39455b;
+        margin-bottom: 4px;
+        font-size: 20px;
+    }
+
+    div {
+        margin-top: 30px;
+        line-height: 22px;
+        margin-bottom: 30px;
+        .title {
+            margin-top: 15px;
+            font-size: 17px;
+            color: #39455b
+        }
+        img {
+            margin-top: 5px;
+            border: 1px solid #1967a5;
+            border-radius: 8px;
+        }
+        .red {
+            color: #d27d5e;
+            font-weight: 700;
+        }
+    }
+}
