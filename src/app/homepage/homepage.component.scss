@@ -25,7 +25,6 @@ $point_color: linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 47%, #bababa 99%);
 
 header {
   box-shadow: none;
-  background: #d1dde4;
 }
 body {
   background: linear-gradient(
@@ -75,6 +74,7 @@ main {
   height: 100%;
   //2020-0218
   height: auto;
+  margin: 10px auto;
 }
 .swiper-slide {
   //   text-align: center;
@@ -101,6 +101,9 @@ main {
     margin: 0 3vw;
     width: 94vw;
     height: 20vh;
+    border: solid 1px #d0b191;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 3px #d2dbe3;
   }
 }
 .arrow {
@@ -136,7 +139,7 @@ $window2-font-size: 15px;
       border-radius: 12px;
       padding-bottom: 10%;
       h1 {
-        background: #d22442;
+        background: #eabe8e;
         position: relative;
         padding: 12px 0 12px 0;
         line-height: 24px;
@@ -366,15 +369,20 @@ $window2-font-size: 15px;
     z-index: 1001;
   }
   .all-box {
-    width: calc(86vw - 4vw);
+    width: calc(86vw - 2vw);
     height: 68vh;
     margin: 0 auto;
     margin-top: 14vh;
+    background: linear-gradient(to top, #fafdff 0%, #f0f5ff 32%, #fafdff 69%, #fafdff 99%);
+    border: solid 1px #d1b292;
+    padding-bottom: 15px;
+    border-radius: 10px;
     .top-btns {
       .change {
-        color: white;
+        color: #b3957b;
         width: 75px;
         height: 24px;
+        margin: 10px 0px 0px 10px;
         .icon {
           background: url(./assets/hot-window/change.png) no-repeat;
           background-size: contain;
@@ -386,13 +394,14 @@ $window2-font-size: 15px;
       .close {
         display: inline-block;
         border-radius: 100px;
-        border: 2px solid white;
+        border: 2px solid #b3957b;
         width: 24px;
         height: 24px;
         position: relative;
         pointer-events: all;
+        margin: 10px 10px 0px 0px;
         &:after {
-          background-color: white;
+          background-color: #b3957b;
           content: "";
           width: 80%;
           height: 2px;
@@ -402,7 +411,7 @@ $window2-font-size: 15px;
           transform: translate(-50%, -50%) rotate(45deg);
         }
         &:before {
-          background-color: white;
+          background-color: #b3957b;
           content: "";
           width: 80%;
           height: 2px;
@@ -431,6 +440,7 @@ $window2-font-size: 15px;
       background-position: top center;
       border-radius: 10px;
       padding: 0 0 10% 0;
+      margin: 0px auto;
       .box1,
       .box2,
       .box3 {
@@ -444,13 +454,14 @@ $window2-font-size: 15px;
           height: 80%;
           .name,
           .time {
-            color: $text-dblue;
+            color: #aeaeae;
             font-size: 2.5vh;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
             width: 47%;
             margin: 0 auto;
+            font-weight: bold;
           }
           .time {
             font-weight: lighter;
@@ -475,13 +486,14 @@ $window2-font-size: 15px;
           transform: translateY(-50%);
           p {
             font-size: $window2-font-size;
-            margin-top: 6%;
-            color: $text-dblue;
+            margin-top: 2%;
+            color: #4d4e4e;
           }
         }
         .country1 {
           left: 17%;
           transform: translateX(-50%);
+          top: 8%;
           .mt {
             display: flex;
             display: flex;
@@ -496,7 +508,7 @@ $window2-font-size: 15px;
               width: 100%;
             }
             span {
-              color: $text-dblue;
+              color: #b09876;
               font-size: $window2-font-size;
             }
           }
@@ -504,6 +516,7 @@ $window2-font-size: 15px;
         .country2 {
           right: 17%;
           transform: translateX(50%);
+          top: 8%;
           p {
             overflow: hidden;
             white-space: nowrap;
@@ -585,13 +598,15 @@ $window2-font-size: 15px;
     }
   }
   .bottom-btn {
-    background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+    background: linear-gradient(to bottom, #efd3b4 0%, #ceaf8f 100%);
     color: white;
     font-weight: 500;
     height: 6vh;
     border-radius: 5px;
     font-size: 17px;
     line-height: 6vh;
+    width: calc(86vw - 5vw);
+    margin: 5px auto;
   }
 }
 
@@ -773,36 +788,38 @@ $surprise-window-title: #37465e;
   width: 100%;
   height: auto;
   margin: 0 auto;
-  background: #252525;
+  background: linear-gradient(to right,#bd9872 0%,#e9ccad 18%,#d3b494 34%,#bd9872 60%,#f5e6bc 82%,#e9ccad 100%);
   border-radius: 0 0 14px 14px;
   padding: 1.5vh 10px 1vh 10px;
+  box-shadow: 0px 2px 4px 0px #cacbcb;
   section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     .hamburger {
-      width: 20px;
-      height: 14px;
+      width: 22px;
+      height: 16px;
       position: relative;
       pointer-events: all;
+      margin: 0px 0px 4px 5px;
 
       span {
         display: inline-block;
         position: absolute;
         width: 100%;
-        height: 3px;
-        background: #979797;
+        height: 4px;
+        background: #fff;
         transition: all 0.3s linear;
         &:nth-child(1) {
-          top: 0;
+          top: 0px;
         }
         &:nth-child(2) {
           top: 50%;
           transform: translateY(-50%);
         }
         &:nth-child(3) {
-          bottom: 0;
+          bottom: 0px;
         }
       }
       &:hover {
@@ -836,8 +853,7 @@ $surprise-window-title: #37465e;
     .chat-img {
       @include size(25px, 25px);
       background: url(./assets/header/chat.png) no-repeat;
-
-      background-size: contain;
+      background-size: 80%;
       position: relative;
       cursor: pointer;
 
@@ -863,10 +879,11 @@ $surprise-window-title: #37465e;
   .wrap {
     display: inline-block;
     line-height: 20px;
-    background: #383838;
+    background: #fff;
     padding: 3px 15px 10px 15px;
     border-radius: 0 0 15px 15px;
-    color: #fff;
+    color: #000;
+    border: solid 1px #d1b292;
     p {
       display: inline-block;
       vertical-align: bottom;
@@ -887,7 +904,7 @@ $surprise-window-title: #37465e;
       display: inline-block;
       vertical-align: bottom;
       line-height: 1;
-      color: #00ff71;
+      color: #ff0000;
       font-family: Bahnschrift;
       margin: 0 5px 0 5px;
     }
@@ -903,6 +920,11 @@ $surprise-window-title: #37465e;
   .horn-area {
     display: flex;
     align-items: center;
+    border: solid 1px #c2a484;
+    background: #fff;
+    border-radius: 9px;
+    padding: 0px 5px;
+    box-shadow: 0px 4px 7px 3px #dae1e6;
     @include size(70vw, 3vh);
     .horn-icon {
       background: url(assets/icon/market-broadcast.png) no-repeat;
@@ -919,7 +941,7 @@ $surprise-window-title: #37465e;
         position: absolute;
         line-height: 3vh;
         // width: 100vw;
-        height: 3vh;
+        height: 3.2vh;
         font-size: $marquee-font;
         color: $text_lgray;
         white-space: nowrap;
@@ -934,19 +956,20 @@ $surprise-window-title: #37465e;
     display: flex;
     justify-content: flex-end;
     .hot {
-      @include size(20vw, 2.8vh);
-      border-radius: 30px 20px 20px 30px;
+      @include size(22vw, 3vh);
+      border-radius: 5px;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: $bg-grpink;
+      background: linear-gradient(to left,#cfb090 0%,#edd1b2 99%);
       line-height: 3vh;
       .hot-icon {
         background: url(./assets/marquee/hot-icon.png) no-repeat;
         background-size: contain;
+        margin-right: 4px;
 
-        @include size(3.3vw, 1.5vh);
+        @include size(3.3vw, 2vh);
         // margin-right: 1vw;
       }
       p {
@@ -957,7 +980,7 @@ $surprise-window-title: #37465e;
   }
 }
 .user-area {
-  margin: 0 $all-margin 0 $all-margin;
+  margin: 0px 3vw;
   width: 96vw;
   @include size(96vw, auto);
 
@@ -970,9 +993,9 @@ $surprise-window-title: #37465e;
       position: relative;
     }
     .user-name {
-      font-size: 19px;
-      color: #242424;
-      line-height: 26px;
+      font-size: 17px;
+      color: #868686;
+      line-height: 30px;
       //   margin-right: 2%;
     }
     .user-vip {
@@ -983,7 +1006,7 @@ $surprise-window-title: #37465e;
     .user-money {
       font-size: 23px;
       font-weight: bolder;
-      color: $uesr-money;
+      color: #6a7391;
       margin-right: 2%;
     }
     .user-question {
@@ -1002,7 +1025,7 @@ $surprise-window-title: #37465e;
     .box {
       p {
         font-size: 14px;
-        color: #d22442;
+        color: #af9172;
         margin: 5px 0 0 0;
       }
       .save-money.active,
@@ -1039,7 +1062,7 @@ $surprise-window-title: #37465e;
       }
       &.active {
         p {
-          color: #d22442;
+          color: #af9172;
         }
       }
     }
@@ -1057,58 +1080,54 @@ $surprise-window-title: #37465e;
       @include size(auto, auto);
       button {
         //2020/03/02  11.2vh > 11vh
-        @include size(100%, 11vh);
+        @include size(100%, 12vh);
         //2020/03/02 1.2vh> 0.7vh
         margin-bottom: 0.7vh;
         border-radius: 8px;
         transition: all 0.2s ease-in-out;
         background-color: #fff;
-        border: 1px solid #dedede;
+        border: 1px solid #d1b393;
+        box-shadow: 0px 3px 7px 0px #c5ced5;
         .title-text {
           font-size: 1.9vh;
-          color: $text_lgray;
+          color: #cfb090;
         }
         .title-num {
           font-size: 2.5vh;
-          color: $text_dblack;
+          color: #868686;
           font-weight: 600;
         }
         .title-text,
         .title-num {
           z-index: 2;
         }
-        &.button-css {
-          background-color: antiquewhite;
-        }
         &.active {
           background: linear-gradient(
             to right,
-            #77002d 0%,
-            #a1083a 15%,
-            #c31440 30%,
-            #fe6b6c 51%,
-            #c31440 70%,
-            #a1083a 85%,
-            #77002d 100%
+            #c6a582 0%,
+            #d6b899 15%,
+            #f2dcc4 40%,
+            #f2dcc4 60%,
+            #d6b899 85%,
+            #c6a582 100%
           );
           border: none;
           position: relative;
           //2020/03/02  多 margin-top: 2vh;
-
           p {
             color: $btn-font-color-act;
+            padding-bottom: 10px;
           }
           &:before {
             top: -0.5vh;
             position: absolute;
             content: "";
             border-radius: 10px;
+            border: solid 1px #c2a484;
             background: linear-gradient(
               to bottom,
-              #fc4446 0%,
-              #cc1f41 50%,
-              #b30c3f 75%,
-              #a5023e 100%
+              #efd3b4 0%,
+              #ceaf8f 100%
             );
             @include size(100%, 100%);
             z-index: 1;
@@ -1130,7 +1149,7 @@ $surprise-window-title: #37465e;
   .right-area {
     width: 83vw;
     height: auto;
-    margin-top: 2vh;
+    margin-top: 1vh;
     // overflow-y: auto;
     position: relative;
     display: inline-block;
@@ -1142,20 +1161,30 @@ $surprise-window-title: #37465e;
       li {
         position: relative;
         background: linear-gradient(
-          -45deg,
-          #f4f4f4 0%,
-          #f4f4f4 50%,
-          #fffdfd 50%,
-          #fffdfd 80%,
-          #f4f4f4 80%
+          to top,
+          #fff 0%,
+          #f0f5ff 32%,
+          #fafdff 69%,
+          #fff 99%
         );
-        @include size(97%, 11vh);
+        @include size(97%, 14vh);
         margin-right: 1vw;
         margin-bottom: 1.7vh;
         border-radius: 8px;
         box-shadow: 0px 0px 5px 0px #f4f4f4;
         overflow: hidden;
         line-height: 11vh;
+        border: solid 1px #d1b292;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 50%;
+          height: 100%;
+          left: -20%;
+          top: -35%;
+          background: #f0f5ff;
+          transform: rotate(135deg);
+        }
         span {
           display: inline-block;
           &.triangle_left,
@@ -1163,19 +1192,10 @@ $surprise-window-title: #37465e;
             position: relative;
             width: calc(83vw * 0.97 / 8);
             height: calc(83vw * 0.97 / 8);
-            overflow: hidden;
           }
           &.triangle_left {
             vertical-align: top;
             left: -37%;
-            background: linear-gradient(
-              45deg,
-              #f2f2f2 0%,
-              #f2f2f2 36%,
-              #d7d7d7 60%,
-              #c7c7c7 70%,
-              #ababab 100%
-            );
             .point {
               position: absolute;
               width: calc(83vw * 0.97 / 35);
@@ -1184,35 +1204,35 @@ $surprise-window-title: #37465e;
               top: 30%;
               transform: translate(-50%, -50%);
               z-index: 2;
-              background: $point_color;
+              background: linear-gradient(to top,#d1b292 0%,#e0c3a4 50%,#ffeedc 100%);
               border-radius: 100px;
-              box-shadow: 0px 2.8px 2px 1px #c2c2c2;
+              box-shadow: 0px 0px 4px 1px #cbd1d6;
             }
             &:before {
               position: absolute;
               content: "";
-              left: 0;
-              border-top: calc(83vw * 0.97 / 8) solid transparent;
-              border-right: calc(83vw * 0.97 / 8) solid #f4f4f4;
+              width: 14vw;
+              height: 14vw;
+              border: solid 1px #dac3ac;
+              transform: rotate(45deg);
+              left: -7vw;
+              top: -7vw;
+              background: #f1f6ff;
             }
           }
           &.triangle_right {
             vertical-align: bottom;
             right: -37%;
-            background: linear-gradient(
-              45deg,
-              #f2f2f2 0%,
-              #f2f2f2 50%,
-              #e4e4e4 60%,
-              #bababa 84%,
-              #bababa 99%
-            );
             &:before {
               position: absolute;
               content: "";
-              left: 0;
-              border-top: calc(83vw * 0.97 / 8) solid #f4f4f4;
-              border-right: calc(83vw * 0.97 / 8) solid transparent;
+              width: 14vw;
+              height: 14vw;
+              border: solid 1px #dac3ac;
+              transform: rotate(45deg);
+              right: -7vw;
+              top: 9vw;
+              background: #f1f6ff;
             }
           }
         }
@@ -1226,7 +1246,7 @@ $surprise-window-title: #37465e;
           left: 90%;
           top: 14.5%;
           font-size: 13px; //2020 0221
-          color: $List-num-color;
+          color: #b3957b;
         }
 
         .game-name,
@@ -1235,12 +1255,13 @@ $surprise-window-title: #37465e;
           position: absolute;
         }
         .game-name {
-          color: $text_lgray;
+          color: #aeaeae;
           text-align: center;
           bottom: 0%;
           left: 66%;
-          font-size: 12px;
-          line-height: 12px;
+          font-size: 2.5vh;
+          font-weight: bold;
+          line-height: 5vh;
           width: 64%;
           position: absolute;
           top: 8.6vh;
@@ -1257,10 +1278,10 @@ $surprise-window-title: #37465e;
           font-weight: lighter;
         }
         .vs {
-          color: #39455b;
-          right: 28.5%;
-          top: 62%;
-          transform: translate(-50%, -50%);
+          color: #999999;
+          right: 29.5%;
+          top: 31%;
+          line-height: 42px;
           font-size: 15px;
         }
         .now-gaming {
@@ -1287,8 +1308,8 @@ $surprise-window-title: #37465e;
           }
         }
         .main-country {
-          color: $main-country-color;
-          font-size: 1.8vh;
+          color: #b09876;
+          font-size: 2.4vh;
         }
         .country1,
         .country2 {
@@ -1617,8 +1638,8 @@ aside {
 //*******進度圖
 // --vars
 $bg-color: #f9f9f9;
-$progress-solid-color: #d22442;
-$progress-false-color: #c8c8c8;
+$progress-solid-color: #d6b898;
+$progress-false-color: #929ab7;
 
 $default-size: 9vh;
 $circle-font-size: 2.6vh;
@@ -1665,7 +1686,7 @@ $circle-font-size: 2.6vh;
 
     .half-circle {
       @include size(100%, 100%);
-      border: ($default-size / 10) solid $progress-solid-color;
+      border: ($default-size / 10) solid #d7b898;
       border-radius: 50%;
       clip: rect(0, $default-size/2, $default-size, 0);
       left: 0;
@@ -1674,7 +1695,7 @@ $circle-font-size: 2.6vh;
     }
   }
   .label {
-    background: $bg-gbgray;
+    background: transparent;
     color: $bg-color;
     border-radius: 100%;
     @include size(80%, 80%);

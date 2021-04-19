@@ -15,6 +15,11 @@ main {
     transform: translateX(0);
     padding: 0 0 200px 0;
     height: auto;
+    background: url(./assets/bg.png) no-repeat top center;
+    background-size: cover;
+    &::before {
+      display: none;
+    }
   }
   .handicap_header {
     width: 100%;
@@ -56,7 +61,7 @@ main {
         content: "";
         position: absolute;
         transform: translate(-50%, -50%);
-        left: 110%;
+        left: 130%;
         top: 50%;
       }
     }

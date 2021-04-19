@@ -24,7 +24,7 @@ html, body {
     position: relative;
 	  left: 0;
     top: 0;
-    background: linear-gradient(to bottom, #fbfbfb 0%,#cedbe2 30%, #839ab0 70%, #516984 100%);
+    // background: linear-gradient(to bottom, #fbfbfb 0%,#cedbe2 30%, #839ab0 70%, #516984 100%);
 }
 a,button,input,optgroup,select,textarea {
     /*去掉a、input和button點擊時的藍色外邊框和灰色半透明背景*/
@@ -63,7 +63,7 @@ $bg-gsblue: linear-gradient(-45deg, #ddebff 0%, #f5f8ff 10%, #f8fbff 10%, #f6faf
 
 header {
     z-index: 800;
-	  position: fixed;
+	position: fixed;
     width: 100%;
 
     //background: linear-gradient(135deg, #062744 0%, #0f3e67 30%, #175780 50%, #0f3e67 70%, #062744 100%);
@@ -73,8 +73,6 @@ header {
         width: 100%;
         text-align: center;
         font-size: 18px;
-
-        background: #d1dde4;
         ul {
             position: relative;
             width: 100%;
@@ -83,7 +81,7 @@ header {
               line-height: calc(6vh - 13px - 10px );
               display: inline-block;
               color: #dcdcdc;
-              background: #242424;
+              background: linear-gradient(to right, #bd9872 0%, #e9ccad 18%, #d3b494 34%, #bd9872 60%, #f5e6bc 82%, #e9ccad 100%);
               border-radius: 0 0 13px 13px;
             li {
             //   float: left;
@@ -98,7 +96,7 @@ header {
                 margin: 2px 0 0 12px;
                 position: absolute;
                 left: 0;
-                top: 50%;
+                top: 40%;
                 transform: translateY(-50%);
               }
               &.title {
@@ -107,6 +105,7 @@ header {
                 transform: translate(-50%,-50%);
                 left: 50%;
                 top: 50%;
+                color: #fff;
                 span{
                     &.count {
                         position: absolute;
@@ -114,7 +113,7 @@ header {
                         top: 0;
                         color: #fff;
                         border-radius: 20%;
-                        padding: 0px 5px;
+                        padding: 0px 5px 2px;
                         font-size: 1.8vh;
                         background: linear-gradient(to right,  #fe4646 0%,#e02f43 40%,#bf1540 70%,#a8033d 100%);
                       }
@@ -122,9 +121,9 @@ header {
               }
               &.btn {
                 width: 55%;
-                color: #979797;
+                color: #fff;
                 position: absolute;
-                line-height: 32px;
+                line-height: 3.5vh;
                 left: 11vh;
                  //2020/03/02 屏蔽箭頭
               //   &::before {
@@ -259,7 +258,7 @@ main {
     z-index: 0;
     position: relative;
     width: 100%;
-    background: linear-gradient(to bottom, #fbfbfb 0%,#cedbe2 30%, #839ab0 70%, #516984 100%);
+    // background: linear-gradient(to bottom, #fbfbfb 0%,#cedbe2 30%, #839ab0 70%, #516984 100%);
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -270,7 +269,10 @@ main {
       position: fixed;
       width: 100%;
       height: 100vh;
-      background: linear-gradient(to bottom, #d2dee5 0%, #b5c6d2 25%, #89a1b5 58%, #89a1b5 58%, #5c748e 95%);
+      top: 0px;
+      left: 0px;
+      background: url(./assets/bg.png) no-repeat top center;
+      background-size: cover;
       display: inline-block;
       z-index: -1;
     }
@@ -280,15 +282,15 @@ main {
 footer {
     -webkit-transition: transform 400ms ease-in-out;
     transition: transform 400ms ease-in-out;
-    background: #242424;
-    color: #818181;
+    background: #ffffff;
+    color: #797f95;
     z-index: 500;
     position: fixed;
     bottom: 0;
     width: 100%;
     //border-top: 1px solid #1efdf4;
     border-radius: 15px 0 0 0px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px -2px 5px 0px #bec2c8;
    // transform: translateY(100%);
     &.goleft {
         transform: translateX(-100%);
@@ -379,7 +381,7 @@ footer {
             background: #191931;
         }
         &.active {
-            color: #d22442;
+            color: #cbab8b;
             //background: linear-gradient(145deg, #75ffdf 0%, #1787ab 50%, #1c789a 60%, #134461 100%);
             .icon-ft {
                 background-position-y: 100%;

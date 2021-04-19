@@ -51,7 +51,7 @@ article {
       border-radius: 30px;
       &:focus {
         outline: none;
-        border: 1px solid #a5003d;
+        border: 1px solid #d1b292;
       }
     }
     .form {
@@ -215,7 +215,7 @@ article {
         left: 10%;
         width: 25%;
         height: 46px;
-        background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+        background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);
         border-radius: 20px;
         z-index: 1;
         transition: all 0.3s ease-in-out;
@@ -258,7 +258,7 @@ article {
     }
     button.login_btn {
       color: #fff;
-      background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+      background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);
       margin: 0 0 5px 0;
       position: relative;
       &:active {
@@ -294,12 +294,12 @@ article {
         font-size: 14px;
         font-weight: bold;
         line-height: 20px;
-        color: #242424;
+        color: #fff;
       }
     }
     
     button.help-btn{
-      background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+      background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);
       width: 50%;
       margin: 0 0 10px 0;
       p{

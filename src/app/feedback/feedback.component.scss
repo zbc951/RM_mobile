@@ -6,7 +6,6 @@ header {
     width: 120%;
     height: 18vh;
     // background: linear-gradient(to right, #f5bba6 0%, #cf8d75 100%);
-    background: #242424;
     margin: 0 0 0 -10%;
     border-radius: 0 0 80px 80px;
     color: #dcdcdc;
@@ -17,6 +16,8 @@ header {
 
       li {
         font-size: 2.4vh;
+        color: #fff;
+        padding-top: 3px;
         &:nth-child(3) {
           font-size: 18px;
         }
@@ -30,6 +31,7 @@ header {
       height: auto;
       margin: 2vh auto 0 auto;
       border-radius: 7px;
+      border: solid 1px #d1b292;
 
       .manhead {
         float: left;
@@ -228,7 +230,6 @@ main {
     overflow-y: scroll;
     //padding-top: 20px;
     padding-bottom: 30px;
-    background-color: #fff;
     div.row {
       width: 92%;
       height: 100px;
@@ -238,7 +239,7 @@ main {
       box-shadow: 0px 0px 10px rgba(105, 105, 105, 0.3);
       position: relative;
       &.first {
-        background: linear-gradient(to right, #fd4546 0%, #aa043e 100%);
+        background: linear-gradient(to left, #f2dcc4 0%, #d6b899 41%, #c6a582 76%, #c6a582 100%);
         margin: 20px auto 20px auto;
       }
       &.second {
@@ -319,7 +320,7 @@ main {
           left: 24px;
           border-style: solid;
           border-width: 10px 0 10px 13px;
-          border-color: transparent transparent transparent #aa043e;
+          border-color: transparent transparent transparent #e8d1b9;
         }
         &.blue::after { border-color: transparent transparent transparent #b3916a;}
       }

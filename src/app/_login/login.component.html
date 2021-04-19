@@ -38,7 +38,7 @@
             <button class="login_btn"
             >{{ "向右滑動登入" | langChart : lang.languageChart }}</button>
         </div>
-        <button class="login-btn" (click)="login()" *ngIf="!loading" style="background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);" [ngStyle]="{'display':!Lbutton ? 'none' : 'inline-block' }">{{ "登 入" | langChart : lang.languageChart }}</button>
+        <button class="login-btn" (click)="login()" *ngIf="!loading" style="background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);" [ngStyle]="{'display':!Lbutton ? 'none' : 'inline-block' }">{{ "登 入" | langChart : lang.languageChart }}</button>
         <button class="login-btn-Loading" *ngIf="loading">{{ "加載中" | langChart : lang.languageChart }}。。。</button>
         <!-- <button class="register-btn" (click)="register()">{{ "註 冊" | langChart : lang.languageChart }}</button> -->
         <!--2020_0420add-->

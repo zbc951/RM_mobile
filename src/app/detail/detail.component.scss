@@ -52,7 +52,6 @@ header {
   position: fixed;
   background: #fff;
   .nav{
-    background: #242424;
     border-radius: 0 0 13px 13px;
   }
   .money-total{
@@ -90,13 +89,13 @@ header {
             text-align: center;
         }
         p {
-          color: $text_dgreen;
+          color: #868686;
           padding-top: 15px;
           font-size: 2vh;
         }
         .money {
           font-size: $detail-money-font-size-num;
-          color: $text_dblack;
+          color: #6a7391;
           font-weight: 500;
           display: flex;
           padding: 10px 0;
@@ -304,7 +303,7 @@ main.have {
           }
           span {
             font-size: 1.9vh;
-            color: $text_dblack;
+            color: #4e4e4e;
             font-weight: lighter;
             line-height: 17px;
             &.textred {

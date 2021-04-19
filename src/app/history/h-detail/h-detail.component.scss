@@ -102,7 +102,7 @@ $lighten-blue: #7689a4;
     font-size: 15px;
     font-weight: 400;
     font-family: '微軟正黑體';
-    top: 62%;
+    top: 60%;
     right: -6%;
     transform: translate(-50%, -50%);
     height: 18px;
@@ -166,7 +166,7 @@ header {
           }
           .money {
             font-size: $detail-money-font-size-num;
-            color: $subtitle-num-color-dark-blue;
+            color: #6a7391;
             font-weight: 500;
             display: flex;
             padding: 10px 0;
@@ -206,7 +206,7 @@ article {
 
 main {
     height: auto;
-    background: linear-gradient(to bottom, #fbfbfb 0%, #cedbe2 30%, #839ab0 70%, #516984 100%);
+    // background: linear-gradient(to bottom, #fbfbfb 0%, #cedbe2 30%, #839ab0 70%, #516984 100%);
     div[class="day-title"] {
         position: relative;
         // background: linear-gradient(to right bottom, #e5e5e5 0%, #f7f7f7 10%, #ffffff 20%, #ffffff 80%, #f7f7f7 90%, #e5e5e5 100%);
@@ -240,11 +240,12 @@ main {
                 flex-direction: column;
                 text-align: center;
                 label {
-                    color: $lighten-blue;
+                    color: #868686;
                     font-size: 13px;
                 }
                 em{
                     font-size: 20px;
+                    color: #4e4e4e;
                 }
                 &:first-child  {
                     // text-align: right;

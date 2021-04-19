@@ -101,9 +101,10 @@
           <li class="fb">&nbsp;&nbsp;{{ item.mtime }}</li>
           <span *ngIf="item.reciprocal" class="timeout"><span
               *ngIf="item['msg']">{{ item['msg'] | langChart : lang.languageChart  }}&nbsp;&nbsp;</span>{{ item.reciprocal }}</span>
+        </ul>
+        <ul class="alliance" (click)="checkHandicap(item, gtype)">{{item.lid}}
           <li class="crude">{{ "更多" | langChart : lang.languageChart }}<span class="fb">(99)</span></li>
         </ul>
-        <ul class="alliance" (click)="checkHandicap(item, gtype)">{{item.lid}}</ul>
         <ul class="team" (click)="checkHandicap(item, gtype)">
           <li class="HT">
             <span>{{ item.ht }}[{{ "主" | langChart : lang.languageChart }}]</span>

@@ -178,14 +178,14 @@ aside {
   font-family: "微軟正黑體";
   div[class="sidebar"] {
     height: 100%;
-    background: #242424;
+    background: #fff;
     box-shadow: 0 0 23px 7px rgba(#161654, 0.3);
     border-radius: 5px 0 0 0;
     .title-box {
       padding: 0 15px;
       display: flex;
       justify-content: space-between;
-      background: #242424;
+      background: #fff;
       div.close-wrap {
         display: -webkit-flex;
         -webkit-justify-content: center;
@@ -205,7 +205,7 @@ aside {
             left: 50%;
             width: 17px;
             height: 1.5px;
-            background-color: #fff;
+            background-color: #af9172;
             border-radius: 8px;
           }
           &.close-btn:after {
@@ -219,7 +219,7 @@ aside {
       p.finish {
         text-align: center;
         line-height: 44px;
-        color: #fff;
+        color: #af9172;
       }
       p.title {
         // background: linear-gradient(
@@ -228,7 +228,7 @@ aside {
         //   #f9f9f9 50%,
         //   #ffffff 100%
         // );
-        color: #fff;
+        color: #af9172;
         line-height: 44px;
         text-align: center;
         border-radius: 7px 0 0 0;
@@ -253,11 +253,11 @@ aside {
 
     div.foler-group {
       height: auto;
-      background: #242424;
+      background: #fff;
       font-size: 15px;
       div.search {
       padding: 0 15px 15px 15px;
-       background: #242424;
+       background: #fff;
         position: relative;
         margin: 2vh 0;
         .timebg {
@@ -311,7 +311,7 @@ aside {
             border: 1px solid #fff;
             border-radius: 8px;
             margin: 0 auto 2vh auto;
-            background: #d22442;
+            background: #d0b191;
             cursor: pointer;
             // &:nth-child(4n) {
             //   margin: 0;
@@ -319,7 +319,7 @@ aside {
           }
         }
         input {
-          background-color: #1a1a1a;
+          background-color: #f2f6ff;
           text-align: left;
           padding: 5px 20px;
           width: 100%;
@@ -327,11 +327,12 @@ aside {
           line-height: 5vh;
           border-radius: 30px;
           font-size: 2.5vh;
-          color: #979797;
+          color: #af9172;
+          border: solid 1px #d1b292;
           outline: none;
           font-family: Microsoft JhengHei;
           &::placeholder {
-            color: #979797;
+            color: #af9172;
           }
         }
 
@@ -389,7 +390,10 @@ aside {
         //   border-bottom: 1px solid #0e4366;
           position: relative;
         //   background: linear-gradient(180deg, #165882 0, #0e4569 40%, #062744);
-            background-color: #d22442;
+          background-color: #d1b292;
+          &.arrow {
+            border-bottom: solid 2px #fff;
+          }
           &.arrow:after {
             content: "";
             position: absolute;
@@ -512,7 +516,7 @@ aside.set-page{
         font-size: 2vh;
         &:last-child{
           color:#fff;
-          background: #242424;
+          background: #ceaf8f;
         }
         .check{
           display: inline-block;
@@ -520,7 +524,7 @@ aside.set-page{
           border-radius: 20px;
           height: 31px;
           width: 114px;
-          background-color: #d22442;
+          background-color: #ceaf8f;
           transform: translateY(0%);
           position: relative;
           padding: 0 10px;
