@@ -205,7 +205,7 @@ aside {
             left: 50%;
             width: 17px;
             height: 1.5px;
-            background-color: #af9172;
+            background-color: #39455b;
             border-radius: 8px;
           }
           &.close-btn:after {
@@ -219,7 +219,7 @@ aside {
       p.finish {
         text-align: center;
         line-height: 44px;
-        color: #af9172;
+        color: #39455b;
       }
       p.title {
         // background: linear-gradient(
@@ -319,7 +319,7 @@ aside {
           }
         }
         input {
-          background-color: #f2f6ff;
+          background-color: #efefef;
           text-align: left;
           padding: 5px 20px;
           width: 100%;
@@ -507,13 +507,13 @@ aside.set-page{
 
       li{
         line-height: calc(45vh / 6 );
-        color: #39455b;
+        color: #404040;
         padding: 0 15px;
         border-bottom: 1px solid #f0f0f0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 2vh;
+        font-size: 14px;
         &:last-child{
           color:#fff;
           background: #ceaf8f;
@@ -551,7 +551,7 @@ aside.set-page{
             &.pleft {
               float: left;
               &:hover, &:active, &.active{
-                color: #d22442;
+                color: #39455b;
                 background: #fff;
                 border-radius: 21px;
                 height: 25px;
@@ -566,7 +566,7 @@ aside.set-page{
             &.pright {
               float: right;
               &:hover, &:active, &.active{
-                color: #7689a4;
+                color: #39455b;
                 background: #fff;
                 border-radius: 21px;
                 height: 25px;
@@ -588,8 +588,8 @@ aside.set-page{
           &:before{
             content: '全部';
             position: absolute;
-            left: 21%;
-            color: #7689a4;
+            left: 23%;
+            color: #5a6a86;
             font-size: 12px;
           }
           &:after{
@@ -597,8 +597,8 @@ aside.set-page{
             position: absolute;
             transform: translate(-50%, -50%);
             top: 49%;
-            left: 67%;
-            color: #7689a4;
+            right: 0%;
+            color: #5a6a86;
             width: 122px;
             height: 29px;
             background: url(./assets/market/market-set-page-icon.png)no-repeat;
@@ -607,13 +607,13 @@ aside.set-page{
           }
           p{
             float: right;
-            color: #7689a4;
-            font-size: 12px;
+            color: #5a6a86;
+            font-size: 13px;
             span{
               display: inline-block;
               width: 10px;
               height: 10px;
-              background: url(./assets/icon/arrow_db.png)no-repeat;
+              background: url(./assets/icon/arrow_db_2.png)no-repeat;
               background-position: center center;
               background-size: cover;
               transform: rotate(-180deg);

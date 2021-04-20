@@ -251,10 +251,11 @@ main {
         background: #fff;
         border-radius: 8px;
         margin: 20px auto;
-        border: 1px solid #ffffff;
+        border: 1px solid #d2cdc0;
         width: 96.8vw;
+        border-radius: 10px;
       div[class="title"] {
-        background: #fff;
+        background: #d2b494;
         border-bottom: 1px solid #ebebeb;
         display: -webkit-flex;
         font-size: 15px;
@@ -266,22 +267,23 @@ main {
         justify-content: space-between;
         padding: 0 18px;
         position: relative;
-
+        border-radius: 10px 10px 0 0;
         // border-bottom: 0.5px solid #ebebeb;
         p{
-            color: $dark_;
+            color: #ffffff;
             em{
-                color: $dark_;
+                color: #ffffff;
             }
             &:first-child{
               font-size: 18px;
               font-family: '微軟正黑體';
               font-weight: bolder;
               position: relative;
+              padding: 0 0 0 5px;
               &:before{
                 content:'';
                 position: absolute;
-                background: linear-gradient(to bottom, #a5003d 0%,#fe4646 99%);
+                background: #fff;
                 width: 3.5px;
                 height: 100%;
                 border-radius: 20px;
@@ -299,7 +301,7 @@ main {
                 width: 20px;
                 height: 20px;
                 vertical-align: bottom;
-                margin: 0 5px 0 0;
+                margin: 0 10px 0 0;
               }
             }
           }
@@ -309,7 +311,7 @@ main {
       div[class="table-header"] {
         display: -webkit-flex;
         background: #fff;
-        color: #7689a4;
+        color: #636363;
         height: 30px;
         -webkit-align-items: center;
         align-items: center;
@@ -331,7 +333,7 @@ main {
           font-size: 16px;
           height: 44px;
           text-align: center;
-          background-color: #f7f8fc;
+          background-color: #edf0f3;
           -webkit-align-items: center;
           align-items: center;
         //   font-family: '微軟正黑體';
@@ -339,15 +341,15 @@ main {
           margin: 0 5px 10px 5px;
           border-radius: 8px;
           &.disable {
-            background: #fff;
+            background: #f5f5f5;
             p:last-child {
-              color: #006ccc;
+              color: #607b98;
             }
           }
 
           p {
             width: 33.33%;
-            font-size: 2.2vh;
+            font-size: 2.4vh;
             font-weight: lighter;
             font-family: Bahnschrift;
             &:nth-of-type(1) {
@@ -356,7 +358,7 @@ main {
             }
             &:nth-of-type(2) {
 
-              color: #d22442;
+              color: #bf852d;
               font-weight: bold;
             }
             &:last-child {

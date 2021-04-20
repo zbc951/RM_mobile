@@ -23,8 +23,8 @@
             <div class="checkbox"></div>
             <span>{{ '記住帳密' | langChart : lang.languageChart }}</span>
         </label>
-       
-            
+
+
         </div>
         <!-- <div class="verification_wrap">
             <input type="text" placeholder="圖形驗證">
@@ -38,7 +38,7 @@
             <button class="login_btn"
             >{{ "向右滑動登入" | langChart : lang.languageChart }}</button>
         </div>
-        <button class="login-btn" (click)="login()" *ngIf="!loading" style="background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);" [ngStyle]="{'display':!Lbutton ? 'none' : 'inline-block' }">{{ "登 入" | langChart : lang.languageChart }}</button>
+        <button class="login-btn" (click)="login()" *ngIf="!loading"  [ngStyle]="{'display':!Lbutton ? 'none' : 'inline-block' }">{{ "登 入" | langChart : lang.languageChart }}</button>
         <button class="login-btn-Loading" *ngIf="loading">{{ "加載中" | langChart : lang.languageChart }}。。。</button>
         <!-- <button class="register-btn" (click)="register()">{{ "註 冊" | langChart : lang.languageChart }}</button> -->
         <!--2020_0420add-->
@@ -46,7 +46,7 @@
             <button class="help-btn" (click)="showChatlink()"><p>24H</p>{{ "客服" | langChart : lang.languageChart }}</button>
             <div class="forget"  onclick="showPanel()">{{ "忘記密碼" | langChart : lang.languageChart }}?</div>
         </div>
-        
+
 
         <!-- <ul class="lang">
             <li (click)="changeLanguage('zh-cn')">简体中文</li>

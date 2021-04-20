@@ -67,16 +67,16 @@ header {
         &.money {
           li {
             float: left;
-            width: calc(100% / 3);
+            width: calc(100% / 2);
             margin: 0 0 10px 0;
             position: relative;
             p {
-              font-size: 12px;
+              font-size: 16px;
               color: #646464;
             }
             span {
-              font-size: 15px;
-              color: #242424;
+              font-size: 20px;
+              color: #56718e;
               line-height: 30px;
             }
             &::after {
@@ -102,7 +102,7 @@ main {
     // height: calc(100vh - 6vh);
     div{
       &.scroll_box{
-        padding-bottom: 200px;
+        padding-bottom: 170px;
 
       }
       &.hellocard_box{
@@ -183,22 +183,24 @@ main {
         clear: both;
         overflow: auto;
         background: #fff;
-        margin: 0 0 10px 0;
-        border-bottom: solid 1px #c2a484;
+        margin: 0 0 15px 0;
+        // border-bottom: solid 1px #c2a484;
+        box-shadow: 0px 3px 3px #7b8aa269;
         li {
           text-align:center;
           float: left;
-          width: calc(100% / 3);
+          width: calc(100% / 2);
           margin: 0 0 10px 0;
           padding: 10px 0 0 0;
           position: relative;
           p {
-            font-size: 12px;
+            font-size: 16px;
             color: #646464;
+            line-height: 28px;
           }
           span {
-            font-size: 15px;
-            color: #242424;
+            font-size: 20px;
+            color: #56718e;
             line-height: 30px;
           }
           &::after {
@@ -229,8 +231,9 @@ main {
         margin: 0 auto;
         background: #fff;
         padding: 8px 0 0 0;
-        border: solid 1px #c2a484;
+        // border: solid 1px #c2a484;
         border-width: 1px 0px;
+        box-shadow: 0px 0px 5px #7b8aa269;
         // box-shadow: 0 1px 17px -7px #000;
         li {
           float: left;
@@ -240,7 +243,7 @@ main {
             width: 38px;
             height: 38px;
             background: url(./assets/icon/mine.png) no-repeat;
-            background-size: 380%;
+            background-size: 390%;
             background-position-y: -32px;
             background-position-y: 0px;
             $icon-ft: money, betrd, moneyrd, card;
@@ -251,7 +254,7 @@ main {
             }
           }
           span {
-            color: #242424;
+            color: #9e7e5e;
             font-size: 16px;
             padding: 0 0 0 15%;
             line-height: 28px;
@@ -260,14 +263,15 @@ main {
       }
       &.list {
         margin: 8px 0 0 0;
-        padding: 16px 0 0 0;
+        padding: 8px 0 0 0;
         flex-flow: wrap;
         display: flex;
         background: #fff;
-        border: solid 1px #c2a484;
+        // border: solid 1px #c2a484;
         border-width: 1px 0px;
+        box-shadow: 0px 0px 5px #7b8aa269;
         li {
-          margin: 0 0 17px 0;
+          margin: 0 0 13px 0;
           position: relative;
           width: calc(100% / 4);
           display: flex;
@@ -278,7 +282,7 @@ main {
             width: 38px;
             height: 38px;
             margin: 0 0 8px 0;
-            background: url('assets/icon/option_icons.png')no-repeat; background-size: 600%;
+            background: url('assets/icon/option_icons.png')no-repeat; background-size: 595%;
             &.edit{background-position: 0 0;}
             &.post{background-position: -38px 0;}
             &.feedback{background-position: -76px 0;}
@@ -299,7 +303,7 @@ main {
           }
           p {
             font-size: 16px;
-            color: #242424;
+            color: #9e7e5e;
             display: inline-block;
           }
           // &::before {
@@ -317,7 +321,7 @@ main {
       }
       &.out {
         margin: 12px auto;
-        background: #fff;
+        background: linear-gradient(to bottom,#efd3b4 0%,#ceaf8f 100%);
         text-align: center;
         width: 100%;
         border: solid 1px #c2a484;
@@ -338,7 +342,7 @@ main {
           p {
             float: left;
             font-size: 17px;
-            color: #ff0000;
+            color: #fff;
             letter-spacing: 15px;
           }
           // &::before {

@@ -263,7 +263,7 @@ main {
     overflow-x: hidden;
     overflow-y: hidden;
     height: auto;
-    padding: 6.3vh 0 200px 0;
+    padding: 6.3vh 0 0px 0;
     &::before {
       content: '';
       position: fixed;
@@ -315,7 +315,7 @@ footer {
                             padding: 0;
                             font-size: 12px;
                             vertical-align: middle;
-                            color: #d22442;
+                            color: #8194b7;
 
                         }
                     }
@@ -370,7 +370,7 @@ footer {
                         padding: 0;
                         font-size: 12px;
                         vertical-align: middle;
-                        color: #979797;
+                        color: #8194b7;
 
                     }
                 }

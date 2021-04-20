@@ -9,14 +9,14 @@ article {
   padding-bottom: 5vh;
   overflow-y: scroll;
   .btn-clear {
-    color: #526c87;
+    color: #926f4a;
     display: inline-block;
     float: right;
     line-height: 1;
-    background: rgba(237, 244, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     padding: 4px 8px 4px 8px;
     border-radius: 100px;
-    border: 1px solid #667d94;
+    border: 1px solid #926f4a;
     margin: 0 10px 5px 0;
     font-size: 14px;
   }
@@ -47,11 +47,11 @@ article {
       width: 100%;
       height: 50px;
       padding: 0 15px 0 50px;
-      background: rgba(#edf4ff, 0.8);
+      background: rgba(#fff, 0.8);
       border-radius: 30px;
       &:focus {
         outline: none;
-        border: 1px solid #d1b292;
+        border: 1px solid #9e7726;
       }
     }
     .form {
@@ -123,9 +123,9 @@ article {
     }
     div.logo {
       text-align: center;
-      margin: 4vh auto 5vh;
+      margin: 5vh auto 7vh;
       img {
-        width: 80px;
+        width: 120px;
         vertical-align: middle;
         filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.35));
       }
@@ -197,7 +197,7 @@ article {
             bottom: 10px;
             width: 22px;
             height: 13px;
-            border: 0 solid #a5003d;
+            border: 0 solid #ca0606;
             border-width: 0 0 6px 6px;
             transform: rotate(-45deg);
           }
@@ -215,7 +215,7 @@ article {
         left: 10%;
         width: 25%;
         height: 46px;
-        background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);
+        background: linear-gradient(to right, #fddeb5 0%, #b79470 100%);
         border-radius: 20px;
         z-index: 1;
         transition: all 0.3s ease-in-out;
@@ -258,24 +258,23 @@ article {
     }
     button.login_btn {
       color: #fff;
-      background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);
+      background: linear-gradient(to right, #fddeb5 0%, #b79470 100%);
       margin: 0 0 5px 0;
       position: relative;
       &:active {
         background: #cf8d75;
       }
     }
+    button.login-btn {
+      color: #fff;
+      background: linear-gradient(to right, #fddeb5 0%, #b79470 100%);
+      margin: 0 0 5px 0;
+    }
     button.login-btn-Loading {
       color: #fff;
       margin: 0 0 16px 0;
-      background: linear-gradient(
-        to right,
-        #fbfbfb 0%,
-        #99b7c7 30%,
-        #839ab0 70%,
-        #516984 100%
-      );
-      
+      background: linear-gradient(to right, #dad6d0 0%, #948f8a 100%);
+
     }
     button.register-btn {
       color: #fff;
@@ -294,12 +293,12 @@ article {
         font-size: 14px;
         font-weight: bold;
         line-height: 20px;
-        color: #fff;
+        color: #242424;
       }
     }
-    
+
     button.help-btn{
-      background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);
+      background: linear-gradient(to right, #fddeb5 0%, #b79470 100%);
       width: 50%;
       margin: 0 0 10px 0;
       p{
@@ -355,7 +354,7 @@ article {
         background: linear-gradient(to right, #25415f 0%, #5a748e 100%);
       }
       &.red {
-        background: linear-gradient(to right, #a6013d 0%, #f94246 100%);
+        background: linear-gradient(to right, #fddeb5 0%, #b79470 100%);
       }
       p {
         writing-mode: vertical-lr;

@@ -1,6 +1,6 @@
 $dark-blue: #242424;
 @mixin footer-btn-color-red {
-  background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+  background: linear-gradient(to right, #efd3b4 0%, #ceaf8f 100%);
 }
 @mixin footer-btn-color-gray {
   background: #d4d4d4;
@@ -79,7 +79,7 @@ div[class="mbet_dialog"] {
             font-family: Bahnschrift;
             text-align: center;
             margin: 0 0 10px 0;
-            color: #69839a;
+            color: #778db3;
             font-weight: lighter;
           }
         }
@@ -195,7 +195,7 @@ div[class="mbet_dialog"] {
       }
     }
     div[class="against"] {
-      background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+      background: linear-gradient(to right, #e9ccad 0%, #bd9872 100%);
       color: #fff;
       line-height: 20px;
       text-align: center;
@@ -245,13 +245,13 @@ div[class="mbet_dialog"] {
         margin: 0 auto;
         color: #646464;
         padding: 12px 0;
-        font-size: 2vh;
+        font-size: 14px;
         span {
           float: right;
         }
         em.num {
           font-family: Bahnschrift;
-          color: #69839a;
+          color: #3d6486;
           font-weight: 500;
         }
       }
@@ -362,7 +362,6 @@ div[class="mbet_dialog"] {
     div[class="footer"] {
       display: -webkit-flex;
       height: 46px;
-
       //   border-top: 1px solid #999;
       button {
         font-size: 19px;
@@ -383,9 +382,12 @@ div[class="mbet_dialog"] {
         &.ok-btn.disabled {
           color: #f0f0f0;
           @include footer-btn-color-gray;
+          font-family: '微軟正黑體';
+
         }
         &.ok-btn {
           border-radius: 0 0 13px 13px;
+          font-family: '微軟正黑體';
           // color: #043f73;
           // color: $dark-blue;
 
@@ -421,7 +423,7 @@ div[class="mbet_dialog"] {
     margin: 0 auto;
     border: 1px solid #fff;
     p.title {
-      background: #242424;
+      background: #7689a4;
       color: #fff;
       line-height: 36px;
       border-radius: 12px 12px 0 0;
@@ -451,7 +453,7 @@ div[class="mbet_dialog"] {
             }
           }
           p {
-            color: #7689a4;
+            color: #5b7198;
             width: 58vw;
             display: inline-block;
             vertical-align: text-top;
@@ -467,7 +469,7 @@ div[class="mbet_dialog"] {
     .button_wrap {
       display: flex;
       button {
-        background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+        background: linear-gradient(to right, #efd3b4 0%, #ceaf8f 100%);
         width: 50%;
         height: 45px;
         line-height: 43px;
@@ -499,7 +501,7 @@ div[class="mbet_dialog"] {
 }
 
 .textred {
-  color: #dc614e;
+  color: #e63115;
   font-weight: 600;
-  font-size: 2vh;
+  font-size: 15px;
 }

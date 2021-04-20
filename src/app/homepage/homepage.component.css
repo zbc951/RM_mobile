@@ -309,7 +309,7 @@ main {
   color: #fff;
   background: -webkit-gradient(linear, left top, right top, from(#fe4646), to(#a5003d));
   background: -o-linear-gradient(left, #fe4646 0%, #a5003d 100%);
-  background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+  background: linear-gradient(to right, #efd3b4 0%, #ceaf8f 100%);
   border-radius: 0 0 20px 0;
 }
 
@@ -579,7 +579,7 @@ main {
 .Windows-2 .bottom-btn {
   background: -webkit-gradient(linear, left top, right top, from(#fe4646), to(#a5003d));
   background: -o-linear-gradient(left, #fe4646 0%, #a5003d 100%);
-  background: linear-gradient(to right, #fe4646 0%, #a5003d 100%);
+  background: linear-gradient(to right, #efd3b4 0%, #ceaf8f 100%);
   color: white;
   font-weight: 500;
   height: 6vh;

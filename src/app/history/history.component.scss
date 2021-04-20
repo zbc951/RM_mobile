@@ -47,6 +47,8 @@ main {
                 // box-shadow: 0 2px 17px -6px #000;
                 border-radius: 6px;
                 margin-bottom: 15px;
+                border: 1px solid #d2b393;
+                box-shadow: 0px 2px 3px rgba(57,69,91,0.2);
                 div.title {
                     color: $dark_black;
                     font-size: 16px;
@@ -87,9 +89,9 @@ main {
                             &:not(:last-child):after {
                                 position: absolute;
                                 content: '';
-                                width: 2px;
-                                height: 16px;
-                                background: rgba(#cecece, .3);
+                                width: 1px;
+                                height: 17px;
+                                background: #f1e0cf;
                                 right: 0;
                                 top: 1px;
                             }
@@ -131,14 +133,14 @@ main {
                                     position: relative;
                                     top: 11px;
                                     left: -2px;
-                                    background-image: url(./assets/icon/arrow_db.png);
+                                    background-image: url(./assets/icon/arrow_db_2.png);
                                     background-position: center center;
                                     background-size: 100%;
                                 }
                             }
                         }
                         &.final {
-                          background: #fff;
+                          background: #eceae6;
                         }
                     }
                     &:last-child {
