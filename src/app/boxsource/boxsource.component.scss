@@ -33,16 +33,20 @@ main {
   &.boxsource {
     height: auto;
     padding-bottom: 200px;
+    top: 5px;
     section {
       width: 96vw;
-      margin: 0 auto;
+      margin: 0 auto 8px auto;
       background: #fff;
-      border-radius: 8px 8px 0 0;
+      // border-radius: 8px 8px 0 0;
+      border: 1px solid #d2b393;
+      box-shadow: 0px 2px 3px rgba(57,69,91,0.2);
       .bloc_name {
-        width: 96vw;
+        width: 100%;
         padding: 5px 5px 5px 5px;
-        margin: 1vh 0 0 0;
-        border-bottom: 2px solid #d22442;
+        margin: 0 0 0 0;
+        border-bottom: 2px solid #8194b7;
+        background: #efe1d2;
         .tname {
           width: 96vw;
           font-size: 2.3vh;
@@ -59,7 +63,7 @@ main {
       }
       .bet_area {
         ul {
-          width: 96vw;
+          width: 100%;
           display: inline-block;
           &.top {
               font-size: 2vh;
@@ -88,6 +92,7 @@ main {
           }
           &.bet {
             padding: 5px 10px 0px 10px;
+            background: #f7f8fc;
             li {
               float: left;
               ol {
@@ -120,7 +125,7 @@ main {
                 ol {
                   li {
                     text-align: center;
-                    background: #f7f8fc;
+                    background: #dfe5f1;
                     margin: 0 0 5px;
                     border-radius: 3px;
                     &.textred {
