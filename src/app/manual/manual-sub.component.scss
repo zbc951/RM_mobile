@@ -29,6 +29,14 @@ $dark_black:#242424;
             span {
                 // margin-right: 21px;
             }
+            .ruleImg {
+              display: inline-block;
+              width: 100%;
+              padding: 67%;
+              margin: 10px 0 0 0;
+              &.cn {background: url(./assets/rule/statement_cn.jpg) no-repeat; background-size: contain;}
+              &.zh {background: url(./assets/rule/statement_zh.jpg) no-repeat; background-size: contain;}
+            }
             .red {
                 color: #d27d5e;
             }

@@ -22,7 +22,7 @@ module.exports = webpackMerge(commonConfig(), {
         stats: 'minimal',
         proxy: {
             '/pub/gateway.php': {
-                target: 'https://w1.125588.net/pub/gateway.php',
+                target: 'https://w1.rm6666.net/pub/gateway.php',
                 secure: false,
                 changeOrigin: true //webpack@1.14.1 以上
             }
