@@ -159,6 +159,6 @@ export class FeedbackComponent implements OnInit {
             });
     }
     showChatlink(){
-        window.open('/app2/chatlink.html');
+        window.open('https://svip001.comm800.com/standalone.html?appId=506498');
     }
 }

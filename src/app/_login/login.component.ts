@@ -79,7 +79,8 @@ export class LoginComponent {
                 if (storageMode) {
                     if(sessionStorage){
                         sessionStorage.setItem('uid', ret['uid']);
-                        sessionStorage.setItem('token', ret['token_m']);
+                        sessionStorage.setItem('token', ret['token']);
+                        sessionStorage.setItem('token_m', ret['token_m']);
                         location.href = '';
                     }else{
                         location.href = '?lang=' + this.lang.nowLang + '&p=' + ret['uid'];
@@ -170,6 +171,6 @@ export class LoginComponent {
     }
 
     showChatlink(){
-        window.open('/app2/chatlink.html');
+        window.open('https://svip001.comm800.com/standalone.html?appId=506498');
     }
 }

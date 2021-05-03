@@ -47,7 +47,6 @@ main {
     #5c748e 95%
   );
   padding: 6.5vh 0 0 0;
-
 }
 .swiper-wrapper {
   position: relative;
@@ -75,6 +74,7 @@ main {
   //2020-0218
   height: auto;
   margin: 10px auto;
+  // padding-top: 15%;
 }
 .swiper-slide {
   //   text-align: center;
@@ -190,8 +190,8 @@ $window2-font-size: 15px;
             padding: 20px 0 20px 0;
             &:hover,
             &.active,
-            &:active{
-              .content{
+            &:active {
+              .content {
                 display: block;
               }
             }
@@ -373,7 +373,13 @@ $window2-font-size: 15px;
     height: 68vh;
     margin: 0 auto;
     margin-top: 14vh;
-    background: linear-gradient(to top, #fafdff 0%, #f0f5ff 32%, #fafdff 69%, #fafdff 99%);
+    background: linear-gradient(
+      to top,
+      #fafdff 0%,
+      #f0f5ff 32%,
+      #fafdff 69%,
+      #fafdff 99%
+    );
     border: solid 1px #d1b292;
     padding-bottom: 15px;
     border-radius: 10px;
@@ -432,7 +438,6 @@ $window2-font-size: 15px;
       padding: 0 0 3% 0;
     }
     .Windows-content {
-
       width: calc(86vw - 4vw);
       height: 56vh;
       background: url(./assets/hot-window/hot-window.png) no-repeat;
@@ -788,7 +793,15 @@ $surprise-window-title: #37465e;
   width: 100%;
   height: auto;
   margin: 0 auto;
-  background: linear-gradient(to right,#bd9872 0%,#e9ccad 18%,#d3b494 34%,#bd9872 60%,#f5e6bc 82%,#e9ccad 100%);
+  background: linear-gradient(
+    to right,
+    #bd9872 0%,
+    #e9ccad 18%,
+    #d3b494 34%,
+    #bd9872 60%,
+    #f5e6bc 82%,
+    #e9ccad 100%
+  );
   border-radius: 0 0 14px 14px;
   padding: 1.5vh 10px 1vh 10px;
   box-shadow: 0px 2px 4px 0px #cacbcb;
@@ -955,6 +968,9 @@ $surprise-window-title: #37465e;
     line-height: 3vh;
     display: flex;
     justify-content: flex-end;
+    :first-child {
+      margin-bottom: 3px;
+    }
     .hot {
       @include size(22vw, 3vh);
       border-radius: 5px;
@@ -962,10 +978,18 @@ $surprise-window-title: #37465e;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(to left,#cfb090 0%,#edd1b2 99%);
+      background: linear-gradient(to left, #cfb090 0%, #edd1b2 99%);
       line-height: 3vh;
-      .hot-icon {
-        background: url(./assets/marquee/hot-icon.png) no-repeat;
+      .event {
+        background: url(./assets/user/event.png) no-repeat;
+        background-size: contain;
+        margin-right: 4px;
+
+        @include size(3.3vw, 2vh);
+        // margin-right: 1vw;
+      }
+      .score {
+        background: url(./assets/user/score.png) no-repeat;
         background-size: contain;
         margin-right: 4px;
 
@@ -1068,6 +1092,19 @@ $surprise-window-title: #37465e;
     }
   }
 }
+.hot-right {
+  width: 22vw;
+  height: auto;
+  line-height: 3vh;
+  justify-content: flex-end;
+}
+.right-Font {
+  position: absolute;
+  font-size: 23px;
+  font-weight: bolder;
+  color: #6a7391;
+  right: 3%;
+}
 .menu {
   width: 96vw;
   height: auto;
@@ -1102,7 +1139,9 @@ $surprise-window-title: #37465e;
         .title-num {
           z-index: 2;
         }
-        &:hover, &:active, &.active {
+        &:hover,
+        &:active,
+        &.active {
           background: linear-gradient(
             to right,
             #c6a582 0%,
@@ -1125,11 +1164,7 @@ $surprise-window-title: #37465e;
             content: "";
             border-radius: 10px;
             border: solid 1px #c2a484;
-            background: linear-gradient(
-              to bottom,
-              #efd3b4 0%,
-              #ceaf8f 100%
-            );
+            background: linear-gradient(to bottom, #efd3b4 0%, #ceaf8f 100%);
             @include size(100%, 100%);
             z-index: 1;
             transition: all 0.2s ease-in-out;
@@ -1205,7 +1240,12 @@ $surprise-window-title: #37465e;
               top: 30%;
               transform: translate(-50%, -50%);
               z-index: 2;
-              background: linear-gradient(to top,#d1b292 0%,#e0c3a4 50%,#ffeedc 100%);
+              background: linear-gradient(
+                to top,
+                #d1b292 0%,
+                #e0c3a4 50%,
+                #ffeedc 100%
+              );
               border-radius: 100px;
               box-shadow: 0px 0px 4px 1px #cbd1d6;
             }
@@ -1506,29 +1546,29 @@ aside {
             background: #e9ccad;
           }
         }
-        &.btn_wrap{
+        &.btn_wrap {
           margin: 15px 0 0 0;
           padding: 15px 0 15px 0px;
           position: relative;
-          .wrap{
-            button{
+          .wrap {
+            button {
               border-radius: 30px;
               padding: 6px 14px 6px 14px;
               font-size: 16px;
               color: #fff;
               border: 1px solid #e9ccad;
-              background: linear-gradient(to right ,#a4013d 0% , #fd4546 100%);
-              &.green{
+              background: linear-gradient(to right, #a4013d 0%, #fd4546 100%);
+              &.green {
                 background: linear-gradient(to right, #0d770e 0%, #27c513 100%);
-                border:solid 1px #e9ccad;
+                border: solid 1px #e9ccad;
               }
-              &:first-child{
+              &:first-child {
                 margin: 0 6px 0 0;
               }
             }
           }
-          &:before{
-            content: '';
+          &:before {
+            content: "";
             position: absolute;
             top: 0;
             width: calc(63vw - 1px);
@@ -1536,8 +1576,8 @@ aside {
             left: -16px;
             background: #e9ccad;
           }
-          &:after{
-            content: '';
+          &:after {
+            content: "";
             position: absolute;
             bottom: 0;
             width: calc(63vw - 1px);
@@ -1553,16 +1593,15 @@ aside {
           bottom: 0;
           text-align: center;
           left: 0;
-          background: linear-gradient(to right,#5b748f 0%, #8ba1b5 100%);
-          .wrap{
+          background: linear-gradient(to right, #5b748f 0%, #8ba1b5 100%);
+          .wrap {
             display: inline-block;
             margin: 0 0 0 12px;
           }
-          p{
+          p {
             letter-spacing: 15px;
             font-size: 15px;
           }
-
         }
         p {
           display: inline-block;
@@ -1782,15 +1821,15 @@ $circle-font-size: 2.6vh;
 .display-none {
   display: none;
 }
-.iframe{
-  z-index: 1000;
+.iframe {
+  z-index: 100;
   position: fixed;
   width: 100%;
   top: -8px;
-  background: linear-gradient(#b9c9d6,#698197);
+  background: linear-gradient(#b9c9d6, #698197);
 }
 
-.iframe_b{
+.iframe_b {
   position: fixed;
   line-height: 3rem;
   width: 2rem;
@@ -1802,7 +1841,7 @@ $circle-font-size: 2.6vh;
   .back_page {
     width: 25px;
     height: 22px;
-    background: url('assets/icon/back.png') no-repeat;
+    background: url("assets/icon/back.png") no-repeat;
     background-size: contain;
     position: relative;
     right: 0px;

@@ -79,7 +79,8 @@ main {
     p {
       line-height: 21px;
       &.date-color {
-        color: #8fa8cb;
+        color: #ffefd3;
+        font-size: 16px;
       }
       &.mid,
       &.mid2 {
@@ -167,7 +168,7 @@ main {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: rgba(4, 28, 22, 0.89);
+        background-color: #fff;
         line-height: 20px;
         height: 33px;
         border-radius: 20px;
@@ -176,8 +177,9 @@ main {
             height: 20px;
             font-size: 13px;
             font-family: "微軟正黑體";
-            font-weight: lighter;
+            font-weight: bold;
             white-space:nowrap;
+            color: #966535;
         }
         span:first-child{
             div{
@@ -201,7 +203,7 @@ main {
                 width: 17px;
                 height: 14px;
                 display: inline-block;
-                margin-right: 6px;
+                margin-right: 10px;
                 top: 50%;
                 position: relative;
                 transform: translateY(-50%);

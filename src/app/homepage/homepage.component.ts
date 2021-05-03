@@ -43,7 +43,7 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
     public sanitizer: DomSanitizer
     
   ) {
-    let token_url =  sessionStorage.getItem('token');
+    let token_url =  sessionStorage.getItem('token_m');
     this.url = sanitizer.bypassSecurityTrustResourceUrl(token_url);
    }
   // Addtohome :Boolean = false;
@@ -222,7 +222,7 @@ lang_name={
   //**快速導向存款 */
   go_Stored_value() {
     /**如果有token 則引導至BD系統會員中心 */
-    if(sessionStorage.getItem('token')!='notoken'){
+    if(sessionStorage.getItem('token_m')!='notoken'){
       this.GOtoken();
        return;
     }
@@ -233,7 +233,7 @@ lang_name={
   //**快速導向取款 */
   go_Withdraw() {
     /**如果有token 則引導至BD系統會員中心 */
-    if(sessionStorage.getItem('token')!='notoken'){
+    if(sessionStorage.getItem('token_m')!='notoken'){
       this.GOtoken();
       return;
     }
@@ -459,7 +459,8 @@ lang_name={
    */
   changePage(pageName: string[]) {
     /**如果有token 則引導至BD系統會員中心 */
-    if(sessionStorage.getItem('token')!='notoken' && pageName[0]=="cash"){
+    if(sessionStorage.getItem('token_m')!='notoken' && pageName[0]=="cash"){
+      this.state =false;
       this.GOtoken();
       return;
     }

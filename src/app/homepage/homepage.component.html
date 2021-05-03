@@ -1,4 +1,4 @@
-<header  *ngIf="!token" >
+<header *ngIf="!token">
     <div class="header_box">
         <section class="flex-row space-between">
             <div class="hamburger" (click)="state = !state">
@@ -7,19 +7,22 @@
                 <span></span>
             </div>
             <div class="logo "></div>
-            <div class="chat-img"  (click)="changePage(['billboard'])"></div>
+            <div class="chat-img" (click)="changePage(['billboard'])"></div>
         </section>
     </div>
     <div class="online">
         <div class="wrap">
-            <span class="icon_user" ></span><p>{{ "在線人數" | langChart : lang.languageChart }}</p><div class="green">{{ profile.onlinepeople }}</div><p>人</p>
+            <span class="icon_user"></span>
+            <p>{{ "在線人數" | langChart : lang.languageChart }}</p>
+            <div class="green">{{ profile.onlinepeople }}</div>
+            <p>人</p>
         </div>
     </div>
 </header>
 
-<div class="iframe_b" *ngIf="token" >
-    <div  class="back_page"(click)="GOtoken()" ></div>
-  </div>
+<div class="iframe_b" *ngIf="token">
+    <div class="back_page" (click)="GOtoken()"></div>
+</div>
 
 <main>
     <div class="swiper-container">
@@ -36,178 +39,196 @@
         <div class="swiper-pagination"></div>
         <!-- Add Arrows -->
         <div class="swiper-button-next arrow">></div>
-        <div class="swiper-button-prev arrow">
-            <</div> </div> <!--2020-0218-->
-                <div class="marquee-area">
-                    <div class="horn-area">
-                        <div class="horn-icon"></div>
-                        <div class="marquee-box">
-                            <div class="marquee font-family-w" (click)="router.navigate(['billboard'])"
-                                [style.-webkit-animation]="marqueeStyle" [innerHTML]="billboard"></div>
-                        </div>
-                    </div>
-                    <div class="hot-area" (click)="SwitchHot('open')">
-                        <div class="hot">
-                            <div class="hot-icon"> </div>
-                            <p class="font-family-w">{{ "熱門賽事" | langChart : lang.languageChart }}</p>
-                        </div>
-                    </div>
+        <div class="swiper-button-prev arrow"></div>
+    </div>
+    <!--2020-0218-->
+    <div class="marquee-area">
+        <div class="horn-area">
+            <div class="horn-icon"></div>
+            <div class="marquee-box">
+                <div class="marquee font-family-w" (click)="router.navigate(['billboard'])"
+                    [style.-webkit-animation]="marqueeStyle" [innerHTML]="billboard"></div>
+            </div>
+        </div>
+        <div class="hot-right">
+            <div class="hot-area" (click)="Promotions()">
+                <div class="hot">
+                    <div class="event"> </div>
+                    <p class="font-family-w">{{ "優惠" | langChart : lang.languageChart }}</p>
                 </div>
-
-                <div class="user-area flex-row space-between">
-                    <div class="user flex-column">
-                        <div class="flex-row start a-center">
-                            <div class="user-name font-family-C">{{ profile.username || '- -' }}</div>
-                            <!-- <div class="user-vip"></div> -->
-                        </div>
-                        <div class="flex-row start a-center">
-                            <div class="user-money font-family-C">${{ profile.surplus | formatNumber  }}</div>
-                            <!-- <div class="user-question"></div> -->
-                        </div>
-                    </div>
-
-                    <div class="nav flex-row space-between">
-                        <div class="box active flex-column space-between a-center" (click)="go_Stored_value()">
-                            <button class="save-money active"></button>
-                            <p class="font-family-w">{{ "充值" | langChart : lang.languageChart }}</p>
-                        </div>
-                        <div class="box flex-column space-between a-center" (click)="go_Withdraw()">
-                            <button class="catch-money"></button>
-                            <p class="font-family-w"> {{ "提領" | langChart : lang.languageChart }}</p>
-                        </div>
-                        <div class="box flex-column space-between a-center" (click)="Promotions()">
-                            <button class="event"></button>
-                            <p class="font-family-w"  >{{ "優惠" | langChart : lang.languageChart }}</p>
-                        </div>
-
-                        <div class="box flex-column space-between a-center" (click)="openWebPage()">
-                            <button class="score"></button>
-                            <p class="font-family-w"  >{{ "及時比分" | langChart : lang.languageChart }}</p>
-                        </div>
-
-                    </div>
+            </div>
+            <div class="hot-area" (click)="openWebPage()">
+                <div class="hot">
+                    <div class="score"> </div>
+                    <p class="font-family-w">{{ "及時比分" | langChart : lang.languageChart }}</p>
                 </div>
-                <!-- <button class="add-button" *ngIf="Addtohome" (click)="AddToHome()">Add to home screen</button> -->
-                <div class="menu flex-row space-between">
-                    <ul class="left-area flex-column ">
-                        <li (click)="changePage(['market'])"><button
-                                class="active font-family-w item-market flex-column center a-center">
-                                <p class="title-text">{{ "市場" | langChart : lang.languageChart }}<br />{{ "列表" | langChart : lang.languageChart }}</p>
-                                <!-- <p class="title-num">233</p> -->
-                            </button></li>
-                        <li><button class="font-family-w item-hot flex-column center a-center" [class.button-css]="Popular_events" (click)="ListStatus(true,-1)">
-                                <p class="title-text">{{ "熱門" | langChart : lang.languageChart }}</p>
-                                <p class="title-num">{{marketListHoT?.length }}</p>
-                            </button></li>
-                        <li><button class="font-family-w item-today flex-column center a-center" [class.button-css]="!Popular_events && ListDate == 0" (click)="ListStatus(false,0)">
-                                <p class="title-text">{{ "今日" | langChart : lang.languageChart }}</p>
-                                <p class="title-num">{{Today}}</p>
-                            </button></li>
-                        <li><button class="font-family-w item-tomorrow flex-column center a-center " [class.button-css]="!Popular_events  && ListDate == 1" (click)="ListStatus(false,1)">
-                                <p class="title-text">{{ "明日" | langChart : lang.languageChart }}</p>
-                                <p class="title-num">{{Tomorrow}}</p>
-                            </button></li>
-                    </ul>
+            </div>
+        </div>
+    </div>
 
-                    <div class="right-area ">
-                        <ul class="flex-column  end" *ngIf="Popular_events == true">
-                            <li *ngFor="let item of marketListHoT "
-                                (click)="tocheckHandicap(item, gtype)">
-                                
-                                <p class="List-num font-family-C">No.{{ item.gid | last4}}</p>
-                                <div class="time-label">{{ item.date }}&nbsp;{{ item.mtime }}</div>
-                                <div class="vs">vs</div>
-                                <div class="game-name">{{ item.lid }}</div>
-                                <div class="percent-wrapper progress-{{ item.totalgold | Donut:'css'}}">
-                                    <div class="label flex-row center a-center">
-                                        <p class="top">{{ "成交量" | langChart : lang.languageChart }}</p>
-                                        <p class="font-family-C">{{ item.totalgold | Donut:'k'}}
-                                            <span class="smaller">K</span>
-                                        </p>
-                                    </div>
-                                    <div class="pie">
-                                        <div class="left-side half-circle"></div>
-                                        <div class="right-side half-circle"></div>
-                                    </div>
-                                    <div class="shadow"></div>
-                                </div>
-                                <div class="country1 flex-column a-center end">
-                                    <div class="country-icon"></div>
-                                    <div class="name-box flex-row ">
-                                        <p class="country-name lname">{{ item.ht }}</p>
-                                        <p class="main-country">[{{ "主" | langChart : lang.languageChart }}]</p>
-                                    </div>
-                                </div>
+    <div class="user-area flex-row space-between">
+        <div class="user flex-column">
+            <div class="flex-row start a-center">
+                <div class="user-name font-family-C">{{ profile.username || '- -' }}</div>
+                <!-- <div class="user-vip"></div> -->
+            </div>
+            <!-- <div class="flex-row start a-center">
+                <div class="user-money font-family-C">${{ profile.surplus | formatNumber }}</div>
+                <div class="user-question"></div>
+            </div> -->
+        </div>
 
-                                <div class="country2 flex-column a-center end">
-                                    <div class="country-icon"></div>
-                                    <p class="country-name">{{ item.ct }}</p>
-                                    
-                                </div>
-                                <span class="triangle_left">
-                                    <p class="point"></p>
-                                </span>
-                                <span class="triangle_right"></span>
-                            </li>
+        <div class="nav flex-row space-between">
+            <div class="flex-row start a-center">
+                <div class="user-money font-family-C right-Font">${{ profile.surplus | formatNumber }}</div>
+                <!-- <div class="user-question"></div> -->
+            </div>
+            <!-- <div class="box active flex-column space-between a-center" (click)="go_Stored_value()">
+                <button class="save-money active"></button>
+                <p class="font-family-w">{{ "充值" | langChart : lang.languageChart }}</p>
+            </div>
+            <div class="box flex-column space-between a-center" (click)="go_Withdraw()">
+                <button class="catch-money"></button>
+                <p class="font-family-w"> {{ "提領" | langChart : lang.languageChart }}</p>
+            </div>
+            <div class="box flex-column space-between a-center" (click)="Promotions()">
+                <button class="event"></button>
+                <p class="font-family-w">{{ "優惠" | langChart : lang.languageChart }}</p>
+            </div>
 
-                        </ul>
-                        <ul class="flex-column  end" *ngIf="Popular_events == false">
-                            <li class="flex-row start a-center" *ngFor="let item of marketList |DateFilter:ListDate"
-                                (click)="tocheckHandicap(item, gtype)">
-                                <p class="List-num font-family-C">No.{{ item.gid | last4}}</p>
-                                <div class="time-label">{{ item.date }}&nbsp;{{ item.mtime }}</div>
-                                <div class="vs">vs</div>
-                                <div class="game-name">{{ item.lid }}</div>
-                                <div class="percent-wrapper progress-{{ item.totalgold | Donut:'css'}}">
-                                    <div class="label flex-row center a-center">
-                                        <p class="top">{{ "成交量" | langChart : lang.languageChart }}</p>
-                                        <p class="font-family-C">{{ item.totalgold | Donut:'k'}}
-                                            <span class="smaller">K</span>
-                                        </p>
-                                    </div>
-                                    <div class="pie">
-                                        <div class="left-side half-circle"></div>
-                                        <div class="right-side half-circle"></div>
-                                    </div>
-                                    <div class="shadow"></div>
-                                </div>
-                                <div class="country1 flex-column a-center end">
-                                    <div class="country-icon"></div>
-                                    <div class="name-box flex-row ">
-                                        <p class="country-name">{{ item.ht }}</p>
-                                        <p class="main-country">[{{ "主" | langChart : lang.languageChart }}]</p>
-                                    </div>
-                                </div>
+            <div class="box flex-column space-between a-center" (click)="openWebPage()">
+                <button class="score"></button>
+                <p class="font-family-w">{{ "及時比分" | langChart : lang.languageChart }}</p>
+            </div> -->
 
-                                <div class="country2 flex-column a-center end">
-                                    <div class="country-icon"></div>
-                                    <p class="country-name">{{ item.ct }}</p>
-                                </div>
-                                <span class="tirangle_left"></span>
-                           
-                               
-                            </li>
+        </div>
+    </div>
+    <!-- <button class="add-button" *ngIf="Addtohome" (click)="AddToHome()">Add to home screen</button> -->
+    <div class="menu flex-row space-between">
+        <ul class="left-area flex-column ">
+            <li (click)="changePage(['market'])"><button
+                    class="active font-family-w item-market flex-column center a-center">
+                    <p class="title-text">{{ "市場" | langChart : lang.languageChart }}<br />{{ "列表" | langChart :
+                        lang.languageChart }}</p>
+                    <!-- <p class="title-num">233</p> -->
+                </button></li>
+            <li><button class="font-family-w item-hot flex-column center a-center" [class.button-css]="Popular_events"
+                    (click)="ListStatus(true,-1)">
+                    <p class="title-text">{{ "熱門" | langChart : lang.languageChart }}</p>
+                    <p class="title-num">{{marketListHoT?.length }}</p>
+                </button></li>
+            <li><button class="font-family-w item-today flex-column center a-center"
+                    [class.button-css]="!Popular_events && ListDate == 0" (click)="ListStatus(false,0)">
+                    <p class="title-text">{{ "今日" | langChart : lang.languageChart }}</p>
+                    <p class="title-num">{{Today}}</p>
+                </button></li>
+            <li><button class="font-family-w item-tomorrow flex-column center a-center "
+                    [class.button-css]="!Popular_events  && ListDate == 1" (click)="ListStatus(false,1)">
+                    <p class="title-text">{{ "明日" | langChart : lang.languageChart }}</p>
+                    <p class="title-num">{{Tomorrow}}</p>
+                </button></li>
+        </ul>
 
-                        </ul>
-                       <div class="empty_box" *ngIf="!marketListHoT || marketListHoT?.length == 0">
-                        <div class="empty">
-                            <div class="em_img"></div>
-                            <p>{{ "賽事準備中..." | langChart : lang.languageChart }}</p>
-                          </div>
-                       </div>
+        <div class="right-area ">
+            <ul class="flex-column  end" *ngIf="Popular_events == true">
+                <li *ngFor="let item of marketListHoT " (click)="tocheckHandicap(item, gtype)">
+
+                    <p class="List-num font-family-C">No.{{ item.gid | last4}}</p>
+                    <div class="time-label">{{ item.date }}&nbsp;{{ item.mtime }}</div>
+                    <div class="vs">vs</div>
+                    <div class="game-name">{{ item.lid }}</div>
+                    <div class="percent-wrapper progress-{{ item.totalgold | Donut:'css'}}">
+                        <div class="label flex-row center a-center">
+                            <p class="top">{{ "成交量" | langChart : lang.languageChart }}</p>
+                            <p class="font-family-C">{{ item.totalgold | Donut:'k'}}
+                                <span class="smaller">K</span>
+                            </p>
+                        </div>
+                        <div class="pie">
+                            <div class="left-side half-circle"></div>
+                            <div class="right-side half-circle"></div>
+                        </div>
+                        <div class="shadow"></div>
                     </div>
-                    <!-- *ngIf="!marketListHoT && Popular_events == true" -->
-                    <!-- <div class="right-area ">
+                    <div class="country1 flex-column a-center end">
+                        <div class="country-icon"></div>
+                        <div class="name-box flex-row ">
+                            <p class="country-name lname">{{ item.ht }}</p>
+                            <p class="main-country">[{{ "主" | langChart : lang.languageChart }}]</p>
+                        </div>
+                    </div>
+
+                    <div class="country2 flex-column a-center end">
+                        <div class="country-icon"></div>
+                        <p class="country-name">{{ item.ct }}</p>
+
+                    </div>
+                    <span class="triangle_left">
+                        <p class="point"></p>
+                    </span>
+                    <span class="triangle_right"></span>
+                </li>
+
+            </ul>
+            <ul class="flex-column  end" *ngIf="Popular_events == false">
+                <li class="flex-row start a-center" *ngFor="let item of marketList |DateFilter:ListDate"
+                    (click)="tocheckHandicap(item, gtype)">
+                    <p class="List-num font-family-C">No.{{ item.gid | last4}}</p>
+                    <div class="time-label">{{ item.date }}&nbsp;{{ item.mtime }}</div>
+                    <div class="vs">vs</div>
+                    <div class="game-name">{{ item.lid }}</div>
+                    <div class="percent-wrapper progress-{{ item.totalgold | Donut:'css'}}">
+                        <div class="label flex-row center a-center">
+                            <p class="top">{{ "成交量" | langChart : lang.languageChart }}</p>
+                            <p class="font-family-C">{{ item.totalgold | Donut:'k'}}
+                                <span class="smaller">K</span>
+                            </p>
+                        </div>
+                        <div class="pie">
+                            <div class="left-side half-circle"></div>
+                            <div class="right-side half-circle"></div>
+                        </div>
+                        <div class="shadow"></div>
+                    </div>
+                    <div class="country1 flex-column a-center end">
+                        <div class="country-icon"></div>
+                        <div class="name-box flex-row ">
+                            <p class="country-name">{{ item.ht }}</p>
+                            <p class="main-country">[{{ "主" | langChart : lang.languageChart }}]</p>
+                        </div>
+                    </div>
+
+                    <div class="country2 flex-column a-center end">
+                        <div class="country-icon"></div>
+                        <p class="country-name">{{ item.ct }}</p>
+                    </div>
+                    <span class="tirangle_left"></span>
+
+
+                </li>
+
+            </ul>
+            <div class="empty_box" *ngIf="!marketListHoT || marketListHoT?.length == 0">
+                <div class="empty">
+                    <div class="em_img"></div>
+                    <p>{{ "賽事準備中..." | langChart : lang.languageChart }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- *ngIf="!marketListHoT && Popular_events == true" -->
+        <!-- <div class="right-area ">
                       <div>
                         <span></span>
                         <p>{{ "空空如也" | langChart : lang.languageChart }}~</p>
                       </div>
                     </div> -->
-                </div>
+    </div>
 
 
-                <!--2020-0218-->
- <iframe class="iframe" *ngIf="token" width="100%" height="100%" frameborder="0" align="center" scrolling="no" [src]="url"></iframe>
+    <!--2020-0218-->
+    <iframe class="iframe" *ngIf="token" width="100%" height="100%" frameborder="0" align="center" scrolling="no"
+        [src]="url">
+    </iframe>
 </main>
 
 
@@ -215,43 +236,72 @@
 <aside class="left_nav" [class.active]="state">
     <ul>
         <li class="title"></li>
-        <li class="close"  (click)="state = !state"></li>
-        <li (click)="changePage(['market'])"><span class="icon1"></span><p>{{ "市場列表" | langChart : lang.languageChart }}</p></li>
-        <li (click)="changePage(['detail'])"><span class="icon2"></span><p>{{ "交易明細" | langChart : lang.languageChart }}</p></li>
-        <li (click)="changePage(['history'])"><span class="icon3"></span><p>{{ "歷史帳務" | langChart : lang.languageChart }}</p></li>
-        <li (click)="changePage(['boxsource'])"> <span class="icon4"></span><p>{{ "賽事結果" | langChart : lang.languageChart }}</p></li>
-        <li (click)="openWebPage()"> <span class="icon5"></span><p>{{ "及時比分" | langChart : lang.languageChart }}</p></li>
-        <li class="btn_wrap"><div class="wrap"><button class="green"  (click)="changePage(['cash'])">{{ "充值提領" | langChart : lang.languageChart }}</button> <button (click)="changePage(['feedback'])">{{ "聯絡客服" | langChart : lang.languageChart }}</button></div></li>
-        <li (click)="Promotions()"><span class="icon6"></span><p>{{ "活動大廳" | langChart : lang.languageChart }}</p></li>
-        <li (click)="changePage(['billboard'])"> <span class="icon7"></span><p>{{ "公告" | langChart : lang.languageChart }}</p></li>
-        <li (click)="changePage(['manual'])"> <span class="icon8"></span><p>{{ "規則說明" | langChart : lang.languageChart }}</p></li>
+        <li class="close" (click)="state = !state"></li>
+        <li (click)="changePage(['market'])"><span class="icon1"></span>
+            <p>{{ "市場列表" | langChart : lang.languageChart }}</p>
+        </li>
+        <li (click)="changePage(['detail'])"><span class="icon2"></span>
+            <p>{{ "交易明細" | langChart : lang.languageChart }}</p>
+        </li>
+        <li (click)="changePage(['history'])"><span class="icon3"></span>
+            <p>{{ "歷史帳務" | langChart : lang.languageChart }}</p>
+        </li>
+        <li (click)="changePage(['boxsource'])"> <span class="icon4"></span>
+            <p>{{ "賽事結果" | langChart : lang.languageChart }}</p>
+        </li>
+        <li (click)="openWebPage()"> <span class="icon5"></span>
+            <p>{{ "及時比分" | langChart : lang.languageChart }}</p>
+        </li>
+        <li class="btn_wrap">
+            <div class="wrap"><button class="green" (click)="changePage(['cash'])">{{ "充值提領" | langChart :
+                    lang.languageChart }}</button>
+                <button (click)="changePage(['feedback'])">{{ "聯絡客服" | langChart : lang.languageChart }}</button>
+            </div>
+        </li>
+        <li (click)="Promotions()"><span class="icon6"></span>
+            <p>{{ "活動大廳" | langChart : lang.languageChart }}</p>
+        </li>
+        <li (click)="changePage(['billboard'])"> <span class="icon7"></span>
+            <p>{{ "公告" | langChart : lang.languageChart }}</p>
+        </li>
+        <li (click)="changePage(['manual'])"> <span class="icon8"></span>
+            <p>{{ "規則說明" | langChart : lang.languageChart }}</p>
+        </li>
         <!-- <li><span class="icon9"></span><p>討論區</p></li> -->
-        <li  (click)="changePage(['Help'])"><span class="icon10"></span><p>{{ "幫助中心" | langChart : lang.languageChart }}</p></li>
+        <li (click)="changePage(['Help'])"><span class="icon10"></span>
+            <p>{{ "幫助中心" | langChart : lang.languageChart }}</p>
+        </li>
 
-        
-       
-        
+
+
+
         <!-- <li (click)="changePage(['cash'])"> <span class="icon5"></span><p>{{ "充值提領" | langChart : lang.languageChart }}</p> </li>
         <li (click)="changePage(['feedback'])"> <span class="icon6"></span><p>{{ "客服" | langChart : lang.languageChart }}</p></li> -->
         <!-- <li > <span class="icon2"></span><p>{{ "語言" | langChart : lang.languageChart }}</p></li> -->
         <!-- <li (click)="changePage(['modify'])"> <span class="icon7"></span><p>{{ "修改個資" | langChart : lang.languageChart }}</p></li> -->
-        
+
         <!-- <li> <span class="icon9"></span><p>設定</p></li> -->
-        <li class="footer" (click)="logout()"><div class="wrap"><span class="icon11"></span><p>{{ "登出" | langChart : lang.languageChart }}</p></div></li>
+        <li class="footer" (click)="logout()">
+            <div class="wrap"><span class="icon11"></span>
+                <p>{{ "登出" | langChart : lang.languageChart }}</p>
+            </div>
+        </li>
     </ul>
 </aside>
 
 <!--2020-0219-->
 <!-- 彈跳框 -->
-<article class="Windows-2 flex-row  center" [class.display-none]="openHot == false" >
+<article class="Windows-2 flex-row  center" [class.display-none]="openHot == false">
     <div class="all-box flex-column space-between">
         <div class="top-btns flex-row space-between">
-            <div class="change font-family-w flex-row space-between a-center" (click)="hotCumulative = hotCumulative+1">{{ "換一批" | langChart : lang.languageChart }}<div class="icon"></div>
+            <div class="change font-family-w flex-row space-between a-center" (click)="hotCumulative = hotCumulative+1">
+                {{ "換一批" | langChart : lang.languageChart }}<div class="icon"></div>
             </div>
             <div class="close" (click)="SwitchHot('close')"></div>
         </div>
         <div class="Windows-content flex-column end a-center" *ngIf="marketListHoT?.length>0">
-            <div class="box1"*ngFor="let item of marketListHoT |RandomTeam:hotCumulative" (click)="tocheckHandicap(item, gtype)">
+            <div class="box1" *ngFor="let item of marketListHoT |RandomTeam:hotCumulative"
+                (click)="tocheckHandicap(item, gtype)">
                 <div class="gaming-data flex-column space-between">
                     <p class="name font-family-w">{{item.lid}}</p>
                     <p class="time">{{ item.date }}&nbsp;{{ item.mtime }}</p>
@@ -260,8 +310,9 @@
                 <div class="country1 flex-column end a-center">
                     <div class="country-icon"></div>
                     <div class="mt">
-                        <p class=" font-family-w">{{ item.ht }} </p><span>[{{ "主" | langChart : lang.languageChart }}]</span>
-                      </div>
+                        <p class=" font-family-w">{{ item.ht }} </p><span>[{{ "主" | langChart : lang.languageChart
+                            }}]</span>
+                    </div>
                 </div>
                 <div class="country2 flex-column end a-center">
                     <div class="country-icon"></div>
@@ -276,9 +327,11 @@
                 </div>
 
             </div>
-           
+
         </div>
-        <div class="bottom-btn font-family-w" (click)="changePage(['market'])">{{ "來一注" | langChart : lang.languageChart }}&gt;&gt;</div>
+        <div class="bottom-btn font-family-w" (click)="changePage(['market'])">{{ "來一注" | langChart :
+            lang.languageChart
+            }}&gt;&gt;</div>
     </div>
 
 </article>
@@ -286,17 +339,19 @@
 <!--2020_0420add-->
 <!--公告彈窗-->
 <div [class.display-none]="openWindows == false">
-    <article class="billboard_window Windows" >
+    <article class="billboard_window Windows">
         <div class="wrap">
             <h1>
-                <p>{{ "平台公告" | langChart : lang.languageChart }}</p><div class="close" (click)="SwitchMsg();"></div>
+                <p>{{ "平台公告" | langChart : lang.languageChart }}</p>
+                <div class="close" (click)="SwitchMsg();"></div>
             </h1>
-           
+
             <ul class="content">
-               
+
                 <!--"1個li = 1個公告標題+點擊打開的內容"-->
-                 <!--.active狀態 開啟_".content"-->
-                <li *ngFor="let item of billboardSection |title" [ngClass]="{'active': item.key == billboardKey}" (click)="billboardKey = item.key">
+                <!--.active狀態 開啟_".content"-->
+                <li *ngFor="let item of billboardSection |title" [ngClass]="{'active': item.key == billboardKey}"
+                    (click)="billboardKey = item.key">
                     <div class="title_wrap">
                         <p>{{item.content}}</p><span class="time"> {{item.dtime}}</span>
                     </div>
@@ -304,12 +359,12 @@
                     <div class="content">
                         {{item.content}}
                     </div>
-        
+
                 </li>
 
             </ul>
         </div>
-        
+
     </article>
 </div>
 
@@ -320,12 +375,12 @@
 
 
 
-<article class="Windows-2 flex-row  center" [class.display-none]="Discount == false" >
+<article class="Windows-2 flex-row  center" [class.display-none]="Discount == false">
     <div class="all-box flex-column space-between">
         <div class="top-btns flex-row space-between">
             <div class="close" (click)="Promotions()"></div>
         </div>
-        <div class="Windows-content-Discount flex-column end a-center" >
+        <div class="Windows-content-Discount flex-column end a-center">
 
         </div>
     </div>

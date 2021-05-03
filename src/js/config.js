@@ -22,7 +22,7 @@ var slides = [
     './assets/homepage/nac2.jpg',
     './assets/homepage/nac3.jpg',
     './assets/homepage/nac4.jpg',
-    // './assets/homepage/nac5.jpg',
+    './assets/homepage/nac5.jpg',
     './assets/homepage/nac6.jpg',
   ];
 //讀不到外層資料 預設測試

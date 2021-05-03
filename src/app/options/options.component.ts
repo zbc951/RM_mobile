@@ -28,10 +28,10 @@ export class OptionsComponent implements OnInit, OnDestroy {
         public cashPage: CashPageService,
         public sanitizer: DomSanitizer
     ) {
-        let token_url =  sessionStorage.getItem('token');
+        let token_url = sessionStorage.getItem('token_m');
         this.url = sanitizer.bypassSecurityTrustResourceUrl(token_url);
-     }
-   
+    }
+
     //-----------------------------------------------//
     /**使用者憑證 uid ts*/
     private uid: string = this.member.uid;
@@ -51,11 +51,11 @@ export class OptionsComponent implements OnInit, OnDestroy {
     /**交易紀錄 for RecordComponent 預先抓，使畫面流暢*/
     //-----------------------------------------------//
     /**判斷單一錢包token是否存在 來決定要顯示什麼選項*/
-    chkSwToken:boolean = (sessionStorage.getItem('token')!='notoken') ?  true  : false;
-   
+    chkSwToken: boolean = (sessionStorage.getItem('token_m') != 'notoken') ? true : false;
+
     record: any = { 'list': [] };
     detail = 0;
-     /** token 切換 */
+    /** token 切換 */
     token = false;
     ngOnInit() {
         this.member.getProfile();
@@ -63,7 +63,7 @@ export class OptionsComponent implements OnInit, OnDestroy {
         this.profileSubs = this.member.profile$.subscribe((res) => { this.profile = res; });
         this.DialogDOM();
         this.getDetail();
-        console.log( sessionStorage.getItem('token'));
+        console.log(sessionStorage.getItem('token_m'));
         console.log(this.chkSwToken);
     }
     ngOnDestroy() {
@@ -121,53 +121,68 @@ export class OptionsComponent implements OnInit, OnDestroy {
     go_Stored_value(_value) {
         let req = { 'uid': this.uid, 'page': 1 };
         this.api.postServer(780, req).subscribe(apiRes => {
-          if (!apiRes.err) { return; }
-          this.record = apiRes.ret;
-          this.cashPage.getRecord780(this.record );
-          this.cashPage.go(_value);
-          this.router.navigate(['cash']);
+            if (!apiRes.err) { return; }
+            this.record = apiRes.ret;
+            this.cashPage.getRecord780(this.record);
+            this.cashPage.go(_value);
+            this.router.navigate(['cash']);
 
         })
-
-
-
     }
-            /**
-     * 開啟及時比分網
-     */
+    //**快速導向存提款 */
+    go_Bank(_Position: string) {
+        /**如果有token 則引導至BD系統會員中心 */
+        if (sessionStorage.getItem('token_m') != 'notoken') {
+            this.GOtoken();
+            return;
+        }
+        switch (_Position) {
+            case 'Stored':
+                this.cashPage.go('deposit')
+                this.router.navigate(['cash']);
+                break;
+            case 'Withdraw':
+                this.cashPage.go(this.profile.info.membanklist.length == 0 ? 'card' : 'withdraw');
+                this.router.navigate(['cash']);
+                break;
+        }
+    }
+    /**
+* 開啟及時比分網
+*/
     openWebPage() {
         let select = confirm(this.lang.languageChart['瀏覽器將從新頁面開啟即時比分網']);
-        if(select) {
+        if (select) {
             window.open(
                 'http://m.7m.com.cn/live/',
                 '_blank', 'location = yes, fullscreen = yes, status = yes'
             );
         }
     }
-                /**
-     * 開啟代理
-     */
+    /**
+* 開啟代理
+*/
     openagPage() {
-        let select = confirm(this.lang.languageChart['開啟網頁,疑問請洽客服']);
-        if(select) {
-            window.open(
-                'https://ag.168801.net/'
-            );
-        }
+        // let select = confirm(this.lang.languageChart['開啟網頁,疑問請洽客服']);
+        // if (select) {
+        //     window.open(
+        //         'https://ag.168801.net/'
+        //     );
+        // }
     }
-   /**
-    * 開啟iframe
-    */
-    GOtoken(){
+    /**
+     * 開啟iframe
+     */
+    GOtoken() {
         this.token = !this.token
     }
-   /**取得下注明細 */
-   private getDetail() {
-    let req = { 'uid': this.uid, 'lang': this.nowLang };
-    this.api.postServer(650, req).subscribe(apiRes => {
-        if (!apiRes.err) { return; }
+    /**取得下注明細 */
+    private getDetail() {
+        let req = { 'uid': this.uid, 'lang': this.nowLang };
+        this.api.postServer(650, req).subscribe(apiRes => {
+            if (!apiRes.err) { return; }
             apiRes.ret.forEach(element => {
-                this.detail = this.detail+element.gold;
+                this.detail = this.detail + element.gold;
             });
         });
     }
